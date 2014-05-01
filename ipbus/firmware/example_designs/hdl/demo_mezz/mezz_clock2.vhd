@@ -55,9 +55,9 @@
 -- "Output    Output      Phase     Duty      Pk-to-Pk        Phase"
 -- "Clock    Freq (MHz) (degrees) Cycle (%) Jitter (ps)  Error (ps)"
 ------------------------------------------------------------------------------
--- CLK_OUT1___200.000______0.000______50.0_______98.146_____89.971
--- CLK_OUT2___200.000____180.000______50.0_______98.146_____89.971
--- CLK_OUT3___200.000____270.000______50.0_______98.146_____89.971
+-- CLK_OUT1____20.000______0.000______50.0______155.330_____89.971
+-- CLK_OUT2____20.000____180.000______50.0______155.330_____89.971
+-- CLK_OUT3____20.000____270.000______50.0______155.330_____89.971
 -- CLK_OUT4____10.000______0.000______50.0______178.053_____89.971
 --
 ------------------------------------------------------------------------------
@@ -150,15 +150,15 @@ begin
     CLKFBOUT_MULT_F      => 5.000,
     CLKFBOUT_PHASE       => 0.000,
     CLKFBOUT_USE_FINE_PS => FALSE,
-    CLKOUT0_DIVIDE_F     => 5.000,
+    CLKOUT0_DIVIDE_F     => 50.000,
     CLKOUT0_PHASE        => 0.000,
     CLKOUT0_DUTY_CYCLE   => 0.500,
     CLKOUT0_USE_FINE_PS  => FALSE,
-    CLKOUT1_DIVIDE       => 5,
+    CLKOUT1_DIVIDE       => 50,
     CLKOUT1_PHASE        => 180.000,
     CLKOUT1_DUTY_CYCLE   => 0.500,
     CLKOUT1_USE_FINE_PS  => FALSE,
-    CLKOUT2_DIVIDE       => 5,
+    CLKOUT2_DIVIDE       => 50,
     CLKOUT2_PHASE        => 270.000,
     CLKOUT2_DUTY_CYCLE   => 0.500,
     CLKOUT2_USE_FINE_PS  => FALSE,

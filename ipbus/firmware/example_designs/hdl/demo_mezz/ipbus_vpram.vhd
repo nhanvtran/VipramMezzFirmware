@@ -1,7 +1,7 @@
 -- ipbus_vpram.vhd
 -- VIPRAM Test Mezzanine TOP LEVEL
 -- Jamieson Olsen <jamieson@fnal.gov>
--- 24 April 2014
+-- 30 April 2014
 --
 -- there are a large number of registers and blockram ports to read
 -- therefore the read/mux logic is pipelined over several stages
@@ -14,6 +14,8 @@
 -- calibrating the output delay taps.
 --
 -- Read and Write latency is TWO cycles
+--
+-- added chipscope 30 April 2014
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -106,6 +108,21 @@ architecture rtl of ipbus_vpram is
         sda     : inout std_logic_vector(2 downto 0));
     end component;
 
+    component chipscope_icon
+    port (
+      CONTROL0	: inout std_logic_vector(35 downto 0)
+      );
+    end component;
+    
+    component chipscope_ila
+    port (
+      CONTROL : inout std_logic_vector(35 downto 0);
+      CLK	  : in    std_logic;
+      TRIG0	  : in    std_logic_vector(118 downto 0)
+      );
+    end component;
+
+
     signal ovec_dout: array84x32;
     signal ivec_dout: array32x32;
     signal addr_reg, addr2_reg : std_logic_vector(19 downto 0);
@@ -119,6 +136,15 @@ architecture rtl of ipbus_vpram is
     signal clk, clk_a, clk_b, slow_clk: std_logic;
     signal mmcm_den, mmcm_dwe, mmcm_locked, mmcm_drdy : std_logic;
     signal mmcm_dout : std_logic_vector(15 downto 0);
+
+    -- chipscope stuff
+
+    signal VIPQ_temp: std_logic_vector(83 downto 0);
+    constant C_NUM_OF_TRIGPORTS : integer   := 1;
+    constant C_TRIG0_SIZE       : integer	:= 116;
+    signal control_0 : std_logic_vector(35 downto 0);
+    signal trig_0	 : std_logic_vector(118 downto 0);
+
 
 begin
 
@@ -204,26 +230,33 @@ begin
                 go_reg(0) <= '0';
             end if;
 
-            go_reg(1) <= go_reg(0);  -- stretch 2 clks wide
+            if (go_reg(0)='1') then
+                go_reg(1) <= '1';
+            elsif (go200_reg='1') then  -- cleared by go200_reg clock domain
+                go_reg(1) <= '0';
+            end if;
 
         end if;
     end if;
 end process reg_proc;
 
--- cross the clock domain on the go signal
+-- cross the clock domain on the go signal.  clock freq is 125M, 
+-- clk freq is variable, may be as low as 10MHz and will not sample it properly.
 
 go_proc: process(clock)
 begin
     if rising_edge(clock) then
         if (reset='1') then
             go200_reg <= '0';
-        elsif (go_reg(0)='1' or go_reg(1)='1') then
+        elsif (go_reg(1)='1') then
             go200_reg <= '1';
         else
             go200_reg <= '0';
         end if;
     end if;
 end process go_proc;
+
+
 
 -- write enables
 
@@ -245,8 +278,10 @@ sendgen: for i in 83 downto 0 generate
         clk    => clk,
         reset  => reset,
         go     => go200_reg,
-        q      => VIPQ(i));
+        q      => VIPQ_temp(i));
 end generate;
+
+VIPQ <= VIPQ_temp;
 
 -- 32 input vector modules, ram interface is RO
 
@@ -454,6 +489,23 @@ port map(
 	D2 => '0',
     R  => '0',
     S  => '0');
+
+-- instantiate chipscope.
+
+ICON_inst : chipscope_icon  
+port map(CONTROL0 => control_0);
+
+trig_0(118) <= go200_reg;
+trig_0(117) <= clk_a;
+trig_0(116) <= clk_b;
+trig_0(115 downto 32) <= VIPQ_temp(83 downto 0);
+trig_0(31 downto 0) <= VIPD(31 downto 0);
+
+ILA_inst : chipscope_ila
+port map(
+  CONTROL => control_0,
+  CLK	  => clock,
+  TRIG0	  => trig_0);
 
 end rtl;
 
