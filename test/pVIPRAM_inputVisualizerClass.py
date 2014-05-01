@@ -255,7 +255,9 @@ class inputVisualizer:
         print "------------------------"
         print "-----> written to "+fn
         f = open(fn, "w")
-
+        
+        self.theBitInstructions = [];
+        
         for i in range(self.tree.GetEntries()):
             if i % 100 == 0: "Writing out, cycle: ", i
             self.tree.GetEntry(i);
@@ -292,8 +294,10 @@ class inputVisualizer:
             thisString += self.flipBits('{0:01b}'.format(self.tree.InputD_bit0))                                                            
 
             f.write(thisString+"\n")
+            self.theBitInstructions.append(thisString);
                 
         print "------------------------"
+        return self.theBitInstructions;
 
     def flipBits(self, theString):
 
