@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen
+END
+gtwizard_v2_4_gth.xco
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen/gtwizard_v2_4_gth.xco
+END
+eth_pcspma_basex_11_2.xco
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen/eth_pcspma_basex_11_2.xco
+END
+mac_fifo_axi4.xco
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen/mac_fifo_axi4.xco
+END
+v6_emac_v2_3_basex.xco
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen/v6_emac_v2_3_basex.xco
+END
+gig_eth_pcs_pma_v11_5_GTWIZARD.xco
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen/gig_eth_pcs_pma_v11_5_GTWIZARD.xco
+END
+v6_emac_v2_3_sgmii.xco
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen/v6_emac_v2_3_sgmii.xco
+END
+mac_fifo.xco
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen/mac_fifo.xco
+END
+gtwizard_v2_5_gbe_gth.xco
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen/gtwizard_v2_5_gbe_gth.xco
+END
+tri_mode_eth_mac_v5_4.xco
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen/tri_mode_eth_mac_v5_4.xco
+END
+tri_mode_eth_mac_v5_5.xco
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen/tri_mode_eth_mac_v5_5.xco
+END
+v5_emac_v1_8_serdes.xco
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen/v5_emac_v1_8_serdes.xco
+END
+emac_serdes_5_4.xco
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen/emac_serdes_5_4.xco
+END
+gig_eth_pcs_pma_v11_4.xco
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen/gig_eth_pcs_pma_v11_4.xco
+END
+gig_eth_pcs_pma_v11_5.xco
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen/gig_eth_pcs_pma_v11_5.xco
+END
+tri_mode_eth_mac_v5_4_serdes.xco
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen/tri_mode_eth_mac_v5_4_serdes.xco
+END
+tri_mode_eth_mac_v5_5_gmii.xco
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen/tri_mode_eth_mac_v5_5_gmii.xco
+END
+gtwizard_v2_5_gbe_gtx.xco
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/coregen/gtwizard_v2_5_gbe_gtx.xco
+END

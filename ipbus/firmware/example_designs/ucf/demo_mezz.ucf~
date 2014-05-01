@@ -1,0 +1,44 @@
+# update this for the Pulsar II test mezanine 
+# JTO 9 April 2014
+
+NET eth/txoutclk TNM_NET=txoutclk;
+TIMESPEC TS_txoutclk = PERIOD txoutclk 16ns;
+
+NET clocks/rst TIG;
+NET clocks/nuke_i TIG;
+
+#NET gt_clkp LOC=G8 | DIFF_TERM=TRUE | TNM_NET=gt_clk;
+#NET gt_clkn LOC=G7 | DIFF_TERM=TRUE;
+
+# Mezzanine reference clock 125MHz
+
+NET gt_clkp LOC=D6 | DIFF_TERM=TRUE | TNM_NET=gt_clk;
+NET gt_clkn LOC=D5 | DIFF_TERM=TRUE;
+
+TIMESPEC TS_gt_clk = PERIOD gt_clk 8ns;
+
+# INST eth/phy/*/gtxe2_i LOC=GTXE2_CHANNEL_X0Y10;
+
+# Mezzanine channel 3, No polarity inversion here 
+# bank 115 port 3, XC7K160T 
+
+INST eth/phy/*/gtxe2_i LOC=GTXE2_CHANNEL_X0Y3;
+
+# SFP LOS is not connected on mezzanine, connect this to TP9
+# and pulldown
+# NET sfp_los LOC=P19 | IOSTANDARD=LVCMOS25;
+
+NET sfp_los LOC=Y17 | IOSTANDARD=LVCMOS25 | PULLDOWN;
+
+#NET leds<0> LOC=AB8 | IOSTANDARD=LVCMOS15;
+#NET leds<1> LOC=AA8 | IOSTANDARD=LVCMOS15;
+#NET leds<2> LOC=AC9 | IOSTANDARD=LVCMOS15;
+#NET leds<3> LOC=AB9 | IOSTANDARD=LVCMOS15;
+
+# Mezzanine LED locations are 2.5 I/O
+
+NET leds<0> LOC=M18 | IOSTANDARD=LVCMOS25;
+NET leds<1> LOC=M17 | IOSTANDARD=LVCMOS25;
+NET leds<2> LOC=N18 | IOSTANDARD=LVCMOS25;
+NET leds<3> LOC=Y17 | IOSTANDARD=LVCMOS25;
+NET ledout  LOC=N19 | IOSTANDARD=LVCMOS25;

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/slaves/coregen
+END
+sdpram_16x10_32x9.xco
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/slaves/coregen/sdpram_16x10_32x9.xco
+END
+sdpram_32x9_16x10.xco
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/slaves/coregen/sdpram_32x9_16x10.xco
+END
+sdpram_16x10_32x9.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/slaves/coregen/sdpram_16x10_32x9.vhd
+END
+sdpram_32x9_16x10.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/slaves/coregen/sdpram_32x9_16x10.vhd
+END

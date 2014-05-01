@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/gen_hdl/gtwizard_v2_3_gbe
+END
+gtwizard_v2_3_gbe.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/gen_hdl/gtwizard_v2_3_gbe/gtwizard_v2_3_gbe.vhd
+END
+gtwizard_v2_3_gbe_rx_startup_fsm.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/gen_hdl/gtwizard_v2_3_gbe/gtwizard_v2_3_gbe_rx_startup_fsm.vhd
+END
+gtwizard_v2_3_gbe_tx_startup_fsm.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/gen_hdl/gtwizard_v2_3_gbe/gtwizard_v2_3_gbe_tx_startup_fsm.vhd
+END
+gtwizard_v2_3_gbe_init.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/gen_hdl/gtwizard_v2_3_gbe/gtwizard_v2_3_gbe_init.vhd
+END
+gtwizard_v2_3_gbe_gt.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/gen_hdl/gtwizard_v2_3_gbe/gtwizard_v2_3_gbe_gt.vhd
+END
+gtwizard_v2_3_gbe_recclk_monitor.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/gen_hdl/gtwizard_v2_3_gbe/gtwizard_v2_3_gbe_recclk_monitor.vhd
+END

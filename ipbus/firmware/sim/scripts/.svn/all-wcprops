@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/sim/scripts
+END
+addfiles_sim.tcl
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/sim/scripts/addfiles_sim.tcl
+END
+setup_project.tcl
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/sim/scripts/setup_project.tcl
+END
+setup.sh
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/sim/scripts/setup.sh
+END
+file_list
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/sim/scripts/file_list
+END

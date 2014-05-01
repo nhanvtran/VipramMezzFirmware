@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/projects/demo_sp605_extphy/ise14
+END
+build_project.tcl
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/projects/demo_sp605_extphy/ise14/build_project.tcl
+END
+setup_project.tcl
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/projects/demo_sp605_extphy/ise14/setup_project.tcl
+END
+coregen.cgp
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/projects/demo_sp605_extphy/ise14/coregen.cgp
+END
+file_list
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/projects/demo_sp605_extphy/ise14/file_list
+END

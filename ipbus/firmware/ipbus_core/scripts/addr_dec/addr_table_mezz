@@ -1,0 +1,12 @@
+# Example addr_table file to show the format
+#
+# num	name		base	addr_width
+
+0	ctrl_reg	0x0	1
+1	reg		0x2	0
+2       err_inject      0x4     2
+3       pkt_ctr         0x8     1
+4	ram		0x1000	10
+5       pram            0x2000  10
+6       vipram          0x100000 20
+

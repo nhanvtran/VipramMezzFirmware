@@ -1,0 +1,80 @@
+10
+
+dir
+27433
+http://svn.cern.ch/guest/cactus/tags/ipbus_2_0_v1/firmware/example_designs
+http://svn.cern.ch/guest/cactus
+
+
+
+2013-09-17T22:59:49.394043Z
+23190
+newbold
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4525493e-7705-40b1-a816-d608a930855b
+
+cfg
+dir
+
+addr_table
+dir
+
+hdl
+dir
+
+scripts
+dir
+
+projects
+dir
+
+readme.txt
+file
+
+
+
+
+2014-03-03T20:49:38.644650Z
+2b604970ebb55bf5fe357ce98ef59faf
+2013-05-20T21:15:54.429790Z
+20854
+newbold
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1306
+
+ucf
+dir
+

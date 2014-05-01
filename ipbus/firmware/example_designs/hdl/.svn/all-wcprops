@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl
+END
+clocks_v6_serdes_125MHz.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl/clocks_v6_serdes_125MHz.vhd
+END
+clocks_s6_basex.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl/clocks_s6_basex.vhd
+END
+clock_div_v6.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl/clock_div_v6.vhd
+END
+ipbus_addr_decode.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl/ipbus_addr_decode.vhd
+END
+clocks_v6_serdes_40MHz.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl/clocks_v6_serdes_40MHz.vhd
+END
+clocks_v6_serdes_noxtal.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl/clocks_v6_serdes_noxtal.vhd
+END
+clocks_s6_extphy_100MHz.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl/clocks_s6_extphy_100MHz.vhd
+END
+clocks_s6_extphy.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl/clocks_s6_extphy.vhd
+END
+clocks_7s_extphy.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl/clocks_7s_extphy.vhd
+END
+clocks_v6_serdes_noxtal_dual.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl/clocks_v6_serdes_noxtal_dual.vhd
+END
+clocks_v5_extphy.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl/clocks_v5_extphy.vhd
+END
+clocks_v6_extphy.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl/clocks_v6_extphy.vhd
+END
+clocks_7s_serdes.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl/clocks_7s_serdes.vhd
+END
+slaves.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl/slaves.vhd
+END
+clock_div.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl/clock_div.vhd
+END
+clocks_v5_serdes.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl/clocks_v5_serdes.vhd
+END
+clocks_v6_serdes.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/hdl/clocks_v6_serdes.vhd
+END

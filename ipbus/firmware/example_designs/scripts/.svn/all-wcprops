@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/scripts
+END
+listfiles.tcl
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/scripts/listfiles.tcl
+END
+listfiles_win.sh
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/scripts/listfiles_win.sh
+END
+listfiles.sh
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/scripts/listfiles.sh
+END
+setup.sh
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/scripts/setup.sh
+END
+addfiles.tcl
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/scripts/addfiles.tcl
+END
+build_all_designs.sh
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/scripts/build_all_designs.sh
+END
+listfiles_win.tcl
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/scripts/listfiles_win.tcl
+END
+settings_v7.tcl
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/scripts/settings_v7.tcl
+END

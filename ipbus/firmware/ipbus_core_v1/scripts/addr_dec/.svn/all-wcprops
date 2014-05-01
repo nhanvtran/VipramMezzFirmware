@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ipbus_core_v1/scripts/addr_dec
+END
+addr_table
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ipbus_core_v1/scripts/addr_dec/addr_table
+END
+ipbus_addr_decode.vhd.tmpl
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ipbus_core_v1/scripts/addr_dec/ipbus_addr_decode.vhd.tmpl
+END
+addr_dec.py
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ipbus_core_v1/scripts/addr_dec/addr_dec.py
+END

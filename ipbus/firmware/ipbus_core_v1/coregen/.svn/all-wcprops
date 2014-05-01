@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ipbus_core_v1/coregen
+END
+sdpram_8x11.xco
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ipbus_core_v1/coregen/sdpram_8x11.xco
+END
+dpram_32x10b_32x10b.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ipbus_core_v1/coregen/dpram_32x10b_32x10b.vhd
+END
+dpram_8x12_32x10.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ipbus_core_v1/coregen/dpram_8x12_32x10.vhd
+END
+sdpram_8x11.vhd
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ipbus_core_v1/coregen/sdpram_8x11.vhd
+END
+dpram_32x10b_32x10b.xco
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ipbus_core_v1/coregen/dpram_32x10b_32x10b.xco
+END
+dpram_8x12_32x10.xco
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ipbus_core_v1/coregen/dpram_8x12_32x10.xco
+END

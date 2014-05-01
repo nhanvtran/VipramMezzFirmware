@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/ucf
+END
+kc705_extphy.ucf
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/ucf/kc705_extphy.ucf
+END
+kc705_basex.ucf
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/ucf/kc705_basex.ucf
+END
+ml605_sgmii.ucf
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/ucf/ml605_sgmii.ucf
+END
+atlys.ucf
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/ucf/atlys.ucf
+END
+v5fxt.ucf
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/ucf/v5fxt.ucf
+END
+sp605_extphy.ucf
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/ucf/sp605_extphy.ucf
+END
+sp605_basex.ucf
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/example_designs/ucf/sp605_basex.ucf
+END

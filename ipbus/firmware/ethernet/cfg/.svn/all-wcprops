@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/cfg
+END
+setup_v5_serdes.tcl
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/cfg/setup_v5_serdes.tcl
+END
+file_list_s6_extphy
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/cfg/file_list_s6_extphy
+END
+file_list_s6_basex
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/cfg/file_list_s6_basex
+END
+file_list_v6_basex
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/cfg/file_list_v6_basex
+END
+file_list_minit_240_ipb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/cfg/file_list_minit_240_ipb
+END
+file_list_v5_gmii
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/cfg/file_list_v5_gmii
+END
+file_list_v7_485_prod
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/cfg/file_list_v7_485_prod
+END
+file_list_gig_eth_pcs_pma_v11_4
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/cfg/file_list_gig_eth_pcs_pma_v11_4
+END
+file_list_v7_690es
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/cfg/file_list_v7_690es
+END
+file_list_k7_basex
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/cfg/file_list_k7_basex
+END
+file_list_v6_sgmii
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/guest/cactus/!svn/ver/26564/tags/ipbus_2_0_v1/firmware/ethernet/cfg/file_list_v6_sgmii
+END
