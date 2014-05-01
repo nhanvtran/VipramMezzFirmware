@@ -7,6 +7,8 @@ hdl ipbus/firmware/example_designs/hdl/demo_mezz/mezz_clock.vhd
 hdl ipbus/firmware/example_designs/hdl/demo_mezz/mezz_clock2.vhd
 hdl ipbus/firmware/example_designs/hdl/demo_mezz/chipscope_ila.vhd
 hdl ipbus/firmware/example_designs/hdl/demo_mezz/chipscope_icon.vhd
+hdl ipbus/firmware/example_designs/hdl/demo_mezz/chipscope_ila.ngc
+hdl ipbus/firmware/example_designs/hdl/demo_mezz/chipscope_icon.ngc
 hdl ipbus/firmware/example_designs/hdl/demo_mezz/ovec.vhd
 hdl ipbus/firmware/example_designs/hdl/demo_mezz/ivec.vhd
 hdl ipbus/firmware/example_designs/hdl/demo_mezz/mezzanine_package.vhd
