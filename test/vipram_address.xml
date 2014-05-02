@@ -20,6 +20,7 @@
 
     <node id="Clock" address="0x000200" mode="block" permission="r" size="1024"/>
 
+    <node id="A0" address="0x001000" mode="block" permission="rw" size="1024"/>
     <node id="A1" address="0x002000" mode="block" permission="rw" size="1024"/>
     <node id="A2" address="0x003000" mode="block" permission="rw" size="1024"/>
     <node id="A3" address="0x004000" mode="block" permission="rw" size="1024"/>

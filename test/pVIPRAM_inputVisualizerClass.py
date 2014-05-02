@@ -275,7 +275,10 @@ class inputVisualizer:
             thisString += self.flipBits('{0:01b}'.format(self.tree.RunMode))            
             thisString += self.flipBits('{0:01b}'.format(self.tree.Primary))
             thisString += self.flipBits('{0:01b}'.format(self.tree.LatchData))
-            thisString += self.flipBits('{0:01b}'.format(self.tree.EventReset))            
+            thisString += self.flipBits('{0:01b}'.format(self.tree.EventReset))
+            
+            #thisString += ' '
+            
 #            thisString += self.flipBits('{0:07b}'.format(self.tree.RowAdr))
 #            thisString += self.flipBits('{0:05b}'.format(self.tree.ColAdr))
             thisString += '{0:07b}'.format(self.tree.RowAdr)
