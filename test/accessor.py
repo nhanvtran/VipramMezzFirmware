@@ -16,6 +16,7 @@ parser = OptionParser()
 
 parser.add_option('-b', action='store_true', dest='noX', default=False, help='no X11 windows')
 parser.add_option('--go', action='store_true', dest='go', default=False, help='go!')
+parser.add_option('--reset', action='store_true', dest='reset', default=False, help='go!')
 
 (options, args) = parser.parse_args()
 ############################################
@@ -74,6 +75,7 @@ if __name__ == '__main__':
     fSteps = 31;
     stepIncrement = 32;
     nInputs = 85;
+    blockSize = 1024;
 
     ###################
     ## define registers
@@ -103,38 +105,44 @@ if __name__ == '__main__':
 
     totalTimeSlices = len(bits);
     print "total time slices = ", totalTimeSlices
-    while len(bits) > iSteps+1:
+    dicedBits = [None]*nInputs;
+    for i in range(len(dicedBits)): dicedBits[i] = [None]*blockSize ;
+
+    #while len(bits) > iSteps+1:
+    for a in range(blockSize):
         
-        print "iSteps = ", iSteps
+        print "iSteps = ", a, iSteps
         
         ## cycle through all inputs
         for i in range(nInputs):
             ## cycle through 32 bit increments of a particular input
             curword = [];
             for j in range(iSteps,fSteps+1):
-                if j+1 < len(bits): curword.append( str(bits[j][i]) );
+                if j+1 < len(bits) and not options.reset: curword.append( str(bits[j][i]) );
                 else: curword.append("0");
             #print len(curword);
-
-            ## put the 32 bit word into memory
-            if registers[i] == 'leaveEMPTY': continue;
             
             stringword = ''.join(curword);
-            #print stringword, ", ", int(stringword,2);
-            hw.getNode("VipMEM."+registers[i]).write( ctypes.c_uint32(int(stringword,2)).value );
-            #rval = hw.getNode("VipMEM."+registers[i]).read();
-            hw.dispatch();
+            dicedBits[i][a] = ctypes.c_uint32(int(stringword,2)).value;
+            if a < 5: print registers[i], stringword
 
-            
         ## go on to the next 32 bits!
         iSteps += stepIncrement;
         fSteps += stepIncrement;
+
+    for i in range(nInputs):
+        ## put the 32 bit word into memory
+        if registers[i] == 'leaveEMPTY': continue;
+        hw.getNode("VipMEM."+registers[i]).writeBlock( dicedBits[i] );
+        hw.dispatch();
 
     # ------------------------------------------------
     # ------------------------------------------------
     # ------------------------------------------------
     # go!
-    if options.go: hw.getNode("VipMEM.Go").write(1);
+    if options.go:
+        hw.getNode("VipMEM.Go").write(1);
+        hw.dispatch();
 
 
 
