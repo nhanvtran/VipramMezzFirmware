@@ -281,20 +281,25 @@ class inputVisualizer:
             
 #            thisString += self.flipBits('{0:07b}'.format(self.tree.RowAdr))
 #            thisString += self.flipBits('{0:05b}'.format(self.tree.ColAdr))
-            thisString += '{0:07b}'.format(self.tree.RowAdr)
-            thisString += '{0:05b}'.format(self.tree.ColAdr)
-            thisString += '{0:015b}'.format(self.tree.InputA)
-#            thisString += self.flipBits('{0:015b}'.format(self.tree.InputA))
-            thisString += self.flipBits('{0:01b}'.format(self.tree.InputA_bit0))            
-            thisString += '{0:015b}'.format(self.tree.InputB) 
-#            thisString += self.flipBits('{0:015b}'.format(self.tree.InputB))            
-            thisString += self.flipBits('{0:01b}'.format(self.tree.InputB_bit0))                                               
-            thisString += '{0:015b}'.format(self.tree.InputC)
-#            thisString += self.flipBits('{0:015b}'.format(self.tree.InputC))            
+            thisString += self.flipBits('{0:07b}'.format(self.tree.RowAdr))
+            thisString += self.flipBits('{0:05b}'.format(self.tree.ColAdr))
+    
+#            thisString += '{0:015b}'.format(self.tree.InputA)
+            thisString += self.flipBits('{0:015b}'.format(self.tree.InputA))
+
+            thisString += self.flipBits('{0:01b}'.format(self.tree.InputA_bit0))
+#            thisString += '{0:015b}'.format(self.tree.InputB)
+            thisString += self.flipBits('{0:015b}'.format(self.tree.InputB))
+
+            thisString += self.flipBits('{0:01b}'.format(self.tree.InputB_bit0))
+#            thisString += '{0:015b}'.format(self.tree.InputC)
+            thisString += self.flipBits('{0:015b}'.format(self.tree.InputC))
+
             thisString += self.flipBits('{0:01b}'.format(self.tree.InputC_bit0))
-            thisString += '{0:015b}'.format(self.tree.InputD)
-#            thisString += self.flipBits('{0:015b}'.format(self.tree.InputD))          
-            thisString += self.flipBits('{0:01b}'.format(self.tree.InputD_bit0))                                                            
+#            thisString += '{0:015b}'.format(self.tree.InputD)
+            thisString += self.flipBits('{0:015b}'.format(self.tree.InputD))
+
+            thisString += self.flipBits('{0:01b}'.format(self.tree.InputD_bit0))
 
             f.write(thisString+"\n")
             self.theBitInstructions.append(thisString);

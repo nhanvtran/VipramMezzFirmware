@@ -28,10 +28,39 @@ def GenerateInputs(testname):
     inputPattern = inputBuilder("root/"+testname+".root");
     inputPattern.initializeLoadPhase();
     inputPattern.loadUniformPatterns(9, 9, 27, 1); 
-    inputPattern.loadUniformPatterns(9, 11, 37, 1); 
-    inputPattern.loadUniformPatterns(9, 13, 47, 1);
-    inputPattern.loadUniformPatterns(9, 15, 57, 1);
-    inputPattern.loadUniformPatterns(9, 17, 67, 1);
+    inputPattern.loadUniformPatterns(9, 11, 37, 5);
+    inputPattern.loadUniformPatterns(9, 13, 47, 5);
+    inputPattern.loadUniformPatterns(9, 15, 57, 5);
+    inputPattern.loadUniformPatterns(9, 17, 67, 5);
+    inputPattern.initializeRunPhase( [1,0,0,0] );
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [27,27,27,27] ,9);
+    inputPattern.checkPattern( [37,37,37,37] ,9);
+    inputPattern.checkPattern( [47,47,47,47] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
+    inputPattern.checkPattern( [00,00,00,00] ,9);
     inputPattern.close();
     return inputPattern;
 
@@ -109,9 +138,9 @@ if __name__ == '__main__':
     for i in range(len(dicedBits)): dicedBits[i] = [None]*blockSize ;
 
     #while len(bits) > iSteps+1:
-    for a in range(blockSize):
+    for a in range(blockSize-1,-1,-1):
         
-        print "iSteps = ", a, iSteps
+        if iSteps%100 == 0: print "iSteps = ", a, iSteps
         
         ## cycle through all inputs
         for i in range(nInputs):
@@ -124,7 +153,7 @@ if __name__ == '__main__':
             
             stringword = ''.join(curword);
             dicedBits[i][a] = ctypes.c_uint32(int(stringword,2)).value;
-            if a < 5: print registers[i], stringword
+            #if a < 5: print registers[i], stringword
 
         ## go on to the next 32 bits!
         iSteps += stepIncrement;
@@ -144,7 +173,15 @@ if __name__ == '__main__':
         hw.getNode("VipMEM.Go").write(1);
         hw.dispatch();
 
+    mem8 = hw.getNode("VipMEM.Out8").readBlock( blockSize );
+    runM = hw.getNode("VipMEM.RunMode").readBlock( blockSize );
 
+    hw.dispatch();
+
+#    print mem8[1023];
+#    print mem8[1022];
+#    print runM[1023];
+#    print runM[1022];
 
 
 

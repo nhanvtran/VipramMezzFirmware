@@ -576,7 +576,7 @@ class inputBuilder:
                 if (missCtr == 3 and self.majorityLogic[1] == 1): passMiss1 = 1;
                 if (missCtr == 2 and self.majorityLogic[2] == 1): passMiss2 = 1;
                 if (missCtrA == 1 and self.majorityLogic[3] == 1): passReqLayA = 1;            
-                print "self.cycleCtr = ", self.cycleCtr, " -- ", bLogic,",",i, ",",passMiss0,",",passMiss1,",",passMiss2,",",passReqLayA
+                #print "self.cycleCtr = ", self.cycleCtr, " -- ", bLogic,",",i, ",",passMiss0,",",passMiss1,",",passMiss2,",",passReqLayA
 
                 if bLogic: self.iDataOut[i][j] = 1;
 
