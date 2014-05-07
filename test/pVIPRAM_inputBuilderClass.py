@@ -190,6 +190,9 @@ class inputBuilder:
             self.cycleCtr += 1;
             self.tree.Fill();
             ctrMF += 1; 
+        if ctrMF == 0:
+            self.cycleCtr += 1;
+            self.tree.Fill();
 
         # secondary
         # set ternary bits
@@ -242,7 +245,10 @@ class inputBuilder:
         while ctrMF < multiplicativeFactor:
             self.cycleCtr += 1;
             self.tree.Fill();
-            ctrMF += 1; 
+            ctrMF += 1;
+        if ctrMF == 0:
+            self.cycleCtr += 1;
+            self.tree.Fill();
 
         #print self.DataOut
 
