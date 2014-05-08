@@ -46,6 +46,11 @@ def GenerateInputs(testname):
 
 ############################################################
 
+def flipList( list ):
+    newlist = [];
+    for i in range(len(list)-1,-1,-1):
+        newlist.append(list[i]);
+
 if __name__ == '__main__':
 
     # ------------------------------------------------
@@ -90,7 +95,7 @@ if __name__ == '__main__':
     ## define registers
     registers = [];
     registers.append( 'CheckData' ); # CheckData
-    for i in range(32): registers.append( 'Out'+str(i) );
+    for i in range(32-1,-1,-1): registers.append( 'Out'+str(i) );
     registers.append( 'ReqL0' );
     registers.append( 'Miss2' );
     registers.append( 'Miss1' );
@@ -179,27 +184,33 @@ if __name__ == '__main__':
         if 'CheckData' in registers[i]: continue;
         curBlock = hw.getNode("VipMEM."+registers[i]).readBlock( blockSize );
         hw.dispatch();
-        outMem.append( curBlock ); 
+#        if "Out" in registers[i]: outMem.append( flipList(curBlock) );
+#        else: outMem.append( curBlock );
+        outMem.append( curBlock );
         #print "input #",i," = ",registers[i]," and value = ", '{0:032b}'.format(curBlock[1023]), '{0:032b}'.format(curBlock[1022])
 
     fno = os.path.splitext( pattern1.getFilename() )[0]+"_f.txt";
     fout = open(fno,'w');
     timeCtr = 0;
     for a in range(blockSize-1,-1,-1):
+        if a%100 == 0: print a
     #for a in range(blockSize):
         #if a < 1010: break;
         for i in range(stepIncrement):
             thisTimeSlice = [];
             for j in range(len(outMem)): # no checkData bit
                 #print nInputs,",",j,",",a,",",len(outMem[j])
-                blockPiece = '{0:032b}'.format(outMem[j][a])
-                thisTimeSlice.append( blockPiece[i] );
+                blockPiece     = '{0:032b}'.format(outMem[j][a])
+                blockPiece_opp = '{0:032b}'.format(outMem[j][1023-a])
                 
-            fout.write( ''.join(thisTimeSlice)+'\n' );
+                if j <= 31: thisTimeSlice.append( blockPiece_opp[stepIncrement-i-1] );
+                else: thisTimeSlice.append( blockPiece[i] );
+        
+            #fout.write( ''.join(thisTimeSlice)+'\n' );
+            if timeCtr < totalTimeSlices: fout.write( ''.join(thisTimeSlice)+'\n' );
+            if timeCtr > totalTimeSlices: break;
             timeCtr+=1;
-            if timeCtr == totalTimeSlices: break;
-        if timeCtr == totalTimeSlices: break;
-
+        if timeCtr > totalTimeSlices: break;
 
 
 
