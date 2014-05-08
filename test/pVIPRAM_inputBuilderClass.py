@@ -390,13 +390,13 @@ class inputBuilder:
     # R U N   M O D E   F U N C T I O N S
     # -------------------
     # initializeRunPhase
-    def initializeRunPhase(self, logic = [1,1,1,1]):
+    def initializeRunPhase(self, logic = [1,1,1,1], initialRow = 1):
         #print "initializing run phase..."
         
         self.counter[0] = self.cycleCtr;
         
         self.MLpreCh[0] = 1;
-        self.RowAdr[0] = 0; #rows 0-127
+        self.RowAdr[0] = initialRow; #rows 0-127
         self.ColAdr[0] = 0; #cols 0-31
         self.RunMode[0] = 1;
         self.LatchData[0] = 0;

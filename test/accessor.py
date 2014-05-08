@@ -27,40 +27,19 @@ def GenerateInputs(testname):
 
     inputPattern = inputBuilder("root/"+testname+".root");
     inputPattern.initializeLoadPhase();
-    inputPattern.loadUniformPatterns(9, 9, 27, 1); 
-    inputPattern.loadUniformPatterns(9, 11, 37, 5);
-    inputPattern.loadUniformPatterns(9, 13, 47, 5);
-    inputPattern.loadUniformPatterns(9, 15, 57, 5);
-    inputPattern.loadUniformPatterns(9, 17, 67, 5);
+    inputPattern.loadUniformPatterns(9, 9, 27, 1);
+    inputPattern.loadUniformPatterns(9, 11, 37, 1);
+    inputPattern.loadUniformPatterns(9, 13, 47, 1);
+    inputPattern.loadUniformPatterns(9, 15, 57, 1);
+    inputPattern.loadUniformPatterns(9, 17, 67, 1);
     inputPattern.initializeRunPhase( [1,0,0,0] );
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
+    for i in range(20): inputPattern.checkPattern( [01,01,01,01] ,9);
     inputPattern.checkPattern( [27,27,27,27] ,9);
     inputPattern.checkPattern( [37,37,37,37] ,9);
     inputPattern.checkPattern( [47,47,47,47] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
-    inputPattern.checkPattern( [00,00,00,00] ,9);
+    for i in range(20): inputPattern.checkPattern( [01,01,01,01] ,9);
+    #inputPattern.readOutMode();
+    inputPattern.doRowChecker(9);
     inputPattern.close();
     return inputPattern;
 
@@ -80,11 +59,13 @@ if __name__ == '__main__':
     #visualizer1.textVisualizer();
     
     # this gives you a list of each time slices
-    bits = visualizer1.writeToText( os.path.splitext( pattern1.getFilename() )[0]+".txt" );
+    bits = visualizer1.writeToText( os.path.splitext( pattern1.getFilename() )[0]+"_i.txt", True );
     
     print "N time slices = ", len(bits);
     for i in range(len(bits)):
-        print bits[i]
+        print bits[i]," and ", len(bits[i])
+
+    #exit()
 
     # ------------------------------------------------
     # ------------------------------------------------
@@ -101,15 +82,15 @@ if __name__ == '__main__':
     print "Firmware identity = ", hex(ident), ", firmware version = ", vers;
     
     iSteps = 0;
-    fSteps = 31;
+    fSteps = 32;
     stepIncrement = 32;
-    nInputs = 85;
     blockSize = 1024;
 
     ###################
     ## define registers
     registers = [];
-    registers.append( 'leaveEMPTY' ); # CheckData
+    registers.append( 'CheckData' ); # CheckData
+    for i in range(32): registers.append( 'Out'+str(i) );
     registers.append( 'ReqL0' );
     registers.append( 'Miss2' );
     registers.append( 'Miss1' );
@@ -133,9 +114,14 @@ if __name__ == '__main__':
     ###################
 
     totalTimeSlices = len(bits);
+    nInputs = len(registers);
+
     print "total time slices = ", totalTimeSlices
+    print "the nInputs = ", nInputs
     dicedBits = [None]*nInputs;
+    dicedBitsBinary = [None]*nInputs;
     for i in range(len(dicedBits)): dicedBits[i] = [None]*blockSize ;
+    for i in range(len(dicedBitsBinary)): dicedBitsBinary[i] = [None]*blockSize ;
 
     #while len(bits) > iSteps+1:
     for a in range(blockSize-1,-1,-1):
@@ -146,14 +132,21 @@ if __name__ == '__main__':
         for i in range(nInputs):
             ## cycle through 32 bit increments of a particular input
             curword = [];
-            for j in range(iSteps,fSteps+1):
-                if j+1 < len(bits) and not options.reset: curword.append( str(bits[j][i]) );
-                else: curword.append("0");
-            #print len(curword);
-            
+            for j in range(iSteps,fSteps):
+                if j+1 < totalTimeSlices and not options.reset: curword.append( str(bits[j][i]) );
+                elif j+1 >= totalTimeSlices and not options.reset:
+                    ## set extra time slices to all zeroes
+                    # curword.append("0");
+                    ## set it to the last step
+                    curword.append( str( bits[totalTimeSlices-1][i]))
+                elif options.reset:
+                    curword.append("0");
+                else:
+                    raise Exception("Something weird is going on..." );
+                    
             stringword = ''.join(curword);
             dicedBits[i][a] = ctypes.c_uint32(int(stringword,2)).value;
-            #if a < 5: print registers[i], stringword
+            dicedBitsBinary[i][a] = stringword;
 
         ## go on to the next 32 bits!
         iSteps += stepIncrement;
@@ -161,9 +154,11 @@ if __name__ == '__main__':
 
     for i in range(nInputs):
         ## put the 32 bit word into memory
-        if registers[i] == 'leaveEMPTY': continue;
+        if 'Out' in registers[i] or 'CheckData' in registers[i]: continue;
         hw.getNode("VipMEM."+registers[i]).writeBlock( dicedBits[i] );
         hw.dispatch();
+        #print "input #",i," = ",registers[i]," and value = ", dicedBitsBinary[i][1023], dicedBitsBinary[i][1022]
+        
 
     # ------------------------------------------------
     # ------------------------------------------------
@@ -173,16 +168,37 @@ if __name__ == '__main__':
         hw.getNode("VipMEM.Go").write(1);
         hw.dispatch();
 
-    mem8 = hw.getNode("VipMEM.Out8").readBlock( blockSize );
-    runM = hw.getNode("VipMEM.RunMode").readBlock( blockSize );
 
-    hw.dispatch();
+    # ------------------------------------------------
+    # ------------------------------------------------
+    # ------------------------------------------------
+    # get the output registers
+    outMem = [];
+    for i in range(nInputs):
+        ## put the 32 bit word into memory
+        if 'CheckData' in registers[i]: continue;
+        curBlock = hw.getNode("VipMEM."+registers[i]).readBlock( blockSize );
+        hw.dispatch();
+        outMem.append( curBlock ); 
+        #print "input #",i," = ",registers[i]," and value = ", '{0:032b}'.format(curBlock[1023]), '{0:032b}'.format(curBlock[1022])
 
-#    print mem8[1023];
-#    print mem8[1022];
-#    print runM[1023];
-#    print runM[1022];
-
+    fno = os.path.splitext( pattern1.getFilename() )[0]+"_f.txt";
+    fout = open(fno,'w');
+    timeCtr = 0;
+    for a in range(blockSize-1,-1,-1):
+    #for a in range(blockSize):
+        #if a < 1010: break;
+        for i in range(stepIncrement):
+            thisTimeSlice = [];
+            for j in range(len(outMem)): # no checkData bit
+                #print nInputs,",",j,",",a,",",len(outMem[j])
+                blockPiece = '{0:032b}'.format(outMem[j][a])
+                thisTimeSlice.append( blockPiece[i] );
+                
+            fout.write( ''.join(thisTimeSlice)+'\n' );
+            timeCtr+=1;
+            if timeCtr == totalTimeSlices: break;
+        if timeCtr == totalTimeSlices: break;
 
 
 
