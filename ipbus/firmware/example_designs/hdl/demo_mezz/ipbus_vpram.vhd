@@ -1,7 +1,7 @@
 -- ipbus_vpram.vhd
 -- VIPRAM Test Mezzanine TOP LEVEL
 -- Jamieson Olsen <jamieson@fnal.gov>
--- 30 April 2014
+-- 13 May 2014
 --
 -- there are a large number of registers and blockram ports to read
 -- therefore the read/mux logic is pipelined over several stages
@@ -16,6 +16,8 @@
 -- Read and Write latency is TWO cycles
 --
 -- added chipscope 30 April 2014
+-- ivec is now R/W 12 May 2014
+-- 5/13/2014 -- add another wait state for IPBus interface
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -69,7 +71,10 @@ architecture rtl of ipbus_vpram is
     port(
         clock:  in  std_logic;
         addr:   in  std_logic_vector( 9 downto 0);
+        din:    in  std_logic_vector(31 downto 0);
         dout:   out std_logic_vector(31 downto 0);
+        we:     in  std_logic;
+
         clk:    in std_logic;
         reset:  in std_logic;
         go:     in std_logic;
@@ -122,16 +127,17 @@ architecture rtl of ipbus_vpram is
       );
     end component;
 
-
     signal ovec_dout: array84x32;
     signal ivec_dout: array32x32;
     signal addr_reg, addr2_reg : std_logic_vector(19 downto 0);
     signal din_reg : std_logic_vector(31 downto 0);
-    signal we_reg, go200_reg : std_logic;
+    signal reset_clk, we_reg, go200_reg : std_logic;
     signal go_reg : std_logic_vector(1 downto 0);
     signal test_reg, ctrl_reg : std_logic_vector(31 downto 0);
-    signal ack_reg: std_logic_vector(1 downto 0);
+    signal ack_reg: std_logic_vector(4 downto 0);
     signal ovec_we: std_logic_vector(83 downto 0);
+    signal ivec_we: std_logic_vector(31 downto 0);
+    signal mux_out, mux_out_reg : std_logic_vector(31 downto 0);
 
     signal clk, clk_a, clk_b, slow_clk: std_logic;
     signal mmcm_den, mmcm_dwe, mmcm_locked, mmcm_drdy : std_logic;
@@ -165,6 +171,9 @@ begin
 -- slow clk is a constant 10MHz for the picoblaze processor
 --
 -- dynamic config port is a block of 128 16-bit registers
+--
+-- assume reset is synchronous to clock
+-- sample reset using clk and send that to ivec and ovec modules.
 
 mmcm_inst: mezz_clock2
 port map(
@@ -193,6 +202,7 @@ mmcm_dwe <= mmcm_den and we_reg;
 
 
 -- register memory bus inputs
+-- assume reset is in clock domain
 
 input_proc: process(clock)
 begin
@@ -243,12 +253,13 @@ end process reg_proc;
 -- cross the clock domain on the go signal.  clock freq is 125M, 
 -- clk freq is variable, may be as low as 10MHz and will not sample it properly.
 
-go_proc: process(clock)
+go_proc: process(clk,reset)
 begin
-    if rising_edge(clock) then
-        if (reset='1') then
-            go200_reg <= '0';
-        elsif (go_reg(1)='1') then
+    if (reset='1') then
+        go200_reg <= '0';
+    elsif rising_edge(clk) then
+        reset_clk <= reset;  -- resample reset in clk domain
+        if (go_reg(1)='1') then
             go200_reg <= '1';
         else
             go200_reg <= '0';
@@ -256,13 +267,20 @@ begin
     end if;
 end process go_proc;
 
-
-
 -- write enables
 
-wegen: for i in 83 downto 0 generate
+ovec_wegen: for i in 83 downto 0 generate
     ovec_we(i)  <= '1' when ( we_reg='1' and std_match(addr_reg, OVEC_OFFSET(i)) ) else '0';
 end generate;
+
+
+ivec_wegen: for i in 31 downto 0 generate
+    ivec_we(i)  <= '1' when ( we_reg='1' and std_match(addr_reg, IVEC_OFFSET(i)) ) else '0';
+end generate;
+
+
+
+
 
 -- 84 output vector modules, ram interface is R/W
 
@@ -276,14 +294,14 @@ sendgen: for i in 83 downto 0 generate
         we    => ovec_we(i),
 
         clk    => clk,
-        reset  => reset,
+        reset  => reset_clk,
         go     => go200_reg,
         q      => VIPQ_temp(i));
 end generate;
 
 VIPQ <= VIPQ_temp;
 
--- 32 input vector modules, ram interface is RO
+-- 32 input vector modules, ram interface is now R/W
 
 recgen: for i in 31 downto 0 generate
     ivec_inst: ivec
@@ -291,9 +309,11 @@ recgen: for i in 31 downto 0 generate
         clock => clock,
         addr  => addr_reg(9 downto 0), -- 10 bit
         dout  => ivec_dout(i),         -- 32 bit
+        din   => din_reg,
+        we    => ivec_we(i),
 
         clk    => clk,
-        reset  => reset,
+        reset  => reset_clk,
         go     => go200_reg,
         d      => VIPD(i)
     );
@@ -303,7 +323,7 @@ end generate recgen;
 -- note that the address constants may have don't cares in them
 -- e.g. "10101-----1101" so std_match is required.
 
-ipbus_out.ipb_rdata <=  
+mux_out <=  
         ovec_dout( 0) when std_match(addr2_reg, OVEC_OFFSET( 0) ) else
         ovec_dout( 1) when std_match(addr2_reg, OVEC_OFFSET( 1) ) else
         ovec_dout( 2) when std_match(addr2_reg, OVEC_OFFSET( 2) ) else
@@ -443,20 +463,26 @@ ack_proc: process(clock)
 begin
     if rising_edge(clock) then
         if (reset='1') then
-            ack_reg <= "00";
+            ack_reg <= "00000";
+            mux_out_reg <= X"00000000";
         else
-            if (ipbus_in.ipb_strobe='1' and ack_reg(1 downto 0)="00") then
+            mux_out_reg <= mux_out;
+            if (ipbus_in.ipb_strobe='1' and ack_reg(4 downto 0)="00000") then
                 ack_reg(0) <= '1';
             else
                 ack_reg(0) <= '0';
             end if;
             ack_reg(1) <= ack_reg(0);
+            ack_reg(2) <= ack_reg(1);
+            ack_reg(3) <= ack_reg(2);
+            ack_reg(4) <= ack_reg(3);   
         end if;
     end if;
 end process ack_proc;
 
+ipbus_out.ipb_rdata <= mux_out_reg; 
 ipbus_out.ipb_err <= '0';
-ipbus_out.ipb_ack <= ack_reg(1);
+ipbus_out.ipb_ack <= ack_reg(4);
 
 -- power control has no interface with ipbus (yet)
 

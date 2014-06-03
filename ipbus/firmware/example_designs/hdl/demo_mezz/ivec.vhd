@@ -1,9 +1,9 @@
 -- bit_receiver.vhd
 -- Jamieson Olsen <jamieson@fnal.gov>
--- 24 April 2014
+-- 14 May 2014
 --
 -- When GO is asserted this module samples 32k bits from the input 
--- at 200MHz and stores these bits in a blockram.
+-- at the clk rate and stores these bits in a blockram.
 --
 -- Port A is R/O and is for FPGA/IPBUS 
 -- Port B is R/W and is for this module.
@@ -11,6 +11,8 @@
 -- Bits are stored LSb first.  e.g. the first bit captured is stored in word 0, bit 0.
 -- the last bit captured is stored in word 0x3FF bit 31.  The bit that that is sampled
 -- when GO is assrted is the first bit stored.
+--
+-- Now R/W interface
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -25,7 +27,9 @@ entity ivec is
 port(
     clock:  in  std_logic;
     addr:   in  std_logic_vector( 9 downto 0);
+    din:    in  std_logic_vector(31 downto 0);
     dout:   out std_logic_vector(31 downto 0);
+    we:     in  std_logic;
 
     clk: in std_logic;
     reset:  in std_logic;
@@ -36,7 +40,7 @@ end ivec;
 
 architecture ivec_arch of ivec is
 
-    signal web : std_logic_vector(3 downto 0);
+    signal wea,web : std_logic_vector(3 downto 0);
     signal addr_reg : std_logic_vector(9 downto 0);
     signal count_reg : std_logic_vector(4 downto 0);
     signal din_reg : std_logic_vector(31 downto 0);
@@ -72,6 +76,7 @@ begin
                 when capture =>
                     if ( count_reg = "11111" ) then
                         if ( addr_reg = "1111111111" ) then
+                            count_reg <= "00000";
                             state <= done;
                         else
                             count_reg <= "00000";
@@ -92,8 +97,9 @@ begin
     end if;
 end process fsm_proc;
 
-web <= "1111" when (count_reg="11111") else "0000";
+wea <= "1111" when (we='1') else "0000";
 
+web <= "1111" when (count_reg="11111") else "0000";
 
 -- BRAM_TDP_MACRO: True Dual Port RAM
 -- 7 Series
@@ -119,8 +125,8 @@ BRAM_TDP_MACRO_inst : BRAM_TDP_MACRO
 generic map (
     BRAM_SIZE     => "36Kb", -- Target BRAM, "18Kb" or "36Kb"
     DEVICE        => "7SERIES", -- Target Device: "VIRTEX5", "VIRTEX6", "7SERIES", "SPARTAN6"
-    DOA_REG       => 0, -- Optional port A output register (0 or 1)
-    DOB_REG       => 0, -- Optional port B output register (0 or 1)
+    DOA_REG       => 1, -- Optional port A output register (0 or 1)
+    DOB_REG       => 1, -- Optional port B output register (0 or 1)
     INIT_A        => X"000000000", -- Initial values on A output port
     INIT_B        => X"000000000", -- Initial values on B output port
     INIT_FILE     => "NONE",
@@ -282,22 +288,22 @@ generic map (
     INITP_0E => X"0000000000000000000000000000000000000000000000000000000000000000",
     INITP_0F => X"0000000000000000000000000000000000000000000000000000000000000000")
 port map(
-    DOA => dout,      -- Output port-A data, width defined by READ_WIDTH_A parameter
-    DOB => open,      -- Output port-B data, width defined by READ_WIDTH_B parameter
-    ADDRA => addr,    -- Input port-A address, width defined by Port A depth
+    DOA => dout,       -- Output port-A data, width defined by READ_WIDTH_A parameter
+    DOB => open,       -- Output port-B data, width defined by READ_WIDTH_B parameter
+    ADDRA => addr,     -- Input port-A address, width defined by Port A depth
     ADDRB => addr_reg, -- Input port-B address, width defined by Port B depth
-    CLKA => clock,    -- 1-bit input port-A clock
-    CLKB => clk,   -- 1-bit input port-B clock
-    DIA => X"00000000", -- Input port-A data, width defined by WRITE_WIDTH_A parameter
-    DIB => din_reg, -- Input port-B data, width defined by WRITE_WIDTH_B parameter
-    ENA => '1',       -- 1-bit input port-A enable
-    ENB => '1',       -- 1-bit input port-B enable
-    REGCEA => '1',    -- 1-bit input port-A output register enable
-    REGCEB => '1',    -- 1-bit input port-B output register enable
-    RSTA => reset,    -- 1-bit input port-A reset
-    RSTB => reset,    -- 1-bit input port-B reset
-    WEA => "0000",   -- Input port-A write enable, width defined by Port A depth
-    WEB => web);      -- Input port-B write enable, width defined by Port B depth
+    CLKA => clock,     -- 1-bit input port-A clock
+    CLKB => clk,       -- 1-bit input port-B clock
+    DIA => din,        -- Input port-A data, width defined by WRITE_WIDTH_A parameter
+    DIB => din_reg,    -- Input port-B data, width defined by WRITE_WIDTH_B parameter
+    ENA => '1',        -- 1-bit input port-A enable
+    ENB => '1',        -- 1-bit input port-B enable
+    REGCEA => '1',     -- 1-bit input port-A output register enable
+    REGCEB => '1',     -- 1-bit input port-B output register enable
+    RSTA => '0',       -- 1-bit input port-A reset
+    RSTB => '0',       -- 1-bit input port-B reset
+    WEA => wea,        -- Input port-A write enable, width defined by Port A depth
+    WEB => web);       -- Input port-B write enable, width defined by Port B depth
 
 end ivec_arch;
 

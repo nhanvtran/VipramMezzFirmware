@@ -1,6 +1,6 @@
 -- ovec.vhd
 -- Jamieson Olsen <jamieson@fnal.gov>
--- 24 April 2014
+-- 9 May 2014
 --
 -- 32kbit test vector generator, no output delay.
 -- RAM interface is 1024 x 32.
@@ -8,9 +8,10 @@
 -- Port B is 32 bit wide and is reserved for this module and is R/O
 
 -- When GO is asserted this module transmits the contents of the blockram 
--- serially at 200MHz.  32768 bits x 5ns = 163.84 usec.  
--- Address 0x3FF, bit 31 is sent first.
--- Address 0, bit 0 is sent last.
+-- serially at the clk rate.  e.g. at 200MHz 32768 bits x 5ns = 163.84 usec.
+--
+-- Address 0, 0 is sent first.
+-- Address 0x3FF, bit 31 is sent last.
 -- 
 -- when this module is idle the output Q is zero.
 -- 
@@ -81,8 +82,8 @@ BRAM_TDP_MACRO_inst : BRAM_TDP_MACRO
 generic map (
     BRAM_SIZE     => "36Kb", -- Target BRAM, "18Kb" or "36Kb"
     DEVICE        => "7SERIES", -- Target Device: "VIRTEX5", "VIRTEX6", "7SERIES", "SPARTAN6"
-    DOA_REG       => 0, -- Optional port A output register (0 or 1)
-    DOB_REG       => 0, -- Optional port B output register (0 or 1)
+    DOA_REG       => 1, -- Optional port A output register (0 or 1)
+    DOB_REG       => 1, -- Optional port B output register (0 or 1)
     INIT_A        => X"000000000", -- Initial values on A output port
     INIT_B        => X"000000000", -- Initial values on B output port
     INIT_FILE     => "NONE",
@@ -249,7 +250,7 @@ port map(
     ADDRA => addr,    -- Input port-A address, width defined by Port A depth
     ADDRB => addrb_reg, -- Input port-B address, width defined by Port B depth
     CLKA => clock,    -- 1-bit input port-A clock
-    CLKB => clk,   -- 1-bit input port-B clock
+    CLKB => clk,      -- 1-bit input port-B clock
     DIA => din,       -- Input port-A data, width defined by WRITE_WIDTH_A parameter
     DIB => X"00000000",       -- Input port-B data, width defined by WRITE_WIDTH_B parameter
     ENA => '1',       -- 1-bit input port-A enable
@@ -257,7 +258,7 @@ port map(
     REGCEA => '1',    -- 1-bit input port-A output register enable
     REGCEB => '1',    -- 1-bit input port-B output register enable
     RSTA => '0',      -- 1-bit input port-A reset
-    RSTB => reset,    -- 1-bit input port-B reset
+    RSTB => '0',      -- 1-bit input port-B reset
     WEA => wea,       -- Input port-A write enable, width defined by Port A depth
     WEB => "0000");   -- Input port-B write enable, width defined by Port B depth
 
@@ -273,13 +274,13 @@ begin
 
                 when rst =>
                     state <= wait4go;
-                    addrb_reg <= "1111111111";
+                    addrb_reg <= "0000000000";
                     count_reg <= "00000";
 
                 when wait4go =>
                     if ( go='1' ) then
                         state <= countup;
-                        addrb_reg <= "1111111111";
+                        addrb_reg <= "0000000000";
                         count_reg <= "00000";
                     else
                         state <= wait4go;
@@ -288,11 +289,11 @@ begin
 
                 when countup =>
                     if ( count_reg = "11111" ) then
-                        if ( addrb_reg = "0000000000" ) then
+                        if ( addrb_reg = "1111111111" ) then
                             state <= wait4go;
                         else
                             count_reg <= "00000";
-                            addrb_reg <= std_logic_vector(unsigned(addrb_reg) - 1);
+                            addrb_reg <= std_logic_vector(unsigned(addrb_reg) + 1);
                         end if;
                     else -- shift
                         count_reg <= std_logic_vector(unsigned(count_reg) + 1);
@@ -306,7 +307,7 @@ begin
             if ( count_reg = "00001" ) then
                 dob_reg <= dob;
             else
-                dob_reg <= dob_reg(30 downto 0) & '0';
+                dob_reg <= '0' & dob_reg(31 downto 1);  -- shift RIGHT
             end if;
 
         end if;
@@ -314,7 +315,7 @@ begin
 
 end process fsm_proc;
 
-q <= dob_reg(31);
+q <= dob_reg(0);
 
 end ovec_arch;
 

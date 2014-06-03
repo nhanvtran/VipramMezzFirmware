@@ -1,20 +1,20 @@
 hdl ipbus/firmware/example_designs/hdl/demo_mezz/top_mezz.vhd
 hdl ipbus/firmware/example_designs/ucf/demo_mezz.ucf
-hdl ipbus/firmware/example_designs/hdl/clocks_7s_serdes.vhd
 hdl ipbus/firmware/example_designs/hdl/demo_mezz/mezz_slaves.vhd
 hdl ipbus/firmware/example_designs/hdl/demo_mezz/ipbus_vpram.vhd
+hdl ipbus/firmware/example_designs/hdl/demo_mezz/mezzanine_package.vhd
+hdl ipbus/firmware/example_designs/hdl/demo_mezz/ovec.vhd
+hdl ipbus/firmware/example_designs/hdl/demo_mezz/ivec.vhd
 hdl ipbus/firmware/example_designs/hdl/demo_mezz/mezz_clock.vhd
 hdl ipbus/firmware/example_designs/hdl/demo_mezz/mezz_clock2.vhd
+hdl ipbus/firmware/example_designs/hdl/demo_mezz/mezzanine.vhd
+hdl ipbus/firmware/example_designs/hdl/demo_mezz/kcpsm6.vhd
+hdl ipbus/firmware/example_designs/hdl/demo_mezz/power.vhd
 hdl ipbus/firmware/example_designs/hdl/demo_mezz/chipscope_ila.vhd
 hdl ipbus/firmware/example_designs/hdl/demo_mezz/chipscope_icon.vhd
 hdl ipbus/firmware/example_designs/hdl/demo_mezz/chipscope_ila.ngc
 hdl ipbus/firmware/example_designs/hdl/demo_mezz/chipscope_icon.ngc
-hdl ipbus/firmware/example_designs/hdl/demo_mezz/ovec.vhd
-hdl ipbus/firmware/example_designs/hdl/demo_mezz/ivec.vhd
-hdl ipbus/firmware/example_designs/hdl/demo_mezz/mezzanine_package.vhd
-hdl ipbus/firmware/example_designs/hdl/demo_mezz/kcpsm6.vhd
-hdl ipbus/firmware/example_designs/hdl/demo_mezz/mezzanine.vhd
-hdl ipbus/firmware/example_designs/hdl/demo_mezz/power.vhd
+hdl ipbus/firmware/example_designs/hdl/clocks_7s_serdes.vhd
 
 include ipbus/firmware/ipbus_core/cfg/file_list
 include ipbus/firmware/example_designs/cfg/file_list
