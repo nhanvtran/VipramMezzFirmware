@@ -530,7 +530,7 @@ trig_0(31 downto 0) <= VIPD(31 downto 0);
 ILA_inst : chipscope_ila
 port map(
   CONTROL => control_0,
-  CLK	  => clock,
+  CLK	  => clk,
   TRIG0	  => trig_0);
 
 end rtl;

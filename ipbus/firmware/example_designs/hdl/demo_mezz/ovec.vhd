@@ -304,7 +304,7 @@ begin
 
             end case;
 
-            if ( count_reg = "00001" ) then
+            if ( count_reg = "00010" ) then
                 dob_reg <= dob;
             else
                 dob_reg <= '0' & dob_reg(31 downto 1);  -- shift RIGHT

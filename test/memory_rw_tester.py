@@ -49,17 +49,17 @@ if __name__ == '__main__':
     for i in range(1,npins):
         xx = [];
         for j in range (nbuckets):
-            xx.append(randuint32())
-            #xx.append(0xfffffff1)
+            #xx.append(randuint32())
+            xx.append(ctypes.c_uint32(300).value)
     
         hw.getNode("VipMEM.Out"+ str(i)).writeBlock( xx )
         hw.getNode("VipMEM.C"+ str(i)).writeBlock( xx )
         hw.dispatch()
-        # hw.getNode("VipMEM.Out"+ str(i)).writeBlock( xx )
-        # hw.getNode("VipMEM.C"+ str(i)).writeBlock( xx )
-        # hw.dispatch()
+        #hw.getNode("VipMEM.Out"+ str(i)).writeBlock( xx )
+        #hw.getNode("VipMEM.C"+ str(i)).writeBlock( xx )
+        #hw.dispatch()
 
-    time.sleep(5.);
+    #time.sleep(5.);
     
     # reading
     for i in range(1,npins):
@@ -67,6 +67,9 @@ if __name__ == '__main__':
         curBlock = hw.getNode("VipMEM.Out"+ str(i)).readBlock( nbuckets )
         curBlockC = hw.getNode("VipMEM.C"+ str(i)).readBlock( nbuckets )
         hw.dispatch()
+        #curBlock = hw.getNode("VipMEM.Out"+ str(i)).readBlock( nbuckets )
+        #curBlockC = hw.getNode("VipMEM.C"+ str(i)).readBlock( nbuckets )
+        #hw.dispatch()
 
         for j in range (nbuckets):
             print i,",",j,",", bin(xx[j])[2:].zfill(32), " ", bin(curBlock[j])[2:].zfill(32), " ", bin(curBlockC[j])[2:].zfill(32)
