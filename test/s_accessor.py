@@ -38,7 +38,7 @@ def GenerateInputs(testname):
 
 # Test starts here
 
-    	rowrange = [40,125]
+    	rowrange = [100,120]
     	colrange = [0,32]
     
     	inputPattern.initializeLoadPhase();

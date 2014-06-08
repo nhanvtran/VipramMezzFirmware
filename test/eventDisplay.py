@@ -21,16 +21,16 @@ if __name__ == '__main__':
         curline2 = f2.readline().rstrip('\n')
 
         # eof
-<<<<<<< HEAD
+
         if curline1 == "" or curline2 == "": 
 	    break;
 	
         checkData = curline1[0]
-=======
+
         if curline1 == "" and curline2 == "": break;
 
         checkData = curline1[0];
->>>>>>> c8ee9cb748a451523d42720685e6d80089d1e4ab
+
         comp1 = curline1[1:]
         comp2 = curline2
 
@@ -54,10 +54,8 @@ if __name__ == '__main__':
                 print "match!"  
             else: 
                 print "no match!"
-<<<<<<< HEAD
 	    print "\n"
-=======
->>>>>>> c8ee9cb748a451523d42720685e6d80089d1e4ab
+
                 
         ctr += 1
     
