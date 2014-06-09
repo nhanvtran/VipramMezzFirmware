@@ -102,8 +102,8 @@ if __name__ == '__main__':
     	plt.figure()
     	plt.imshow(outputPattern,cmap=cmap1, norm = norm, interpolation = 'Nearest',aspect='auto')
     	plt.grid("on")
-	plt.xticks([i for i in range(32)])
-	yr= [4*i for i in range(32)]
+	plt.xticks([i for i in range(0,32)])
+	yr= [4*i for i in range(-1,32)]
 	yr.append(127)
 	plt.yticks(yr)
     	plt.title("protoVIPRAM 2D \n Test: Real Hits = Expected Hits, number of hits :" + str(int(np.sum(outputPattern))))
