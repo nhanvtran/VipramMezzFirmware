@@ -38,7 +38,7 @@ def GenerateInputs(testname):
 
 # Test starts here
 
-    	rowrange = [100,120]
+    	rowrange = [10,80]
     	colrange = [0,32]
     
     	inputPattern.initializeLoadPhase();
@@ -53,11 +53,12 @@ def GenerateInputs(testname):
             for col in range(colrange[0], colrange[1]):
     	    	inputPattern.checkPattern( [row+1000*col,row+1000*col,row+1000*col,row+1000*col] ,row);
 	    
-#    inputPattern.readOutMode();
+
     	for row in range(rowrange[0],rowrange[1]):
     	    for i in range(5): inputPattern.checkPattern( [32767,32767,32767,32767] ,row);
 	    inputPattern.doRowChecker(row);
-                
+   
+        inputPattern.readOutMode();             
     inputPattern.close();
     return inputPattern;
 

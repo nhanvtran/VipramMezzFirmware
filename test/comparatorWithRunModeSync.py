@@ -43,6 +43,7 @@ if __name__ == '__main__':
     print "Welcome to comparator..."
     print "Output shift is ",shift
     mismatchCtr = 0;
+    matchCtr =0;
     for i in range(runModeLine1,len(list1)):
         
         curline1 = list1[i];    
@@ -57,7 +58,12 @@ if __name__ == '__main__':
             if comp1 != comp2: 
                 print "no match for time slice: ", i+1, ", checkData = ", checkData;
                 mismatchCtr += 1;
+	    else:
+	    	matchCtr += 1;
+		
     print "There are", mismatchCtr,"mismatches!";
+    print "There are", matchCtr,"matches!";
+
     print "------------------------";
 
 
