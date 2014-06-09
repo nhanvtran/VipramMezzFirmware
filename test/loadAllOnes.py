@@ -40,27 +40,14 @@ def GenerateInputs(testname):
 
 # Test starts here
 
-    	rowrange = [1,2]
-    	colrange = [0,5]
+    	rowrange = [0,128]
+    	colrange = [0,32]
     
     	inputPattern.initializeLoadPhase();
     
     	for row in range(rowrange[0],rowrange[1]):
     	    for col in range(colrange[0], colrange[1]):
-    		inputPattern.loadUniformPatterns(row, col, row+1000*col+1, 1)
-		
-    	inputPattern.initializeRunPhase( [1,0,0,0] );
-    
-    	for row in range(rowrange[0],rowrange[1]):
-            for col in range(colrange[0], colrange[1]):
-    	    	inputPattern.checkPattern( [row+1000*col+1,row+1000*col+1,row+1000*col+1,row+1000*col+1] ,row);
-	    
-
-#    	for row in range(rowrange[0],rowrange[1]):
-#    	    for i in range(5): inputPattern.checkPattern( [32767,32767,32767,32767] ,row);
-#	    inputPattern.doRowChecker(row);
-   
-        inputPattern.readOutMode();             
+    		inputPattern.loadUniformPatterns(row, col, 0, 0)           
     
     inputPattern.close();
     return inputPattern;
