@@ -325,7 +325,7 @@ if __name__ == '__main__':
 
 
     if np.array_equal(outputPattern, expected_outputPattern):
-    	print "Everything Works!!", "Number of Hits =", int(np.sum(outputPattern))
+    	print "Everything Works!!", "Number of Hits =", int(np.sum(outputPattern)), "\n"
 	bounds=[0,1,2,3]
         norm = colors.BoundaryNorm(bounds, cmap.N)
     	plt.figure()
@@ -341,7 +341,7 @@ if __name__ == '__main__':
     
     else:
     	print "Expected number of hits :", int(np.sum(expected_outputPattern))
-        print "Actual number of hits :", int(np.sum(outputPattern))
+        print "Actual number of hits :", int(np.sum(outputPattern)), "\n"
 	
     	bounds=[0,1,2,3]
     	norm = colors.BoundaryNorm(bounds, cmap.N)
