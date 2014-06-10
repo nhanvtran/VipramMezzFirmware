@@ -47,7 +47,7 @@ def GenerateInputs(testname):
     
     	for row in range(rowrange[0],rowrange[1]):
     	    for col in range(colrange[0], colrange[1]):
-    		inputPattern.loadUniformPatterns(row, col, 0, 0)           
+    		inputPattern.loadUniformPatterns(row, col, 32767, 0)           
     
     inputPattern.close();
     return inputPattern;
