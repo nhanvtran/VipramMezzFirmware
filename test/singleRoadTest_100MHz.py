@@ -39,6 +39,7 @@ def GenerateInputs(testname):
     
     row = int(sys.argv[1])
     col = int(sys.argv[2])    	
+    n = 5
     
     print "\nTesting Row:"+str(row)+" Column: "+str(col)+"\n"
     
@@ -46,11 +47,14 @@ def GenerateInputs(testname):
         	
     for data in data_set:
         inputPattern.initializeLoadPhase()
-    	inputPattern.loadUniformPatterns(row, col,data,1)
+    	inputPattern.loadUniformPatterns(row, col,data,n)
 	inputPattern.initializeRunPhase( [1,0,0,0] )
-	inputPattern.checkPattern( [32767,32767,32767,32767] ,row)
+	for i in range(n)
+	    inputPattern.checkPattern( [32767,32767,32767,32767] ,row)
         inputPattern.checkPattern( [data,data,data,data] ,row)
-        inputPattern.readOutMode()            
+        inputPattern.doRowChecker(row)
+	for i in range(n):
+	    inputPattern.checkPattern( [32767,32767,32767,32767] ,row)
 	
     inputPattern.initializeLoadPhase()
     inputPattern.loadUniformPatterns(row,col,0,1)
