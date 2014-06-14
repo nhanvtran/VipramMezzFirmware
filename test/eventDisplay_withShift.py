@@ -52,7 +52,9 @@ if __name__ == '__main__':
     mismatchCtr = 0;
     matchCtr =0;
     outputPattern = np.zeros((128,32))
+    outputPattern_cumulative = np.zeros((128,32))
     expected_outputPattern = np.zeros((128,32))
+    expected_outputPattern_cumulative = np.zeros((128,32))
 
 
 
@@ -71,7 +73,9 @@ if __name__ == '__main__':
 	    rowE = int(curline1[41:48][::-1],2)
             colE = int(curline1[48:53][::-1],2)
 	    expected_outputData = list(comp1)[::-1]
-	    expected_outputPattern[rowE] = expected_outputData
+	    expected_outputData = [int(x) for x in expected_outputData]
+	    expected_outputPattern[rowE] = expected_outputData	   
+	    expected_outputPattern_cumulative[rowE] = np.add(expected_outputPattern_cumulative[rowE],expected_outputData)
 
 	    row = int(curline3[40:47][::-1],2)
             col = int(curline3[47:52][::-1],2)
@@ -79,9 +83,11 @@ if __name__ == '__main__':
 	    
 #            outputPattern[row] = outputData
 	    outputPattern[rowE] = outputData
+	    outputData = [int(x) for x in outputData]
+	    outputPattern_cumulative[rowE] = np.add(outputPattern_cumulative[rowE], outputData)
 	    
             if comp1 != comp2: 
-                print "no match for time slice: ", i+1, ", checkData = ", checkData;
+                print "--no match for time slice: ", i+1, ", checkData = ", checkData;
                 mismatchCtr += 1;
 	    else:
 	    	matchCtr += 1;
@@ -95,8 +101,8 @@ if __name__ == '__main__':
     cmap1 = colors.ListedColormap(['white','red', 'green'])
 
 
-    if np.array_equal(outputPattern, expected_outputPattern):
-    	print "Everything Works!!", "Number of Hits =", int(np.sum(outputPattern))
+    if np.array_equal(outputPattern_cumulative, expected_outputPattern_cumulative):
+    	print "Everything Works!!", "Total Number of Hits =", int(np.sum(outputPattern_cumulative))
 	bounds=[0,1,2,3]
         norm = colors.BoundaryNorm(bounds, cmap.N)
     	plt.figure()
@@ -111,13 +117,13 @@ if __name__ == '__main__':
     	plt.ylabel("Rows")
     
     else:
-    	print "Expected number of hits :", int(np.sum(expected_outputPattern))
-        print "Actual number of hits :", int(np.sum(outputPattern))
+    	print "Expected number of hits :", int(np.sum(expected_outputPattern_cumulative))
+        print "Actual number of hits :", int(np.sum(outputPattern_cumulative))
 	
     	bounds=[0,1,2,3]
     	norm = colors.BoundaryNorm(bounds, cmap.N)
     	plt.figure()
-    	plt.imshow(outputPattern,cmap=cmap1, norm = norm, interpolation = 'Nearest',aspect='auto')
+    	plt.imshow(outputPattern,cmap='Reds', norm = norm, interpolation = 'Nearest',aspect='auto')
     	#plt.text(col,row,"CAM")
     	plt.grid("on")
 	plt.xticks([i for i in range(32)])
@@ -129,7 +135,7 @@ if __name__ == '__main__':
     	plt.ylabel("Rows")
     
     	plt.figure()
-    	plt.imshow(expected_outputPattern,cmap=cmap, norm = norm, interpolation = 'Nearest',aspect='auto')
+    	plt.imshow(expected_outputPattern,cmap='Blues', norm = norm, interpolation = 'Nearest',aspect='auto')
     	#plt.text(col,row,"CAM")
     	plt.grid("on")
 	plt.xticks([i for i in range(32)])

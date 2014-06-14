@@ -1,0 +1,49 @@
+Testing Row:0 Column: 0
+Output shift is  4
+--no match for time slice:  234 , checkData =  1
+--no match for time slice:  483 , checkData =  1
+--no match for time slice:  732 , checkData =  1
+--no match for time slice:  981 , checkData =  1
+--no match for time slice:  1230 , checkData =  1
+--no match for time slice:  1479 , checkData =  1
+--no match for time slice:  1728 , checkData =  1
+--no match for time slice:  1977 , checkData =  1
+--no match for time slice:  2226 , checkData =  1
+--no match for time slice:  2475 , checkData =  1
+--no match for time slice:  2724 , checkData =  1
+There are 11 mismatches!
+There are 4 matches!
+18:46:06
+Testing Row:0 Column: 1
+Output shift is  4
+--no match for time slice:  234 , checkData =  1
+--no match for time slice:  483 , checkData =  1
+--no match for time slice:  732 , checkData =  1
+--no match for time slice:  981 , checkData =  1
+--no match for time slice:  1230 , checkData =  1
+--no match for time slice:  1479 , checkData =  1
+--no match for time slice:  1728 , checkData =  1
+--no match for time slice:  1977 , checkData =  1
+--no match for time slice:  2226 , checkData =  1
+--no match for time slice:  2475 , checkData =  1
+--no match for time slice:  2724 , checkData =  1
+There are 11 mismatches!
+There are 4 matches!
+18:46:06
+Testing Row:0 Column: 2
+Output shift is  4
+--no match for time slice:  234 , checkData =  1
+--no match for time slice:  483 , checkData =  1
+--no match for time slice:  732 , checkData =  1
+--no match for time slice:  981 , checkData =  1
+--no match for time slice:  1230 , checkData =  1
+--no match for time slice:  1479 , checkData =  1
+--no match for time slice:  1728 , checkData =  1
+--no match for time slice:  1977 , checkData =  1
+--no match for time slice:  2226 , checkData =  1
+--no match for time slice:  2475 , checkData =  1
+--no match for time slice:  2724 , checkData =  1
+There are 11 mismatches!
+There are 4 matches!
+18:46:06
+18:46:06
