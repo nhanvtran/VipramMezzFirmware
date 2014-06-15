@@ -39,22 +39,20 @@ def GenerateInputs(testname):
     
     row = int(sys.argv[1])
     col = int(sys.argv[2])    	
-    
+    		
     print "\nTesting Row:"+str(row)+" Column: "+str(col)+"\n"
     
     data_set = [1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384]
-        	
+    
     for data in data_set:
         inputPattern.initializeLoadPhase()
-    	inputPattern.loadUniformPatterns(row, col,data,50)
+    	inputPattern.loadUniformPatterns(row, col,data,10)
 	inputPattern.initializeRunPhase( [1,0,0,0] )
-	for i in range(15):
- 	    inputPattern.checkPattern( [21845, 21845, 21845, 21845] ,row)
+ 	inputPattern.checkPattern( [21845, 21845, 21845, 21845] ,row)
 	inputPattern.checkPattern( [data,data,data,data] ,row)
-	for i in range(15):
- 	    inputPattern.checkPattern( [21845, 21845, 21845, 21845] ,row)
+ 	inputPattern.checkPattern( [21845, 21845, 21845, 21845] ,row)
         inputPattern.doRowChecker(row)
-	for i in range(15):
+	for i in range(10):
  	    inputPattern.checkPattern( [21845, 21845, 21845, 21845] ,row)
 
     inputPattern.initializeLoadPhase()
