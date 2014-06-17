@@ -36,14 +36,40 @@ parser.add_option('--reset', action='store_true', dest='reset', default=False, h
 def GenerateInputs(testname):
 
     inputPattern = inputBuilder("root/"+testname+".root");
-
-    print "\nLoading full chip with zeros, Expecting operation frequency < 20MHz......"
-    inputPattern.initializeLoadPhase()
     
-    for row in range(128):
-        for col in range(32):
-	    inputPattern.loadUniformPatterns(row, col,0,0)
+    row = int(sys.argv[1])
+    col = int(sys.argv[2])    	
+    		
+    print "\nTesting Row:"+str(row)+" Column: "+str(col)+"\n"
+    
+    inputPattern.initializeLoadPhase()
+		
+    data1 = random.randint(0,32767)
+    data2 = random.randint(0,32767)
+    data3 = random.randint(0,32767)
+    data4 = random.randint(0,32767)
+	    
+    inputPattern.loadSinglePattern(row, col,[data1,data2,data3,data4], 10)
+	    
+    print "Loaded Data:", data1, "in Row:", row," Col:", col, "layerA"
+    print "Loaded Data:", data2, "in Row:", row," Col:", col, "layerB"
+    print "Loaded Data:", data3, "in Row:", row," Col:", col, "layerC"
+    print "Loaded Data:", data4, "in Row:", row," Col:", col, "layerD"
 
+    inputPattern.initializeRunPhase( [1,0,0,0] )
+    inputPattern.checkPattern( [21845, 21845, 21845, 21845] ,row)
+    inputPattern.checkPattern( [data1,data2,data3,data4] ,row)
+    
+    for i in range(10):
+        inputPattern.checkPattern( [21845, 21845, 21845, 21845] ,row)
+    inputPattern.doRowChecker(row)
+    for i in range(10):
+	inputPattern.checkPattern( [21845, 21845, 21845, 21845] ,row)
+
+#    inputPattern.initializeLoadPhase()
+#    inputPattern.loadUniformPatterns(row,col,0,1)
+#    inputPattern.initializeRunPhase( [1,0,0,0] )
+    
     inputPattern.close()
     return inputPattern
 
@@ -261,15 +287,19 @@ if __name__ == '__main__':
             break;
 
     shift = runModeLine2 - runModeLine1;
-    #-----------
-    
-    shift = 0 
     
     print "------------------------"
     print "Welcome to comparator..."
-    print "Output shift is ",shift
+    print "calculated Output shift is ",shift
     mismatchCtr = 0;
     matchCtr =0;
+    
+    
+    
+    shift = 0
+    print "Using output shift:", shift
+    
+    
     
     outputPattern = np.zeros((128,32))
     outputPattern_cumulative = np.zeros((128,32))

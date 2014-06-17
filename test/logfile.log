@@ -1,20 +1,990 @@
-17:15:55
+17:20:45
 Testing Row:0 Column: 0
-Output shift is  4
-There are 0 mismatches!
-There are 15 matches!
-17:16:06
+-Loaded Data: 25895 in Row: 0  Col: 0 layerA
+-Loaded Data: 14569 in Row: 0  Col: 0 layerB
+-Loaded Data: 12471 in Row: 0  Col: 0 layerC
+-Loaded Data: 26228 in Row: 0  Col: 0 layerD
 Testing Row:0 Column: 1
-Output shift is  4
+-Loaded Data: 11451 in Row: 0  Col: 1 layerA
+-Loaded Data: 7384 in Row: 0  Col: 1 layerB
+-Loaded Data: 17417 in Row: 0  Col: 1 layerC
+-Loaded Data: 27752 in Row: 0  Col: 1 layerD
+Testing Row:0 Column: 2
+-Loaded Data: 27860 in Row: 0  Col: 2 layerA
+-Loaded Data: 20793 in Row: 0  Col: 2 layerB
+-Loaded Data: 1160 in Row: 0  Col: 2 layerC
+-Loaded Data: 8142 in Row: 0  Col: 2 layerD
+Testing Row:0 Column: 3
+-Loaded Data: 12687 in Row: 0  Col: 3 layerA
+-Loaded Data: 26488 in Row: 0  Col: 3 layerB
+-Loaded Data: 4434 in Row: 0  Col: 3 layerC
+-Loaded Data: 18253 in Row: 0  Col: 3 layerD
+Testing Row:0 Column: 4
+-Loaded Data: 18437 in Row: 0  Col: 4 layerA
+-Loaded Data: 10011 in Row: 0  Col: 4 layerB
+-Loaded Data: 27034 in Row: 0  Col: 4 layerC
+-Loaded Data: 8158 in Row: 0  Col: 4 layerD
+Testing Row:0 Column: 5
+-Loaded Data: 26172 in Row: 0  Col: 5 layerA
+-Loaded Data: 5960 in Row: 0  Col: 5 layerB
+-Loaded Data: 21392 in Row: 0  Col: 5 layerC
+-Loaded Data: 12316 in Row: 0  Col: 5 layerD
+Testing Row:0 Column: 6
+-Loaded Data: 26264 in Row: 0  Col: 6 layerA
+-Loaded Data: 21993 in Row: 0  Col: 6 layerB
+-Loaded Data: 22500 in Row: 0  Col: 6 layerC
+-Loaded Data: 27758 in Row: 0  Col: 6 layerD
+Testing Row:0 Column: 7
+-Loaded Data: 369 in Row: 0  Col: 7 layerA
+-Loaded Data: 25489 in Row: 0  Col: 7 layerB
+-Loaded Data: 6384 in Row: 0  Col: 7 layerC
+-Loaded Data: 28378 in Row: 0  Col: 7 layerD
+Testing Row:0 Column: 8
+-Loaded Data: 18760 in Row: 0  Col: 8 layerA
+-Loaded Data: 16592 in Row: 0  Col: 8 layerB
+-Loaded Data: 4684 in Row: 0  Col: 8 layerC
+-Loaded Data: 6189 in Row: 0  Col: 8 layerD
+Testing Row:0 Column: 9
+-Loaded Data: 7925 in Row: 0  Col: 9 layerA
+-Loaded Data: 12350 in Row: 0  Col: 9 layerB
+-Loaded Data: 23258 in Row: 0  Col: 9 layerC
+-Loaded Data: 27981 in Row: 0  Col: 9 layerD
+Testing Row:0 Column: 10
+-Loaded Data: 15196 in Row: 0  Col: 10 layerA
+-Loaded Data: 19177 in Row: 0  Col: 10 layerB
+-Loaded Data: 26439 in Row: 0  Col: 10 layerC
+-Loaded Data: 25044 in Row: 0  Col: 10 layerD
+Testing Row:0 Column: 11
+-Loaded Data: 9162 in Row: 0  Col: 11 layerA
+-Loaded Data: 23446 in Row: 0  Col: 11 layerB
+-Loaded Data: 26072 in Row: 0  Col: 11 layerC
+-Loaded Data: 19627 in Row: 0  Col: 11 layerD
+Testing Row:0 Column: 12
+-Loaded Data: 24509 in Row: 0  Col: 12 layerA
+-Loaded Data: 23915 in Row: 0  Col: 12 layerB
+-Loaded Data: 25535 in Row: 0  Col: 12 layerC
+-Loaded Data: 19104 in Row: 0  Col: 12 layerD
+Testing Row:0 Column: 13
+-Loaded Data: 13547 in Row: 0  Col: 13 layerA
+-Loaded Data: 30888 in Row: 0  Col: 13 layerB
+-Loaded Data: 8944 in Row: 0  Col: 13 layerC
+-Loaded Data: 8025 in Row: 0  Col: 13 layerD
+Testing Row:0 Column: 14
+-Loaded Data: 30971 in Row: 0  Col: 14 layerA
+-Loaded Data: 9546 in Row: 0  Col: 14 layerB
+-Loaded Data: 17414 in Row: 0  Col: 14 layerC
+-Loaded Data: 30454 in Row: 0  Col: 14 layerD
+Testing Row:0 Column: 15
+-Loaded Data: 20914 in Row: 0  Col: 15 layerA
+-Loaded Data: 8197 in Row: 0  Col: 15 layerB
+-Loaded Data: 8180 in Row: 0  Col: 15 layerC
+-Loaded Data: 6948 in Row: 0  Col: 15 layerD
+Testing Row:0 Column: 16
+-Loaded Data: 24155 in Row: 0  Col: 16 layerA
+-Loaded Data: 3285 in Row: 0  Col: 16 layerB
+-Loaded Data: 8515 in Row: 0  Col: 16 layerC
+-Loaded Data: 19807 in Row: 0  Col: 16 layerD
+Testing Row:0 Column: 17
+-Loaded Data: 7317 in Row: 0  Col: 17 layerA
+-Loaded Data: 10257 in Row: 0  Col: 17 layerB
+-Loaded Data: 11925 in Row: 0  Col: 17 layerC
+-Loaded Data: 211 in Row: 0  Col: 17 layerD
+Testing Row:0 Column: 18
+-Loaded Data: 6772 in Row: 0  Col: 18 layerA
+-Loaded Data: 1731 in Row: 0  Col: 18 layerB
+-Loaded Data: 2215 in Row: 0  Col: 18 layerC
+-Loaded Data: 11185 in Row: 0  Col: 18 layerD
+Testing Row:0 Column: 19
+-Loaded Data: 655 in Row: 0  Col: 19 layerA
+-Loaded Data: 3405 in Row: 0  Col: 19 layerB
+-Loaded Data: 24794 in Row: 0  Col: 19 layerC
+-Loaded Data: 14683 in Row: 0  Col: 19 layerD
+Testing Row:0 Column: 20
+-Loaded Data: 442 in Row: 0  Col: 20 layerA
+-Loaded Data: 7792 in Row: 0  Col: 20 layerB
+-Loaded Data: 14429 in Row: 0  Col: 20 layerC
+-Loaded Data: 20363 in Row: 0  Col: 20 layerD
+Testing Row:0 Column: 21
+-Loaded Data: 7336 in Row: 0  Col: 21 layerA
+-Loaded Data: 878 in Row: 0  Col: 21 layerB
+-Loaded Data: 18851 in Row: 0  Col: 21 layerC
+-Loaded Data: 10014 in Row: 0  Col: 21 layerD
+Testing Row:0 Column: 22
+-Loaded Data: 21849 in Row: 0  Col: 22 layerA
+-Loaded Data: 10850 in Row: 0  Col: 22 layerB
+-Loaded Data: 25078 in Row: 0  Col: 22 layerC
+-Loaded Data: 1669 in Row: 0  Col: 22 layerD
+Testing Row:0 Column: 23
+-Loaded Data: 27023 in Row: 0  Col: 23 layerA
+-Loaded Data: 2776 in Row: 0  Col: 23 layerB
+-Loaded Data: 3454 in Row: 0  Col: 23 layerC
+-Loaded Data: 20184 in Row: 0  Col: 23 layerD
+Testing Row:0 Column: 24
+-Loaded Data: 14184 in Row: 0  Col: 24 layerA
+-Loaded Data: 10438 in Row: 0  Col: 24 layerB
+-Loaded Data: 15576 in Row: 0  Col: 24 layerC
+-Loaded Data: 25430 in Row: 0  Col: 24 layerD
+Testing Row:0 Column: 25
+-Loaded Data: 22596 in Row: 0  Col: 25 layerA
+-Loaded Data: 29539 in Row: 0  Col: 25 layerB
+-Loaded Data: 21928 in Row: 0  Col: 25 layerC
+-Loaded Data: 23245 in Row: 0  Col: 25 layerD
+Testing Row:0 Column: 26
+-Loaded Data: 22422 in Row: 0  Col: 26 layerA
+-Loaded Data: 18423 in Row: 0  Col: 26 layerB
+-Loaded Data: 3871 in Row: 0  Col: 26 layerC
+-Loaded Data: 25122 in Row: 0  Col: 26 layerD
+Testing Row:0 Column: 27
+-Loaded Data: 18528 in Row: 0  Col: 27 layerA
+-Loaded Data: 9248 in Row: 0  Col: 27 layerB
+-Loaded Data: 3739 in Row: 0  Col: 27 layerC
+-Loaded Data: 1639 in Row: 0  Col: 27 layerD
+Testing Row:0 Column: 28
+-Loaded Data: 18266 in Row: 0  Col: 28 layerA
+-Loaded Data: 4481 in Row: 0  Col: 28 layerB
+-Loaded Data: 10928 in Row: 0  Col: 28 layerC
+-Loaded Data: 22558 in Row: 0  Col: 28 layerD
+Testing Row:0 Column: 29
+-Loaded Data: 32077 in Row: 0  Col: 29 layerA
+-Loaded Data: 27638 in Row: 0  Col: 29 layerB
+-Loaded Data: 14244 in Row: 0  Col: 29 layerC
+-Loaded Data: 29640 in Row: 0  Col: 29 layerD
+Testing Row:0 Column: 30
+-Loaded Data: 17228 in Row: 0  Col: 30 layerA
+-Loaded Data: 28016 in Row: 0  Col: 30 layerB
+-Loaded Data: 12289 in Row: 0  Col: 30 layerC
+-Loaded Data: 25022 in Row: 0  Col: 30 layerD
+Testing Row:0 Column: 31
+-Loaded Data: 19959 in Row: 0  Col: 31 layerA
+-Loaded Data: 32530 in Row: 0  Col: 31 layerB
+-Loaded Data: 25320 in Row: 0  Col: 31 layerC
+-Loaded Data: 25978 in Row: 0  Col: 31 layerD
+calculated Output shift is  3
+Using output shift: 0
 There are 0 mismatches!
-There are 15 matches!
-17:16:17
+There are 32 matches!
+17:21:03
 Testing Row:1 Column: 0
-Output shift is  4
-There are 0 mismatches!
-There are 15 matches!
-17:16:28
+-Loaded Data: 2575 in Row: 1  Col: 0 layerA
+-Loaded Data: 8909 in Row: 1  Col: 0 layerB
+-Loaded Data: 13284 in Row: 1  Col: 0 layerC
+-Loaded Data: 2088 in Row: 1  Col: 0 layerD
 Testing Row:1 Column: 1
-Output shift is  4
+-Loaded Data: 18738 in Row: 1  Col: 1 layerA
+-Loaded Data: 16928 in Row: 1  Col: 1 layerB
+-Loaded Data: 22150 in Row: 1  Col: 1 layerC
+-Loaded Data: 23089 in Row: 1  Col: 1 layerD
+Testing Row:1 Column: 2
+-Loaded Data: 13146 in Row: 1  Col: 2 layerA
+-Loaded Data: 10863 in Row: 1  Col: 2 layerB
+-Loaded Data: 30477 in Row: 1  Col: 2 layerC
+-Loaded Data: 26252 in Row: 1  Col: 2 layerD
+Testing Row:1 Column: 3
+-Loaded Data: 2220 in Row: 1  Col: 3 layerA
+-Loaded Data: 5526 in Row: 1  Col: 3 layerB
+-Loaded Data: 13181 in Row: 1  Col: 3 layerC
+-Loaded Data: 24616 in Row: 1  Col: 3 layerD
+Testing Row:1 Column: 4
+-Loaded Data: 333 in Row: 1  Col: 4 layerA
+-Loaded Data: 30314 in Row: 1  Col: 4 layerB
+-Loaded Data: 21192 in Row: 1  Col: 4 layerC
+-Loaded Data: 17698 in Row: 1  Col: 4 layerD
+Testing Row:1 Column: 5
+-Loaded Data: 2917 in Row: 1  Col: 5 layerA
+-Loaded Data: 13376 in Row: 1  Col: 5 layerB
+-Loaded Data: 4964 in Row: 1  Col: 5 layerC
+-Loaded Data: 12934 in Row: 1  Col: 5 layerD
+Testing Row:1 Column: 6
+-Loaded Data: 10987 in Row: 1  Col: 6 layerA
+-Loaded Data: 31016 in Row: 1  Col: 6 layerB
+-Loaded Data: 870 in Row: 1  Col: 6 layerC
+-Loaded Data: 11346 in Row: 1  Col: 6 layerD
+Testing Row:1 Column: 7
+-Loaded Data: 26932 in Row: 1  Col: 7 layerA
+-Loaded Data: 8865 in Row: 1  Col: 7 layerB
+-Loaded Data: 27545 in Row: 1  Col: 7 layerC
+-Loaded Data: 32364 in Row: 1  Col: 7 layerD
+Testing Row:1 Column: 8
+-Loaded Data: 31470 in Row: 1  Col: 8 layerA
+-Loaded Data: 409 in Row: 1  Col: 8 layerB
+-Loaded Data: 9695 in Row: 1  Col: 8 layerC
+-Loaded Data: 21700 in Row: 1  Col: 8 layerD
+Testing Row:1 Column: 9
+-Loaded Data: 20488 in Row: 1  Col: 9 layerA
+-Loaded Data: 18716 in Row: 1  Col: 9 layerB
+-Loaded Data: 20882 in Row: 1  Col: 9 layerC
+-Loaded Data: 1564 in Row: 1  Col: 9 layerD
+Testing Row:1 Column: 10
+-Loaded Data: 1931 in Row: 1  Col: 10 layerA
+-Loaded Data: 22822 in Row: 1  Col: 10 layerB
+-Loaded Data: 31674 in Row: 1  Col: 10 layerC
+-Loaded Data: 2501 in Row: 1  Col: 10 layerD
+Testing Row:1 Column: 11
+-Loaded Data: 11987 in Row: 1  Col: 11 layerA
+-Loaded Data: 3374 in Row: 1  Col: 11 layerB
+-Loaded Data: 26174 in Row: 1  Col: 11 layerC
+-Loaded Data: 28197 in Row: 1  Col: 11 layerD
+Testing Row:1 Column: 12
+-Loaded Data: 9770 in Row: 1  Col: 12 layerA
+-Loaded Data: 13044 in Row: 1  Col: 12 layerB
+-Loaded Data: 1234 in Row: 1  Col: 12 layerC
+-Loaded Data: 3581 in Row: 1  Col: 12 layerD
+Testing Row:1 Column: 13
+-Loaded Data: 4733 in Row: 1  Col: 13 layerA
+-Loaded Data: 24021 in Row: 1  Col: 13 layerB
+-Loaded Data: 29357 in Row: 1  Col: 13 layerC
+-Loaded Data: 32008 in Row: 1  Col: 13 layerD
+Testing Row:1 Column: 14
+-Loaded Data: 22539 in Row: 1  Col: 14 layerA
+-Loaded Data: 5275 in Row: 1  Col: 14 layerB
+-Loaded Data: 18187 in Row: 1  Col: 14 layerC
+-Loaded Data: 25533 in Row: 1  Col: 14 layerD
+Testing Row:1 Column: 15
+-Loaded Data: 15054 in Row: 1  Col: 15 layerA
+-Loaded Data: 29083 in Row: 1  Col: 15 layerB
+-Loaded Data: 27744 in Row: 1  Col: 15 layerC
+-Loaded Data: 23708 in Row: 1  Col: 15 layerD
+Testing Row:1 Column: 16
+-Loaded Data: 6317 in Row: 1  Col: 16 layerA
+-Loaded Data: 29303 in Row: 1  Col: 16 layerB
+-Loaded Data: 5410 in Row: 1  Col: 16 layerC
+-Loaded Data: 27302 in Row: 1  Col: 16 layerD
+Testing Row:1 Column: 17
+-Loaded Data: 7019 in Row: 1  Col: 17 layerA
+-Loaded Data: 7666 in Row: 1  Col: 17 layerB
+-Loaded Data: 24095 in Row: 1  Col: 17 layerC
+-Loaded Data: 31958 in Row: 1  Col: 17 layerD
+Testing Row:1 Column: 18
+-Loaded Data: 28322 in Row: 1  Col: 18 layerA
+-Loaded Data: 12439 in Row: 1  Col: 18 layerB
+-Loaded Data: 14967 in Row: 1  Col: 18 layerC
+-Loaded Data: 10343 in Row: 1  Col: 18 layerD
+Testing Row:1 Column: 19
+-Loaded Data: 493 in Row: 1  Col: 19 layerA
+-Loaded Data: 4639 in Row: 1  Col: 19 layerB
+-Loaded Data: 14122 in Row: 1  Col: 19 layerC
+-Loaded Data: 22045 in Row: 1  Col: 19 layerD
+Testing Row:1 Column: 20
+-Loaded Data: 28739 in Row: 1  Col: 20 layerA
+-Loaded Data: 13062 in Row: 1  Col: 20 layerB
+-Loaded Data: 28786 in Row: 1  Col: 20 layerC
+-Loaded Data: 24989 in Row: 1  Col: 20 layerD
+Testing Row:1 Column: 21
+-Loaded Data: 32003 in Row: 1  Col: 21 layerA
+-Loaded Data: 28954 in Row: 1  Col: 21 layerB
+-Loaded Data: 20746 in Row: 1  Col: 21 layerC
+-Loaded Data: 31049 in Row: 1  Col: 21 layerD
+Testing Row:1 Column: 22
+-Loaded Data: 4539 in Row: 1  Col: 22 layerA
+-Loaded Data: 25453 in Row: 1  Col: 22 layerB
+-Loaded Data: 2104 in Row: 1  Col: 22 layerC
+-Loaded Data: 2049 in Row: 1  Col: 22 layerD
+Testing Row:1 Column: 23
+-Loaded Data: 24288 in Row: 1  Col: 23 layerA
+-Loaded Data: 17171 in Row: 1  Col: 23 layerB
+-Loaded Data: 32017 in Row: 1  Col: 23 layerC
+-Loaded Data: 8637 in Row: 1  Col: 23 layerD
+Testing Row:1 Column: 24
+-Loaded Data: 14993 in Row: 1  Col: 24 layerA
+-Loaded Data: 32085 in Row: 1  Col: 24 layerB
+-Loaded Data: 5726 in Row: 1  Col: 24 layerC
+-Loaded Data: 31985 in Row: 1  Col: 24 layerD
+Testing Row:1 Column: 25
+-Loaded Data: 19904 in Row: 1  Col: 25 layerA
+-Loaded Data: 32283 in Row: 1  Col: 25 layerB
+-Loaded Data: 12773 in Row: 1  Col: 25 layerC
+-Loaded Data: 10859 in Row: 1  Col: 25 layerD
+Testing Row:1 Column: 26
+-Loaded Data: 30815 in Row: 1  Col: 26 layerA
+-Loaded Data: 20795 in Row: 1  Col: 26 layerB
+-Loaded Data: 24509 in Row: 1  Col: 26 layerC
+-Loaded Data: 17380 in Row: 1  Col: 26 layerD
+Testing Row:1 Column: 27
+-Loaded Data: 3340 in Row: 1  Col: 27 layerA
+-Loaded Data: 21653 in Row: 1  Col: 27 layerB
+-Loaded Data: 15494 in Row: 1  Col: 27 layerC
+-Loaded Data: 16647 in Row: 1  Col: 27 layerD
+Testing Row:1 Column: 28
+-Loaded Data: 16477 in Row: 1  Col: 28 layerA
+-Loaded Data: 13504 in Row: 1  Col: 28 layerB
+-Loaded Data: 13344 in Row: 1  Col: 28 layerC
+-Loaded Data: 31242 in Row: 1  Col: 28 layerD
+Testing Row:1 Column: 29
+-Loaded Data: 19956 in Row: 1  Col: 29 layerA
+-Loaded Data: 5023 in Row: 1  Col: 29 layerB
+-Loaded Data: 22572 in Row: 1  Col: 29 layerC
+-Loaded Data: 26270 in Row: 1  Col: 29 layerD
+Testing Row:1 Column: 30
+-Loaded Data: 31498 in Row: 1  Col: 30 layerA
+-Loaded Data: 18972 in Row: 1  Col: 30 layerB
+-Loaded Data: 15518 in Row: 1  Col: 30 layerC
+-Loaded Data: 2413 in Row: 1  Col: 30 layerD
+Testing Row:1 Column: 31
+-Loaded Data: 22299 in Row: 1  Col: 31 layerA
+-Loaded Data: 688 in Row: 1  Col: 31 layerB
+-Loaded Data: 12632 in Row: 1  Col: 31 layerC
+-Loaded Data: 28410 in Row: 1  Col: 31 layerD
+calculated Output shift is  3
+Using output shift: 0
 There are 0 mismatches!
-There are 15 matches!
+There are 32 matches!
+17:21:21
+Testing Row:2 Column: 0
+-Loaded Data: 21891 in Row: 2  Col: 0 layerA
+-Loaded Data: 20792 in Row: 2  Col: 0 layerB
+-Loaded Data: 1079 in Row: 2  Col: 0 layerC
+-Loaded Data: 12133 in Row: 2  Col: 0 layerD
+Testing Row:2 Column: 1
+-Loaded Data: 18380 in Row: 2  Col: 1 layerA
+-Loaded Data: 11671 in Row: 2  Col: 1 layerB
+-Loaded Data: 14150 in Row: 2  Col: 1 layerC
+-Loaded Data: 25091 in Row: 2  Col: 1 layerD
+Testing Row:2 Column: 2
+-Loaded Data: 4812 in Row: 2  Col: 2 layerA
+-Loaded Data: 12771 in Row: 2  Col: 2 layerB
+-Loaded Data: 32615 in Row: 2  Col: 2 layerC
+-Loaded Data: 11056 in Row: 2  Col: 2 layerD
+Testing Row:2 Column: 3
+-Loaded Data: 9628 in Row: 2  Col: 3 layerA
+-Loaded Data: 9567 in Row: 2  Col: 3 layerB
+-Loaded Data: 23920 in Row: 2  Col: 3 layerC
+-Loaded Data: 31247 in Row: 2  Col: 3 layerD
+Testing Row:2 Column: 4
+-Loaded Data: 24595 in Row: 2  Col: 4 layerA
+-Loaded Data: 7810 in Row: 2  Col: 4 layerB
+-Loaded Data: 18967 in Row: 2  Col: 4 layerC
+-Loaded Data: 23786 in Row: 2  Col: 4 layerD
+Testing Row:2 Column: 5
+-Loaded Data: 6699 in Row: 2  Col: 5 layerA
+-Loaded Data: 24888 in Row: 2  Col: 5 layerB
+-Loaded Data: 20740 in Row: 2  Col: 5 layerC
+-Loaded Data: 13842 in Row: 2  Col: 5 layerD
+Testing Row:2 Column: 6
+-Loaded Data: 16567 in Row: 2  Col: 6 layerA
+-Loaded Data: 10069 in Row: 2  Col: 6 layerB
+-Loaded Data: 30675 in Row: 2  Col: 6 layerC
+-Loaded Data: 19655 in Row: 2  Col: 6 layerD
+Testing Row:2 Column: 7
+-Loaded Data: 19684 in Row: 2  Col: 7 layerA
+-Loaded Data: 11935 in Row: 2  Col: 7 layerB
+-Loaded Data: 20369 in Row: 2  Col: 7 layerC
+-Loaded Data: 14908 in Row: 2  Col: 7 layerD
+Testing Row:2 Column: 8
+-Loaded Data: 8664 in Row: 2  Col: 8 layerA
+-Loaded Data: 19710 in Row: 2  Col: 8 layerB
+-Loaded Data: 30240 in Row: 2  Col: 8 layerC
+-Loaded Data: 11719 in Row: 2  Col: 8 layerD
+Testing Row:2 Column: 9
+-Loaded Data: 1116 in Row: 2  Col: 9 layerA
+-Loaded Data: 13669 in Row: 2  Col: 9 layerB
+-Loaded Data: 17413 in Row: 2  Col: 9 layerC
+-Loaded Data: 22315 in Row: 2  Col: 9 layerD
+Testing Row:2 Column: 10
+-Loaded Data: 4674 in Row: 2  Col: 10 layerA
+-Loaded Data: 23626 in Row: 2  Col: 10 layerB
+-Loaded Data: 10014 in Row: 2  Col: 10 layerC
+-Loaded Data: 28493 in Row: 2  Col: 10 layerD
+Testing Row:2 Column: 11
+-Loaded Data: 16843 in Row: 2  Col: 11 layerA
+-Loaded Data: 15991 in Row: 2  Col: 11 layerB
+-Loaded Data: 16559 in Row: 2  Col: 11 layerC
+-Loaded Data: 3228 in Row: 2  Col: 11 layerD
+Testing Row:2 Column: 12
+-Loaded Data: 20696 in Row: 2  Col: 12 layerA
+-Loaded Data: 18577 in Row: 2  Col: 12 layerB
+-Loaded Data: 4790 in Row: 2  Col: 12 layerC
+-Loaded Data: 4806 in Row: 2  Col: 12 layerD
+Testing Row:2 Column: 13
+-Loaded Data: 27846 in Row: 2  Col: 13 layerA
+-Loaded Data: 4232 in Row: 2  Col: 13 layerB
+-Loaded Data: 12006 in Row: 2  Col: 13 layerC
+-Loaded Data: 1984 in Row: 2  Col: 13 layerD
+Testing Row:2 Column: 14
+-Loaded Data: 13997 in Row: 2  Col: 14 layerA
+-Loaded Data: 31651 in Row: 2  Col: 14 layerB
+-Loaded Data: 8803 in Row: 2  Col: 14 layerC
+-Loaded Data: 22744 in Row: 2  Col: 14 layerD
+Testing Row:2 Column: 15
+-Loaded Data: 26848 in Row: 2  Col: 15 layerA
+-Loaded Data: 25342 in Row: 2  Col: 15 layerB
+-Loaded Data: 238 in Row: 2  Col: 15 layerC
+-Loaded Data: 5663 in Row: 2  Col: 15 layerD
+Testing Row:2 Column: 16
+-Loaded Data: 28548 in Row: 2  Col: 16 layerA
+-Loaded Data: 28667 in Row: 2  Col: 16 layerB
+-Loaded Data: 25718 in Row: 2  Col: 16 layerC
+-Loaded Data: 15289 in Row: 2  Col: 16 layerD
+Testing Row:2 Column: 17
+-Loaded Data: 8796 in Row: 2  Col: 17 layerA
+-Loaded Data: 13418 in Row: 2  Col: 17 layerB
+-Loaded Data: 16904 in Row: 2  Col: 17 layerC
+-Loaded Data: 25828 in Row: 2  Col: 17 layerD
+Testing Row:2 Column: 18
+-Loaded Data: 2272 in Row: 2  Col: 18 layerA
+-Loaded Data: 13240 in Row: 2  Col: 18 layerB
+-Loaded Data: 5959 in Row: 2  Col: 18 layerC
+-Loaded Data: 3208 in Row: 2  Col: 18 layerD
+Testing Row:2 Column: 19
+-Loaded Data: 9246 in Row: 2  Col: 19 layerA
+-Loaded Data: 11894 in Row: 2  Col: 19 layerB
+-Loaded Data: 28224 in Row: 2  Col: 19 layerC
+-Loaded Data: 1789 in Row: 2  Col: 19 layerD
+Testing Row:2 Column: 20
+-Loaded Data: 32546 in Row: 2  Col: 20 layerA
+-Loaded Data: 15972 in Row: 2  Col: 20 layerB
+-Loaded Data: 12471 in Row: 2  Col: 20 layerC
+-Loaded Data: 27446 in Row: 2  Col: 20 layerD
+Testing Row:2 Column: 21
+-Loaded Data: 13392 in Row: 2  Col: 21 layerA
+-Loaded Data: 14235 in Row: 2  Col: 21 layerB
+-Loaded Data: 15282 in Row: 2  Col: 21 layerC
+-Loaded Data: 26937 in Row: 2  Col: 21 layerD
+Testing Row:2 Column: 22
+-Loaded Data: 23155 in Row: 2  Col: 22 layerA
+-Loaded Data: 26873 in Row: 2  Col: 22 layerB
+-Loaded Data: 8930 in Row: 2  Col: 22 layerC
+-Loaded Data: 16035 in Row: 2  Col: 22 layerD
+Testing Row:2 Column: 23
+-Loaded Data: 9655 in Row: 2  Col: 23 layerA
+-Loaded Data: 23993 in Row: 2  Col: 23 layerB
+-Loaded Data: 23611 in Row: 2  Col: 23 layerC
+-Loaded Data: 11507 in Row: 2  Col: 23 layerD
+Testing Row:2 Column: 24
+-Loaded Data: 3053 in Row: 2  Col: 24 layerA
+-Loaded Data: 24787 in Row: 2  Col: 24 layerB
+-Loaded Data: 9765 in Row: 2  Col: 24 layerC
+-Loaded Data: 32020 in Row: 2  Col: 24 layerD
+Testing Row:2 Column: 25
+-Loaded Data: 18524 in Row: 2  Col: 25 layerA
+-Loaded Data: 4236 in Row: 2  Col: 25 layerB
+-Loaded Data: 18408 in Row: 2  Col: 25 layerC
+-Loaded Data: 9531 in Row: 2  Col: 25 layerD
+Testing Row:2 Column: 26
+-Loaded Data: 5213 in Row: 2  Col: 26 layerA
+-Loaded Data: 1155 in Row: 2  Col: 26 layerB
+-Loaded Data: 25939 in Row: 2  Col: 26 layerC
+-Loaded Data: 15792 in Row: 2  Col: 26 layerD
+Testing Row:2 Column: 27
+-Loaded Data: 30842 in Row: 2  Col: 27 layerA
+-Loaded Data: 20260 in Row: 2  Col: 27 layerB
+-Loaded Data: 13419 in Row: 2  Col: 27 layerC
+-Loaded Data: 15811 in Row: 2  Col: 27 layerD
+Testing Row:2 Column: 28
+-Loaded Data: 25249 in Row: 2  Col: 28 layerA
+-Loaded Data: 298 in Row: 2  Col: 28 layerB
+-Loaded Data: 10585 in Row: 2  Col: 28 layerC
+-Loaded Data: 9610 in Row: 2  Col: 28 layerD
+Testing Row:2 Column: 29
+-Loaded Data: 31985 in Row: 2  Col: 29 layerA
+-Loaded Data: 26089 in Row: 2  Col: 29 layerB
+-Loaded Data: 24210 in Row: 2  Col: 29 layerC
+-Loaded Data: 23562 in Row: 2  Col: 29 layerD
+Testing Row:2 Column: 30
+-Loaded Data: 14414 in Row: 2  Col: 30 layerA
+-Loaded Data: 22932 in Row: 2  Col: 30 layerB
+-Loaded Data: 1181 in Row: 2  Col: 30 layerC
+-Loaded Data: 23650 in Row: 2  Col: 30 layerD
+Testing Row:2 Column: 31
+-Loaded Data: 28983 in Row: 2  Col: 31 layerA
+-Loaded Data: 7194 in Row: 2  Col: 31 layerB
+-Loaded Data: 9346 in Row: 2  Col: 31 layerC
+-Loaded Data: 207 in Row: 2  Col: 31 layerD
+calculated Output shift is  3
+Using output shift: 0
+There are 0 mismatches!
+There are 32 matches!
+17:21:38
+Testing Row:3 Column: 0
+-Loaded Data: 8404 in Row: 3  Col: 0 layerA
+-Loaded Data: 10794 in Row: 3  Col: 0 layerB
+-Loaded Data: 30997 in Row: 3  Col: 0 layerC
+-Loaded Data: 16998 in Row: 3  Col: 0 layerD
+Testing Row:3 Column: 1
+-Loaded Data: 25767 in Row: 3  Col: 1 layerA
+-Loaded Data: 20424 in Row: 3  Col: 1 layerB
+-Loaded Data: 7773 in Row: 3  Col: 1 layerC
+-Loaded Data: 8524 in Row: 3  Col: 1 layerD
+Testing Row:3 Column: 2
+-Loaded Data: 2752 in Row: 3  Col: 2 layerA
+-Loaded Data: 20882 in Row: 3  Col: 2 layerB
+-Loaded Data: 16283 in Row: 3  Col: 2 layerC
+-Loaded Data: 15531 in Row: 3  Col: 2 layerD
+Testing Row:3 Column: 3
+-Loaded Data: 10759 in Row: 3  Col: 3 layerA
+-Loaded Data: 25097 in Row: 3  Col: 3 layerB
+-Loaded Data: 31945 in Row: 3  Col: 3 layerC
+-Loaded Data: 13440 in Row: 3  Col: 3 layerD
+Testing Row:3 Column: 4
+-Loaded Data: 17782 in Row: 3  Col: 4 layerA
+-Loaded Data: 28481 in Row: 3  Col: 4 layerB
+-Loaded Data: 22063 in Row: 3  Col: 4 layerC
+-Loaded Data: 394 in Row: 3  Col: 4 layerD
+Testing Row:3 Column: 5
+-Loaded Data: 21678 in Row: 3  Col: 5 layerA
+-Loaded Data: 25923 in Row: 3  Col: 5 layerB
+-Loaded Data: 20734 in Row: 3  Col: 5 layerC
+-Loaded Data: 13182 in Row: 3  Col: 5 layerD
+Testing Row:3 Column: 6
+-Loaded Data: 2488 in Row: 3  Col: 6 layerA
+-Loaded Data: 8702 in Row: 3  Col: 6 layerB
+-Loaded Data: 26514 in Row: 3  Col: 6 layerC
+-Loaded Data: 30746 in Row: 3  Col: 6 layerD
+Testing Row:3 Column: 7
+-Loaded Data: 27568 in Row: 3  Col: 7 layerA
+-Loaded Data: 10965 in Row: 3  Col: 7 layerB
+-Loaded Data: 29618 in Row: 3  Col: 7 layerC
+-Loaded Data: 27562 in Row: 3  Col: 7 layerD
+Testing Row:3 Column: 8
+-Loaded Data: 8443 in Row: 3  Col: 8 layerA
+-Loaded Data: 12840 in Row: 3  Col: 8 layerB
+-Loaded Data: 29655 in Row: 3  Col: 8 layerC
+-Loaded Data: 130 in Row: 3  Col: 8 layerD
+Testing Row:3 Column: 9
+-Loaded Data: 24278 in Row: 3  Col: 9 layerA
+-Loaded Data: 31274 in Row: 3  Col: 9 layerB
+-Loaded Data: 25254 in Row: 3  Col: 9 layerC
+-Loaded Data: 32098 in Row: 3  Col: 9 layerD
+Testing Row:3 Column: 10
+-Loaded Data: 30955 in Row: 3  Col: 10 layerA
+-Loaded Data: 8247 in Row: 3  Col: 10 layerB
+-Loaded Data: 15678 in Row: 3  Col: 10 layerC
+-Loaded Data: 14518 in Row: 3  Col: 10 layerD
+Testing Row:3 Column: 11
+-Loaded Data: 24749 in Row: 3  Col: 11 layerA
+-Loaded Data: 18291 in Row: 3  Col: 11 layerB
+-Loaded Data: 24666 in Row: 3  Col: 11 layerC
+-Loaded Data: 21613 in Row: 3  Col: 11 layerD
+Testing Row:3 Column: 12
+-Loaded Data: 8102 in Row: 3  Col: 12 layerA
+-Loaded Data: 16236 in Row: 3  Col: 12 layerB
+-Loaded Data: 17451 in Row: 3  Col: 12 layerC
+-Loaded Data: 14041 in Row: 3  Col: 12 layerD
+Testing Row:3 Column: 13
+-Loaded Data: 20660 in Row: 3  Col: 13 layerA
+-Loaded Data: 227 in Row: 3  Col: 13 layerB
+-Loaded Data: 2771 in Row: 3  Col: 13 layerC
+-Loaded Data: 25363 in Row: 3  Col: 13 layerD
+Testing Row:3 Column: 14
+-Loaded Data: 13465 in Row: 3  Col: 14 layerA
+-Loaded Data: 20753 in Row: 3  Col: 14 layerB
+-Loaded Data: 29915 in Row: 3  Col: 14 layerC
+-Loaded Data: 10849 in Row: 3  Col: 14 layerD
+Testing Row:3 Column: 15
+-Loaded Data: 29919 in Row: 3  Col: 15 layerA
+-Loaded Data: 22544 in Row: 3  Col: 15 layerB
+-Loaded Data: 5142 in Row: 3  Col: 15 layerC
+-Loaded Data: 3082 in Row: 3  Col: 15 layerD
+Testing Row:3 Column: 16
+-Loaded Data: 15943 in Row: 3  Col: 16 layerA
+-Loaded Data: 244 in Row: 3  Col: 16 layerB
+-Loaded Data: 9739 in Row: 3  Col: 16 layerC
+-Loaded Data: 23731 in Row: 3  Col: 16 layerD
+Testing Row:3 Column: 17
+-Loaded Data: 12945 in Row: 3  Col: 17 layerA
+-Loaded Data: 17522 in Row: 3  Col: 17 layerB
+-Loaded Data: 30544 in Row: 3  Col: 17 layerC
+-Loaded Data: 15525 in Row: 3  Col: 17 layerD
+Testing Row:3 Column: 18
+-Loaded Data: 6218 in Row: 3  Col: 18 layerA
+-Loaded Data: 15703 in Row: 3  Col: 18 layerB
+-Loaded Data: 2423 in Row: 3  Col: 18 layerC
+-Loaded Data: 19200 in Row: 3  Col: 18 layerD
+Testing Row:3 Column: 19
+-Loaded Data: 11226 in Row: 3  Col: 19 layerA
+-Loaded Data: 17076 in Row: 3  Col: 19 layerB
+-Loaded Data: 25978 in Row: 3  Col: 19 layerC
+-Loaded Data: 27511 in Row: 3  Col: 19 layerD
+Testing Row:3 Column: 20
+-Loaded Data: 30271 in Row: 3  Col: 20 layerA
+-Loaded Data: 10925 in Row: 3  Col: 20 layerB
+-Loaded Data: 11043 in Row: 3  Col: 20 layerC
+-Loaded Data: 8142 in Row: 3  Col: 20 layerD
+Testing Row:3 Column: 21
+-Loaded Data: 28362 in Row: 3  Col: 21 layerA
+-Loaded Data: 8431 in Row: 3  Col: 21 layerB
+-Loaded Data: 24409 in Row: 3  Col: 21 layerC
+-Loaded Data: 591 in Row: 3  Col: 21 layerD
+Testing Row:3 Column: 22
+-Loaded Data: 29059 in Row: 3  Col: 22 layerA
+-Loaded Data: 6780 in Row: 3  Col: 22 layerB
+-Loaded Data: 13883 in Row: 3  Col: 22 layerC
+-Loaded Data: 20472 in Row: 3  Col: 22 layerD
+Testing Row:3 Column: 23
+-Loaded Data: 7546 in Row: 3  Col: 23 layerA
+-Loaded Data: 21234 in Row: 3  Col: 23 layerB
+-Loaded Data: 31956 in Row: 3  Col: 23 layerC
+-Loaded Data: 26154 in Row: 3  Col: 23 layerD
+Testing Row:3 Column: 24
+-Loaded Data: 19781 in Row: 3  Col: 24 layerA
+-Loaded Data: 11201 in Row: 3  Col: 24 layerB
+-Loaded Data: 21817 in Row: 3  Col: 24 layerC
+-Loaded Data: 23072 in Row: 3  Col: 24 layerD
+Testing Row:3 Column: 25
+-Loaded Data: 19807 in Row: 3  Col: 25 layerA
+-Loaded Data: 22566 in Row: 3  Col: 25 layerB
+-Loaded Data: 24410 in Row: 3  Col: 25 layerC
+-Loaded Data: 18131 in Row: 3  Col: 25 layerD
+Testing Row:3 Column: 26
+-Loaded Data: 11338 in Row: 3  Col: 26 layerA
+-Loaded Data: 381 in Row: 3  Col: 26 layerB
+-Loaded Data: 30916 in Row: 3  Col: 26 layerC
+-Loaded Data: 32108 in Row: 3  Col: 26 layerD
+Testing Row:3 Column: 27
+-Loaded Data: 25775 in Row: 3  Col: 27 layerA
+-Loaded Data: 15780 in Row: 3  Col: 27 layerB
+-Loaded Data: 19994 in Row: 3  Col: 27 layerC
+-Loaded Data: 4817 in Row: 3  Col: 27 layerD
+Testing Row:3 Column: 28
+-Loaded Data: 5440 in Row: 3  Col: 28 layerA
+-Loaded Data: 8323 in Row: 3  Col: 28 layerB
+-Loaded Data: 28962 in Row: 3  Col: 28 layerC
+-Loaded Data: 9645 in Row: 3  Col: 28 layerD
+Testing Row:3 Column: 29
+-Loaded Data: 32417 in Row: 3  Col: 29 layerA
+-Loaded Data: 10321 in Row: 3  Col: 29 layerB
+-Loaded Data: 30317 in Row: 3  Col: 29 layerC
+-Loaded Data: 26011 in Row: 3  Col: 29 layerD
+Testing Row:3 Column: 30
+-Loaded Data: 12096 in Row: 3  Col: 30 layerA
+-Loaded Data: 16840 in Row: 3  Col: 30 layerB
+-Loaded Data: 7947 in Row: 3  Col: 30 layerC
+-Loaded Data: 3721 in Row: 3  Col: 30 layerD
+Testing Row:3 Column: 31
+-Loaded Data: 7190 in Row: 3  Col: 31 layerA
+-Loaded Data: 5017 in Row: 3  Col: 31 layerB
+-Loaded Data: 13386 in Row: 3  Col: 31 layerC
+-Loaded Data: 10751 in Row: 3  Col: 31 layerD
+calculated Output shift is  3
+Using output shift: 0
+There are 0 mismatches!
+There are 32 matches!
+17:21:56
+Testing Row:4 Column: 0
+-Loaded Data: 7529 in Row: 4  Col: 0 layerA
+-Loaded Data: 7637 in Row: 4  Col: 0 layerB
+-Loaded Data: 3 in Row: 4  Col: 0 layerC
+-Loaded Data: 4806 in Row: 4  Col: 0 layerD
+Testing Row:4 Column: 1
+-Loaded Data: 25352 in Row: 4  Col: 1 layerA
+-Loaded Data: 11548 in Row: 4  Col: 1 layerB
+-Loaded Data: 32749 in Row: 4  Col: 1 layerC
+-Loaded Data: 26328 in Row: 4  Col: 1 layerD
+Testing Row:4 Column: 2
+-Loaded Data: 27374 in Row: 4  Col: 2 layerA
+-Loaded Data: 21947 in Row: 4  Col: 2 layerB
+-Loaded Data: 1698 in Row: 4  Col: 2 layerC
+-Loaded Data: 934 in Row: 4  Col: 2 layerD
+Testing Row:4 Column: 3
+-Loaded Data: 1712 in Row: 4  Col: 3 layerA
+-Loaded Data: 3769 in Row: 4  Col: 3 layerB
+-Loaded Data: 6320 in Row: 4  Col: 3 layerC
+-Loaded Data: 8400 in Row: 4  Col: 3 layerD
+Testing Row:4 Column: 4
+-Loaded Data: 28530 in Row: 4  Col: 4 layerA
+-Loaded Data: 27807 in Row: 4  Col: 4 layerB
+-Loaded Data: 15037 in Row: 4  Col: 4 layerC
+-Loaded Data: 25822 in Row: 4  Col: 4 layerD
+Testing Row:4 Column: 5
+-Loaded Data: 16586 in Row: 4  Col: 5 layerA
+-Loaded Data: 30610 in Row: 4  Col: 5 layerB
+-Loaded Data: 10490 in Row: 4  Col: 5 layerC
+-Loaded Data: 27545 in Row: 4  Col: 5 layerD
+Testing Row:4 Column: 6
+-Loaded Data: 14759 in Row: 4  Col: 6 layerA
+-Loaded Data: 3624 in Row: 4  Col: 6 layerB
+-Loaded Data: 28354 in Row: 4  Col: 6 layerC
+-Loaded Data: 26589 in Row: 4  Col: 6 layerD
+Testing Row:4 Column: 7
+-Loaded Data: 29643 in Row: 4  Col: 7 layerA
+-Loaded Data: 25008 in Row: 4  Col: 7 layerB
+-Loaded Data: 9005 in Row: 4  Col: 7 layerC
+-Loaded Data: 11692 in Row: 4  Col: 7 layerD
+Testing Row:4 Column: 8
+-Loaded Data: 23849 in Row: 4  Col: 8 layerA
+-Loaded Data: 5950 in Row: 4  Col: 8 layerB
+-Loaded Data: 10371 in Row: 4  Col: 8 layerC
+-Loaded Data: 2474 in Row: 4  Col: 8 layerD
+Testing Row:4 Column: 9
+-Loaded Data: 10376 in Row: 4  Col: 9 layerA
+-Loaded Data: 2228 in Row: 4  Col: 9 layerB
+-Loaded Data: 28103 in Row: 4  Col: 9 layerC
+-Loaded Data: 829 in Row: 4  Col: 9 layerD
+Testing Row:4 Column: 10
+-Loaded Data: 3945 in Row: 4  Col: 10 layerA
+-Loaded Data: 7544 in Row: 4  Col: 10 layerB
+-Loaded Data: 32202 in Row: 4  Col: 10 layerC
+-Loaded Data: 30695 in Row: 4  Col: 10 layerD
+Testing Row:4 Column: 11
+-Loaded Data: 1312 in Row: 4  Col: 11 layerA
+-Loaded Data: 20128 in Row: 4  Col: 11 layerB
+-Loaded Data: 23353 in Row: 4  Col: 11 layerC
+-Loaded Data: 10238 in Row: 4  Col: 11 layerD
+Testing Row:4 Column: 12
+-Loaded Data: 1599 in Row: 4  Col: 12 layerA
+-Loaded Data: 29152 in Row: 4  Col: 12 layerB
+-Loaded Data: 12442 in Row: 4  Col: 12 layerC
+-Loaded Data: 2590 in Row: 4  Col: 12 layerD
+Testing Row:4 Column: 13
+-Loaded Data: 18843 in Row: 4  Col: 13 layerA
+-Loaded Data: 25407 in Row: 4  Col: 13 layerB
+-Loaded Data: 10147 in Row: 4  Col: 13 layerC
+-Loaded Data: 27882 in Row: 4  Col: 13 layerD
+Testing Row:4 Column: 14
+-Loaded Data: 26022 in Row: 4  Col: 14 layerA
+-Loaded Data: 1300 in Row: 4  Col: 14 layerB
+-Loaded Data: 27417 in Row: 4  Col: 14 layerC
+-Loaded Data: 21849 in Row: 4  Col: 14 layerD
+Testing Row:4 Column: 15
+-Loaded Data: 7442 in Row: 4  Col: 15 layerA
+-Loaded Data: 2325 in Row: 4  Col: 15 layerB
+-Loaded Data: 12966 in Row: 4  Col: 15 layerC
+-Loaded Data: 9258 in Row: 4  Col: 15 layerD
+Testing Row:4 Column: 16
+-Loaded Data: 8812 in Row: 4  Col: 16 layerA
+-Loaded Data: 18740 in Row: 4  Col: 16 layerB
+-Loaded Data: 26795 in Row: 4  Col: 16 layerC
+-Loaded Data: 11551 in Row: 4  Col: 16 layerD
+Testing Row:4 Column: 17
+-Loaded Data: 18601 in Row: 4  Col: 17 layerA
+-Loaded Data: 29176 in Row: 4  Col: 17 layerB
+-Loaded Data: 23340 in Row: 4  Col: 17 layerC
+-Loaded Data: 9066 in Row: 4  Col: 17 layerD
+Testing Row:4 Column: 18
+-Loaded Data: 22197 in Row: 4  Col: 18 layerA
+-Loaded Data: 23526 in Row: 4  Col: 18 layerB
+-Loaded Data: 6435 in Row: 4  Col: 18 layerC
+-Loaded Data: 13775 in Row: 4  Col: 18 layerD
+Testing Row:4 Column: 19
+-Loaded Data: 8499 in Row: 4  Col: 19 layerA
+-Loaded Data: 22421 in Row: 4  Col: 19 layerB
+-Loaded Data: 6796 in Row: 4  Col: 19 layerC
+-Loaded Data: 3660 in Row: 4  Col: 19 layerD
+Testing Row:4 Column: 20
+-Loaded Data: 22230 in Row: 4  Col: 20 layerA
+-Loaded Data: 12526 in Row: 4  Col: 20 layerB
+-Loaded Data: 18314 in Row: 4  Col: 20 layerC
+-Loaded Data: 2391 in Row: 4  Col: 20 layerD
+Testing Row:4 Column: 21
+-Loaded Data: 22476 in Row: 4  Col: 21 layerA
+-Loaded Data: 21464 in Row: 4  Col: 21 layerB
+-Loaded Data: 29669 in Row: 4  Col: 21 layerC
+-Loaded Data: 21787 in Row: 4  Col: 21 layerD
+Testing Row:4 Column: 22
+-Loaded Data: 11360 in Row: 4  Col: 22 layerA
+-Loaded Data: 7216 in Row: 4  Col: 22 layerB
+-Loaded Data: 31548 in Row: 4  Col: 22 layerC
+-Loaded Data: 19559 in Row: 4  Col: 22 layerD
+Testing Row:4 Column: 23
+-Loaded Data: 16838 in Row: 4  Col: 23 layerA
+-Loaded Data: 4807 in Row: 4  Col: 23 layerB
+-Loaded Data: 4041 in Row: 4  Col: 23 layerC
+-Loaded Data: 541 in Row: 4  Col: 23 layerD
+Testing Row:4 Column: 24
+-Loaded Data: 17080 in Row: 4  Col: 24 layerA
+-Loaded Data: 7328 in Row: 4  Col: 24 layerB
+-Loaded Data: 19286 in Row: 4  Col: 24 layerC
+-Loaded Data: 25244 in Row: 4  Col: 24 layerD
+Testing Row:4 Column: 25
+-Loaded Data: 19896 in Row: 4  Col: 25 layerA
+-Loaded Data: 9461 in Row: 4  Col: 25 layerB
+-Loaded Data: 20754 in Row: 4  Col: 25 layerC
+-Loaded Data: 27068 in Row: 4  Col: 25 layerD
+Testing Row:4 Column: 26
+-Loaded Data: 29981 in Row: 4  Col: 26 layerA
+-Loaded Data: 14735 in Row: 4  Col: 26 layerB
+-Loaded Data: 3233 in Row: 4  Col: 26 layerC
+-Loaded Data: 3122 in Row: 4  Col: 26 layerD
+Testing Row:4 Column: 27
+-Loaded Data: 11190 in Row: 4  Col: 27 layerA
+-Loaded Data: 4 in Row: 4  Col: 27 layerB
+-Loaded Data: 20354 in Row: 4  Col: 27 layerC
+-Loaded Data: 29240 in Row: 4  Col: 27 layerD
+Testing Row:4 Column: 28
+-Loaded Data: 27659 in Row: 4  Col: 28 layerA
+-Loaded Data: 19268 in Row: 4  Col: 28 layerB
+-Loaded Data: 15100 in Row: 4  Col: 28 layerC
+-Loaded Data: 213 in Row: 4  Col: 28 layerD
+Testing Row:4 Column: 29
+-Loaded Data: 23695 in Row: 4  Col: 29 layerA
+-Loaded Data: 22506 in Row: 4  Col: 29 layerB
+-Loaded Data: 29930 in Row: 4  Col: 29 layerC
+-Loaded Data: 13682 in Row: 4  Col: 29 layerD
+Testing Row:4 Column: 30
+-Loaded Data: 14536 in Row: 4  Col: 30 layerA
+-Loaded Data: 29421 in Row: 4  Col: 30 layerB
+-Loaded Data: 22056 in Row: 4  Col: 30 layerC
+-Loaded Data: 29751 in Row: 4  Col: 30 layerD
+Testing Row:4 Column: 31
+-Loaded Data: 30514 in Row: 4  Col: 31 layerA
+-Loaded Data: 26312 in Row: 4  Col: 31 layerB
+-Loaded Data: 23080 in Row: 4  Col: 31 layerC
+-Loaded Data: 29299 in Row: 4  Col: 31 layerD
+calculated Output shift is  3
+Using output shift: 0
+There are 0 mismatches!
+There are 32 matches!
+17:22:14
+Testing Row:5 Column: 0
+-Loaded Data: 19115 in Row: 5  Col: 0 layerA
+-Loaded Data: 18299 in Row: 5  Col: 0 layerB
+-Loaded Data: 17945 in Row: 5  Col: 0 layerC
+-Loaded Data: 7385 in Row: 5  Col: 0 layerD
+Testing Row:5 Column: 1
+-Loaded Data: 20786 in Row: 5  Col: 1 layerA
+-Loaded Data: 26030 in Row: 5  Col: 1 layerB
+-Loaded Data: 15007 in Row: 5  Col: 1 layerC
+-Loaded Data: 9438 in Row: 5  Col: 1 layerD
+Testing Row:5 Column: 2
+-Loaded Data: 18826 in Row: 5  Col: 2 layerA
+-Loaded Data: 18515 in Row: 5  Col: 2 layerB
+-Loaded Data: 24453 in Row: 5  Col: 2 layerC
+-Loaded Data: 17681 in Row: 5  Col: 2 layerD
+Testing Row:5 Column: 3
+-Loaded Data: 21452 in Row: 5  Col: 3 layerA
+-Loaded Data: 1304 in Row: 5  Col: 3 layerB
+-Loaded Data: 32683 in Row: 5  Col: 3 layerC
+-Loaded Data: 31779 in Row: 5  Col: 3 layerD
+Testing Row:5 Column: 4
+-Loaded Data: 886 in Row: 5  Col: 4 layerA
+-Loaded Data: 4996 in Row: 5  Col: 4 layerB
+-Loaded Data: 29939 in Row: 5  Col: 4 layerC
+-Loaded Data: 18435 in Row: 5  Col: 4 layerD
+Testing Row:5 Column: 5
+-Loaded Data: 8122 in Row: 5  Col: 5 layerA
+-Loaded Data: 6125 in Row: 5  Col: 5 layerB
+-Loaded Data: 2144 in Row: 5  Col: 5 layerC
+-Loaded Data: 31873 in Row: 5  Col: 5 layerD
+Testing Row:5 Column: 6
+-Loaded Data: 23962 in Row: 5  Col: 6 layerA
+-Loaded Data: 24055 in Row: 5  Col: 6 layerB
+-Loaded Data: 13295 in Row: 5  Col: 6 layerC
+-Loaded Data: 7001 in Row: 5  Col: 6 layerD
+Testing Row:5 Column: 7
+-Loaded Data: 7646 in Row: 5  Col: 7 layerA
+-Loaded Data: 7405 in Row: 5  Col: 7 layerB
+-Loaded Data: 22457 in Row: 5  Col: 7 layerC
+-Loaded Data: 26483 in Row: 5  Col: 7 layerD
+Testing Row:5 Column: 8
+-Loaded Data: 26232 in Row: 5  Col: 8 layerA
+-Loaded Data: 21781 in Row: 5  Col: 8 layerB
+-Loaded Data: 13426 in Row: 5  Col: 8 layerC
+-Loaded Data: 29609 in Row: 5  Col: 8 layerD
+Testing Row:5 Column: 9
+-Loaded Data: 28117 in Row: 5  Col: 9 layerA
+-Loaded Data: 22519 in Row: 5  Col: 9 layerB
+-Loaded Data: 8361 in Row: 5  Col: 9 layerC
+-Loaded Data: 1198 in Row: 5  Col: 9 layerD
+Testing Row:5 Column: 10
+-Loaded Data: 5879 in Row: 5  Col: 10 layerA
+-Loaded Data: 17638 in Row: 5  Col: 10 layerB
+-Loaded Data: 22643 in Row: 5  Col: 10 layerC
+-Loaded Data: 93 in Row: 5  Col: 10 layerD
+Testing Row:5 Column: 11
+-Loaded Data: 23500 in Row: 5  Col: 11 layerA
+-Loaded Data: 6007 in Row: 5  Col: 11 layerB
+-Loaded Data: 6673 in Row: 5  Col: 11 layerC
+-Loaded Data: 17519 in Row: 5  Col: 11 layerD
+Testing Row:5 Column: 12
+-Loaded Data: 22729 in Row: 5  Col: 12 layerA
+-Loaded Data: 7950 in Row: 5  Col: 12 layerB
+-Loaded Data: 6108 in Row: 5  Col: 12 layerC
+-Loaded Data: 13374 in Row: 5  Col: 12 layerD
+Testing Row:5 Column: 13
+-Loaded Data: 8172 in Row: 5  Col: 13 layerA
+-Loaded Data: 26345 in Row: 5  Col: 13 layerB
+-Loaded Data: 11184 in Row: 5  Col: 13 layerC
+-Loaded Data: 4254 in Row: 5  Col: 13 layerD
+Testing Row:5 Column: 14
+-Loaded Data: 18713 in Row: 5  Col: 14 layerA
+-Loaded Data: 23555 in Row: 5  Col: 14 layerB
+-Loaded Data: 17784 in Row: 5  Col: 14 layerC
+-Loaded Data: 23019 in Row: 5  Col: 14 layerD
+Testing Row:5 Column: 15
+-Loaded Data: 30500 in Row: 5  Col: 15 layerA
+-Loaded Data: 27018 in Row: 5  Col: 15 layerB
+-Loaded Data: 27135 in Row: 5  Col: 15 layerC
+-Loaded Data: 17961 in Row: 5  Col: 15 layerD
+Testing Row:5 Column: 16
+-Loaded Data: 11344 in Row: 5  Col: 16 layerA
+-Loaded Data: 14367 in Row: 5  Col: 16 layerB
+-Loaded Data: 11145 in Row: 5  Col: 16 layerC
+-Loaded Data: 16628 in Row: 5  Col: 16 layerD
+Testing Row:5 Column: 17
+-Loaded Data: 16248 in Row: 5  Col: 17 layerA
+-Loaded Data: 15443 in Row: 5  Col: 17 layerB
+-Loaded Data: 28797 in Row: 5  Col: 17 layerC
+-Loaded Data: 11462 in Row: 5  Col: 17 layerD
+Testing Row:5 Column: 18
+-Loaded Data: 5644 in Row: 5  Col: 18 layerA
+-Loaded Data: 23334 in Row: 5  Col: 18 layerB
+-Loaded Data: 11530 in Row: 5  Col: 18 layerC
+-Loaded Data: 22389 in Row: 5  Col: 18 layerD
+Testing Row:5 Column: 19
+-Loaded Data: 26383 in Row: 5  Col: 19 layerA
+-Loaded Data: 30463 in Row: 5  Col: 19 layerB
+-Loaded Data: 15726 in Row: 5  Col: 19 layerC
+-Loaded Data: 31960 in Row: 5  Col: 19 layerD
+Testing Row:5 Column: 20
+-Loaded Data: 8991 in Row: 5  Col: 20 layerA
+-Loaded Data: 31634 in Row: 5  Col: 20 layerB
+-Loaded Data: 31666 in Row: 5  Col: 20 layerC
+-Loaded Data: 729 in Row: 5  Col: 20 layerD
+Testing Row:5 Column: 21
+-Loaded Data: 12503 in Row: 5  Col: 21 layerA
+-Loaded Data: 20241 in Row: 5  Col: 21 layerB
+-Loaded Data: 31785 in Row: 5  Col: 21 layerC
+-Loaded Data: 27536 in Row: 5  Col: 21 layerD
+Testing Row:5 Column: 22
+-Loaded Data: 9968 in Row: 5  Col: 22 layerA
+-Loaded Data: 948 in Row: 5  Col: 22 layerB
+-Loaded Data: 11679 in Row: 5  Col: 22 layerC
+-Loaded Data: 16671 in Row: 5  Col: 22 layerD
+Testing Row:5 Column: 23
+-Loaded Data: 25543 in Row: 5  Col: 23 layerA
+-Loaded Data: 13649 in Row: 5  Col: 23 layerB
+-Loaded Data: 1571 in Row: 5  Col: 23 layerC
+-Loaded Data: 18600 in Row: 5  Col: 23 layerD
+Testing Row:5 Column: 24
+-Loaded Data: 30877 in Row: 5  Col: 24 layerA
+-Loaded Data: 12507 in Row: 5  Col: 24 layerB
+-Loaded Data: 16194 in Row: 5  Col: 24 layerC
+-Loaded Data: 13965 in Row: 5  Col: 24 layerD
+Testing Row:5 Column: 25
+-Loaded Data: 15516 in Row: 5  Col: 25 layerA
+-Loaded Data: 6803 in Row: 5  Col: 25 layerB
+-Loaded Data: 31947 in Row: 5  Col: 25 layerC
+-Loaded Data: 10025 in Row: 5  Col: 25 layerD
+Testing Row:5 Column: 26
+-Loaded Data: 3536 in Row: 5  Col: 26 layerA
+-Loaded Data: 1550 in Row: 5  Col: 26 layerB
+-Loaded Data: 26693 in Row: 5  Col: 26 layerC
+-Loaded Data: 21302 in Row: 5  Col: 26 layerD
+Testing Row:5 Column: 27
+-Loaded Data: 25306 in Row: 5  Col: 27 layerA
+-Loaded Data: 6745 in Row: 5  Col: 27 layerB
+-Loaded Data: 30363 in Row: 5  Col: 27 layerC
+-Loaded Data: 7067 in Row: 5  Col: 27 layerD
+Testing Row:5 Column: 28
+-Loaded Data: 6249 in Row: 5  Col: 28 layerA
+-Loaded Data: 14344 in Row: 5  Col: 28 layerB
+-Loaded Data: 10185 in Row: 5  Col: 28 layerC
+-Loaded Data: 20856 in Row: 5  Col: 28 layerD
+Testing Row:5 Column: 29
+-Loaded Data: 28823 in Row: 5  Col: 29 layerA
+-Loaded Data: 27177 in Row: 5  Col: 29 layerB
+-Loaded Data: 23459 in Row: 5  Col: 29 layerC
+-Loaded Data: 30111 in Row: 5  Col: 29 layerD
+Testing Row:5 Column: 30
+-Loaded Data: 3247 in Row: 5  Col: 30 layerA
+-Loaded Data: 7985 in Row: 5  Col: 30 layerB
+-Loaded Data: 23889 in Row: 5  Col: 30 layerC
+-Loaded Data: 536 in Row: 5  Col: 30 layerD
+Testing Row:5 Column: 31
+-Loaded Data: 1753 in Row: 5  Col: 31 layerA
+-Loaded Data: 11255 in Row: 5  Col: 31 layerB
+-Loaded Data: 4069 in Row: 5  Col: 31 layerC
+-Loaded Data: 24286 in Row: 5  Col: 31 layerD
+calculated Output shift is  3
+Using output shift: 0
+There are 0 mismatches!
+There are 32 matches!

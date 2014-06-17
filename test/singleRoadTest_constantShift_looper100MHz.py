@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 #from matplotlib.ticker import MultipleLocator
 from matplotlib import colors
-
+import random
 
 ############################################
 #            Job steering                  #
@@ -42,21 +42,25 @@ def GenerateInputs(testname):
     		
     print "\nTesting Row:"+str(row)+" Column: "+str(col)+"\n"
     
-    data_set = [1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384]
+#    data_set = [32767-1,32767-2,32767-4,32767-8,32767-16,32767-32,32767-64,32767-128,32767-256,32767-512,32767-1024,32767-2048,32767-4096,32767-8192,32767-16384]
+#    data_set = [1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384]
+    data_set = [1,16384]
     
     for data in data_set:
         inputPattern.initializeLoadPhase()
-    	inputPattern.loadUniformPatterns(row, col,data,10)
+    	inputPattern.loadUniformPatterns(row, col,data,30)
 	inputPattern.initializeRunPhase( [1,0,0,0] )
  	inputPattern.checkPattern( [21845, 21845, 21845, 21845] ,row)
 	inputPattern.checkPattern( [data,data,data,data] ,row)
  	inputPattern.checkPattern( [21845, 21845, 21845, 21845] ,row)
-        inputPattern.doRowChecker(row)
-	for i in range(10):
+        for i in range(20):
+ 	    inputPattern.checkPattern( [21845, 21845, 21845, 21845] ,row)
+	inputPattern.doRowChecker(row)
+	for i in range(20):
  	    inputPattern.checkPattern( [21845, 21845, 21845, 21845] ,row)
 
     inputPattern.initializeLoadPhase()
-    inputPattern.loadUniformPatterns(row,col,0,1)
+    inputPattern.loadUniformPatterns(row,col,0,20)
     inputPattern.initializeRunPhase( [1,0,0,0] )
     
     inputPattern.close()
@@ -276,7 +280,9 @@ if __name__ == '__main__':
             break;
 
     shift = runModeLine2 - runModeLine1;
+    #-----------
     
+    shift = 0 
     
     print "------------------------"
     print "Welcome to comparator..."
