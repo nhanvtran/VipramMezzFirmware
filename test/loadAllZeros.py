@@ -37,12 +37,13 @@ def GenerateInputs(testname):
 
     inputPattern = inputBuilder("root/"+testname+".root");
 
-    print "\nLoading full chip with zeros, Expecting operation frequency < 20MHz......"
+    print "\nLoading full chip with Random numbers, Expecting clock frequency < 10MHz......\n"
     inputPattern.initializeLoadPhase()
     
     for row in range(128):
         for col in range(32):
-	    inputPattern.loadUniformPatterns(row, col,0,0)
+
+	    inputPattern.loadSinglePattern(row, col,[0,0,0,0], 0 )
 
     inputPattern.close()
     return inputPattern

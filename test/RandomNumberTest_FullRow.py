@@ -336,14 +336,19 @@ if __name__ == '__main__':
 	    outputData = [int(x) for x in outputData]
 	    outputPattern_cumulative[rowE] = np.add(outputPattern_cumulative[rowE], outputData)
 	    
+	    Matched_Columns = [ p for p,q in enumerate(expected_outputData) if q == 1]
+	    
             if comp1 != comp2: 
-                print "--no match for time slice: ", i+1, ", checkData = ", checkData;
+                print "--no match for time slice: ", i+1, ", checkData = ", checkData, "row =",rowE, "Column/s Supposed to Match", Matched_Columns
                 mismatchCtr += 1;
 	    else:
 	    	matchCtr += 1;
-		
-    print "There are", mismatchCtr,"mismatches!";
-    print "There are", matchCtr,"matches!";
+    
+    if mismatchCtr == 0:
+        print "No Mismatches!!!,", matchCtr, "matches"
+    else:		
+        print "There are", mismatchCtr,"mismatches!";
+        print "There are", matchCtr,"matches!";
     
     print "------------------------";
     
@@ -352,7 +357,7 @@ if __name__ == '__main__':
 
 
     if np.array_equal(outputPattern_cumulative, expected_outputPattern_cumulative):
-    	print "Everything Works!!", "Total Number of Hits =", int(np.sum(outputPattern_cumulative))
+    	print "Everything Works!!", "Total number of hits =", int(np.sum(outputPattern_cumulative))
 	bounds=[0,1,2,3]
         norm = colors.BoundaryNorm(bounds, cmap.N)
 
