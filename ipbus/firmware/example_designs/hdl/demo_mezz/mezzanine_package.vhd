@@ -20,6 +20,26 @@ package mezzanine_package is
     constant IDENTITY_OFFSET: std_logic_vector(19 downto 0) := X"00003";
     constant TESTREG_OFFSET:  std_logic_vector(19 downto 0) := X"00004";
 
+    -- power registers
+
+    constant POWER_DVDD_OFFSET: std_logic_vector(19 downto 0) := X"00100";
+    constant POWER_VDD_OFFSET:  std_logic_vector(19 downto 0) := X"00103";
+    constant POWER_VPRE_OFFSET: std_logic_vector(19 downto 0) := X"00106";
+
+    constant POWER_STAT_OFFSET: std_logic_vector(19 downto 0) := X"0010B";
+    constant POWER_VCC_OFFSET:  std_logic_vector(19 downto 0) := X"0010A";
+    constant POWER_TEMP_OFFSET: std_logic_vector(19 downto 0) := X"00109";
+
+    constant POWER_VDVDD_OFFSET: std_logic_vector(19 downto 0) := X"00101";
+    constant POWER_VVDD_OFFSET:  std_logic_vector(19 downto 0) := X"00104";
+    constant POWER_VVPRE_OFFSET: std_logic_vector(19 downto 0) := X"00107";
+
+    constant POWER_IDVDD_OFFSET: std_logic_vector(19 downto 0) := X"00102";
+    constant POWER_IVDD_OFFSET:  std_logic_vector(19 downto 0) := X"00105";
+    constant POWER_IVPRE_OFFSET: std_logic_vector(19 downto 0) := X"00108";
+
+
+
     constant MMCM_OFFSET: std_logic_vector(19 downto 0) := "0000000000100-------";  -- clock config registers: 0x200-0x27F
 
     constant OVEC_OFFSET: array84x20 := (

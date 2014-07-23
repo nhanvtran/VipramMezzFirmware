@@ -18,6 +18,7 @@
 -- added chipscope 30 April 2014
 -- ivec is now R/W 12 May 2014
 -- 5/13/2014 -- add another wait state for IPBus interface
+-- 7/22/2014 -- update power monitoring and control
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -106,11 +107,31 @@ architecture rtl of ipbus_vpram is
      );
     end component;
 
+    --component power is
+    --port(
+    --    clock   : in std_logic;  -- 10MHz
+    --    scl     : inout std_logic_vector(2 downto 0);
+    --    sda     : inout std_logic_vector(2 downto 0));
+    --end component;
+
     component power is
     port(
-        clock   : in std_logic;  -- 10MHz
-        scl     : inout std_logic_vector(2 downto 0);
-        sda     : inout std_logic_vector(2 downto 0));
+        clock : in std_logic;  -- 10MHz
+        reset : in std_logic;
+    
+        scl   : inout std_logic_vector(2 downto 0);
+        sda   : inout std_logic_vector(2 downto 0);
+    
+        dvdd : in std_logic_vector(7 downto 0); -- set the output voltage
+        vdd  : in std_logic_vector(7 downto 0);
+        vpre : in std_logic_vector(7 downto 0);
+    
+        stat: out std_logic_vector(15 downto 0);  -- LTC2991 registers
+        idvdd, ivdd, ivpre: out std_logic_vector(15 downto 0);
+        vdvdd, vvdd, vvpre: out std_logic_vector(15 downto 0);
+        vcc: out std_logic_vector(15 downto 0);
+        temp: out std_logic_vector(15 downto 0)
+    );
     end component;
 
     component chipscope_icon
@@ -142,6 +163,11 @@ architecture rtl of ipbus_vpram is
     signal clk, clk_a, clk_b, slow_clk: std_logic;
     signal mmcm_den, mmcm_dwe, mmcm_locked, mmcm_drdy : std_logic;
     signal mmcm_dout : std_logic_vector(15 downto 0);
+
+    signal dvdd_reg, vdd_reg, vpre_reg: std_logic_vector(7 downto 0);
+
+    signal power_stat, power_vcc, power_temp, power_vdvdd, power_vvdd: std_logic_vector(15 downto 0);
+    signal power_vvpre, power_idvdd, power_ivdd, power_ivpre: std_logic_vector(15 downto 0);
 
     -- chipscope stuff
 
@@ -223,6 +249,9 @@ begin
             ctrl_reg <= (others=>'0');
             test_reg <= X"00000000";
             go_reg <= "00";
+            dvdd_reg <= X"26"; -- default 1.5V
+            vdd_reg <= X"26";
+            vpre_reg <= X"26";
         else
             if (addr_reg=CONTROL_OFFSET and we_reg='1') then
                 ctrl_reg <= din_reg(31 downto 0);
@@ -238,6 +267,18 @@ begin
                 go_reg(0) <= '1';
             else
                 go_reg(0) <= '0';
+            end if;
+
+            if (addr_reg=POWER_DVDD_OFFSET and we_reg='1') then
+                dvdd_reg <= din_reg(7 downto 0);
+            end if;
+
+            if (addr_reg=POWER_VDD_OFFSET and we_reg='1') then
+                vdd_reg <= din_reg(7 downto 0);
+            end if;
+
+            if (addr_reg=POWER_VPRE_OFFSET and we_reg='1') then
+                vpre_reg <= din_reg(7 downto 0);
             end if;
 
             if (go_reg(0)='1') then
@@ -455,6 +496,23 @@ mux_out <=
         IDENTITY              when std_match( addr2_reg, IDENTITY_OFFSET ) else
         test_reg              when std_match( addr2_reg, TESTREG_OFFSET  ) else
         (X"0000" & mmcm_dout) when std_match( addr2_reg, MMCM_OFFSET ) else
+
+        (X"000000" & dvdd_reg) when std_match( addr2_reg, POWER_DVDD_OFFSET ) else -- readback what was written 
+        (X"000000" & vdd_reg)  when std_match( addr2_reg, POWER_VDD_OFFSET ) else
+        (X"000000" & vpre_reg) when std_match( addr2_reg, POWER_VPRE_OFFSET ) else
+
+        (X"0000" & power_stat) when std_match( addr2_reg, POWER_STAT_OFFSET ) else
+        (X"0000" & power_vcc)  when std_match( addr2_reg, POWER_VCC_OFFSET ) else
+        (X"0000" & power_temp) when std_match( addr2_reg, POWER_TEMP_OFFSET ) else
+
+        (X"0000" & power_vdvdd) when std_match( addr2_reg, POWER_VDVDD_OFFSET ) else
+        (X"0000" & power_vvdd)  when std_match( addr2_reg, POWER_VVDD_OFFSET ) else
+        (X"0000" & power_vvpre)  when std_match( addr2_reg, POWER_VVPRE_OFFSET ) else
+
+        (X"0000" & power_idvdd) when std_match( addr2_reg, POWER_IDVDD_OFFSET ) else
+        (X"0000" & power_ivdd)  when std_match( addr2_reg, POWER_IVDD_OFFSET ) else
+        (X"0000" & power_ivpre) when std_match( addr2_reg, POWER_IVPRE_OFFSET ) else
+
         X"00000000";
 
 -- output of this module is NOT registered
@@ -486,11 +544,32 @@ ipbus_out.ipb_ack <= ack_reg(4);
 
 -- power control has no interface with ipbus (yet)
 
+--power_inst: power
+--port map(
+--    clock   => slow_clk,
+--    scl     => scl,
+--    sda     => sda);
+
 power_inst: power
 port map(
-    clock   => slow_clk,
-    scl     => scl,
-    sda     => sda);
+    clock => slow_clk,
+    reset => reset,
+    scl => scl,
+    sda => sda,
+
+    dvdd => dvdd_reg,
+    vdd  => vdd_reg,
+    vpre => vpre_reg,
+
+    stat => power_stat,
+    vcc  => power_vcc,
+    temp => power_temp,
+    vdvdd => power_vdvdd,
+    vvdd  => power_vvdd,
+    vvpre => power_vvpre,
+    idvdd => power_idvdd,
+    ivdd  => power_ivdd,
+    ivpre => power_ivpre);
 
 vpwr_en <= '1';  -- regulators must be enabled before setting output voltage
 
