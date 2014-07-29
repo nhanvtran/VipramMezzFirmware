@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<node>
+  <node id="VipMEM" address="0x0100000">
+    <node id="Status" address="0x000000" permission="rw"/>
+    <node id="Go" address="0x000001" permission="w"/>
+    <node id="FWver" address="0x000002" permission="r"/>
+    <node id="Ident" address="0x000003" permission="r"/>
+    <node id="TestReg" address="0x000004" permission="rw"/>
+
+    <node id="DVDD"   address="0x000100" permission="rw"/>
+    <node id="V_DVDD" address="0x000101" permission="r"/>
+    <node id="I_DVDD" address="0x000102" permission="r"/>
+    <node id="VDD"    address="0x000103" permission="rw"/>
+    <node id="V_VDD"  address="0x000104" permission="r"/>
+    <node id="I_VDD"  address="0x000105" permission="r"/>
+    <node id="VPRECH" address="0x000106" permission="rw"/>
+    <node id="V_VPRECH" address="0x000107" permission="r"/>
+    <node id="I_VPRECH" address="0x000108" permission="r"/>
+
+    <node id="Clock" address="0x000200" mode="block" permission="r" size="1024"/>
+
+    <node id="A0" address="0x001000" mode="block" permission="rw" size="1024"/>
+    <node id="A1" address="0x002000" mode="block" permission="rw" size="1024"/>
+    <node id="A2" address="0x003000" mode="block" permission="rw" size="1024"/>
+    <node id="A3" address="0x004000" mode="block" permission="rw" size="1024"/>
+    <node id="A4" address="0x005000" mode="block" permission="rw" size="1024"/>
+    <node id="A5" address="0x006000" mode="block" permission="rw" size="1024"/>
+    <node id="A6" address="0x007000" mode="block" permission="rw" size="1024"/>
+    <node id="A7" address="0x008000" mode="block" permission="rw" size="1024"/>
+    <node id="A8" address="0x009000" mode="block" permission="rw" size="1024"/>
+    <node id="A9" address="0x00A000" mode="block" permission="rw" size="1024"/>
+    <node id="A10" address="0x00B000" mode="block" permission="rw" size="1024"/>
+    <node id="A11" address="0x00C000" mode="block" permission="rw" size="1024"/>
+    <node id="A12" address="0x00D000" mode="block" permission="rw" size="1024"/>
+    <node id="A13" address="0x00E000" mode="block" permission="rw" size="1024"/>
+    <node id="A14" address="0x00F000" mode="block" permission="rw" size="1024"/>
+    <node id="A15" address="0x010000" mode="block" permission="rw" size="1024"/>
+
+    <node id="B0" address="0x011000" mode="block" permission="rw" size="1024"/>
+    <node id="B1" address="0x012000" mode="block" permission="rw" size="1024"/>
+    <node id="B2" address="0x013000" mode="block" permission="rw" size="1024"/>
+    <node id="B3" address="0x014000" mode="block" permission="rw" size="1024"/>
+    <node id="B4" address="0x015000" mode="block" permission="rw" size="1024"/>
+    <node id="B5" address="0x016000" mode="block" permission="rw" size="1024"/>
+    <node id="B6" address="0x017000" mode="block" permission="rw" size="1024"/>
+    <node id="B7" address="0x018000" mode="block" permission="rw" size="1024"/>
+    <node id="B8" address="0x019000" mode="block" permission="rw" size="1024"/>
+    <node id="B9" address="0x01A000" mode="block" permission="rw" size="1024"/>
+    <node id="B10" address="0x01B000" mode="block" permission="rw" size="1024"/>
+    <node id="B11" address="0x01C000" mode="block" permission="rw" size="1024"/>
+    <node id="B12" address="0x01D000" mode="block" permission="rw" size="1024"/>
+    <node id="B13" address="0x01E000" mode="block" permission="rw" size="1024"/>
+    <node id="B14" address="0x01F000" mode="block" permission="rw" size="1024"/>
+    <node id="B15" address="0x020000" mode="block" permission="rw" size="1024"/>
+
+    <node id="C0" address="0x021000" mode="block" permission="rw" size="1024"/>
+    <node id="C1" address="0x022000" mode="block" permission="rw" size="1024"/>
+    <node id="C2" address="0x023000" mode="block" permission="rw" size="1024"/>
+    <node id="C3" address="0x024000" mode="block" permission="rw" size="1024"/>
+    <node id="C4" address="0x025000" mode="block" permission="rw" size="1024"/>
+    <node id="C5" address="0x026000" mode="block" permission="rw" size="1024"/>
+    <node id="C6" address="0x027000" mode="block" permission="rw" size="1024"/>
+    <node id="C7" address="0x028000" mode="block" permission="rw" size="1024"/>
+    <node id="C8" address="0x029000" mode="block" permission="rw" size="1024"/>
+    <node id="C9" address="0x02A000" mode="block" permission="rw" size="1024"/>
+    <node id="C10" address="0x02B000" mode="block" permission="rw" size="1024"/>
+    <node id="C11" address="0x02C000" mode="block" permission="rw" size="1024"/>
+    <node id="C12" address="0x02D000" mode="block" permission="rw" size="1024"/>
+    <node id="C13" address="0x02E000" mode="block" permission="rw" size="1024"/>
+    <node id="C14" address="0x02F000" mode="block" permission="rw" size="1024"/>
+    <node id="C15" address="0x030000" mode="block" permission="rw" size="1024"/>
+
+    <node id="D0" address="0x031000" mode="block" permission="rw" size="1024"/>
+    <node id="D1" address="0x032000" mode="block" permission="rw" size="1024"/>
+    <node id="D2" address="0x033000" mode="block" permission="rw" size="1024"/>
+    <node id="D3" address="0x034000" mode="block" permission="rw" size="1024"/>
+    <node id="D4" address="0x035000" mode="block" permission="rw" size="1024"/>
+    <node id="D5" address="0x036000" mode="block" permission="rw" size="1024"/>
+    <node id="D6" address="0x037000" mode="block" permission="rw" size="1024"/>
+    <node id="D7" address="0x038000" mode="block" permission="rw" size="1024"/>
+    <node id="D8" address="0x039000" mode="block" permission="rw" size="1024"/>
+    <node id="D9" address="0x03A000" mode="block" permission="rw" size="1024"/>
+    <node id="D10" address="0x03B000" mode="block" permission="rw" size="1024"/>
+    <node id="D11" address="0x03C000" mode="block" permission="rw" size="1024"/>
+    <node id="D12" address="0x03D000" mode="block" permission="rw" size="1024"/>
+    <node id="D13" address="0x03E000" mode="block" permission="rw" size="1024"/>
+    <node id="D14" address="0x03F000" mode="block" permission="rw" size="1024"/>
+    <node id="D15" address="0x040000" mode="block" permission="rw" size="1024"/>
+
+    <node id="RA0" address="0x041000" mode="block" permission="rw" size="1024"/>
+    <node id="RA1" address="0x042000" mode="block" permission="rw" size="1024"/>
+    <node id="RA2" address="0x043000" mode="block" permission="rw" size="1024"/>
+    <node id="RA3" address="0x044000" mode="block" permission="rw" size="1024"/>
+    <node id="RA4" address="0x045000" mode="block" permission="rw" size="1024"/>
+    <node id="RA5" address="0x046000" mode="block" permission="rw" size="1024"/>
+    <node id="RA6" address="0x047000" mode="block" permission="rw" size="1024"/>
+
+    <node id="CA0" address="0x048000" mode="block" permission="rw" size="1024"/>
+    <node id="CA1" address="0x049000" mode="block" permission="rw" size="1024"/>
+    <node id="CA2" address="0x04A000" mode="block" permission="rw" size="1024"/>
+    <node id="CA3" address="0x04B000" mode="block" permission="rw" size="1024"/>
+    <node id="CA4" address="0x04C000" mode="block" permission="rw" size="1024"/>
+
+    <node id="Miss0" address="0x04D000" mode="block" permission="rw" size="1024"/>
+    <node id="Miss1" address="0x04E000" mode="block" permission="rw" size="1024"/>
+    <node id="Miss2" address="0x04F000" mode="block" permission="rw" size="1024"/>
+    <node id="ReqL0" address="0x053000" mode="block" permission="rw" size="1024"/>
+
+    <node id="Latch" address="0x050000" mode="block" permission="rw" size="1024"/>
+    <node id="EvRearm" address="0x051000" mode="block" permission="rw" size="1024"/>
+    <node id="RunMode" address="0x052000" mode="block" permission="rw" size="1024"/>
+    <node id="Primary" address="0x054000" mode="block" permission="rw" size="1024"/>
+
+    <node id="Out0" address="0x080000" mode="block" permission="r" size="1024"/>
+    <node id="Out1" address="0x081000" mode="block" permission="r" size="1024"/>
+    <node id="Out2" address="0x082000" mode="block" permission="r" size="1024"/>
+    <node id="Out3" address="0x083000" mode="block" permission="r" size="1024"/>
+    <node id="Out4" address="0x084000" mode="block" permission="r" size="1024"/>
+    <node id="Out5" address="0x085000" mode="block" permission="r" size="1024"/>
+    <node id="Out6" address="0x086000" mode="block" permission="r" size="1024"/>
+    <node id="Out7" address="0x087000" mode="block" permission="r" size="1024"/>
+    <node id="Out8" address="0x088000" mode="block" permission="r" size="1024"/>
+    <node id="Out9" address="0x089000" mode="block" permission="r" size="1024"/>
+    <node id="Out10" address="0x08A000" mode="block" permission="r" size="1024"/>
+    <node id="Out11" address="0x08B000" mode="block" permission="r" size="1024"/>
+    <node id="Out12" address="0x08C000" mode="block" permission="r" size="1024"/>
+    <node id="Out13" address="0x08D000" mode="block" permission="r" size="1024"/>
+    <node id="Out14" address="0x08E000" mode="block" permission="r" size="1024"/>
+    <node id="Out15" address="0x08F000" mode="block" permission="r" size="1024"/>
+    <node id="Out16" address="0x090000" mode="block" permission="r" size="1024"/>
+    <node id="Out17" address="0x091000" mode="block" permission="r" size="1024"/>
+    <node id="Out18" address="0x092000" mode="block" permission="r" size="1024"/>
+    <node id="Out19" address="0x093000" mode="block" permission="r" size="1024"/>
+    <node id="Out20" address="0x094000" mode="block" permission="r" size="1024"/>
+    <node id="Out21" address="0x095000" mode="block" permission="r" size="1024"/>
+    <node id="Out22" address="0x096000" mode="block" permission="r" size="1024"/>
+    <node id="Out23" address="0x097000" mode="block" permission="r" size="1024"/>
+    <node id="Out24" address="0x098000" mode="block" permission="r" size="1024"/>
+    <node id="Out25" address="0x099000" mode="block" permission="r" size="1024"/>
+    <node id="Out26" address="0x09A000" mode="block" permission="r" size="1024"/>
+    <node id="Out27" address="0x09B000" mode="block" permission="r" size="1024"/>
+    <node id="Out28" address="0x09C000" mode="block" permission="r" size="1024"/>
+    <node id="Out29" address="0x09D000" mode="block" permission="r" size="1024"/>
+    <node id="Out30" address="0x09E000" mode="block" permission="r" size="1024"/>
+    <node id="Out31" address="0x09F000" mode="block" permission="r" size="1024"/>
+
+  </node>
+  <node id="ram" address="0x001000" mode="incremental" size="256"/>
+</node>
