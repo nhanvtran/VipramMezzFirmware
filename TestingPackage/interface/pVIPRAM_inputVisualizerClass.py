@@ -259,7 +259,7 @@ class inputVisualizer:
         self.theBitInstructions = [];
         
         for i in range(self.tree.GetEntries()):
-            if i % 100 == 0: "Writing out, cycle: ", i
+            if i % 1000 == 0: print "Writing out, cycle, processed: ", round(float(i)*100./float(tree.GetEntries()),2),"%";
             self.tree.GetEntry(i);
             
             thisString = ""; 
