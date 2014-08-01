@@ -17,6 +17,9 @@
     <node id="VPRECH" address="0x000106" permission="rw"/>
     <node id="V_VPRECH" address="0x000107" permission="r"/>
     <node id="I_VPRECH" address="0x000108" permission="r"/>
+    <node id="Temperature" address="0x000109" permission="r"/>
+    <node id="V_VCC3V3" address="0x00010A" permission="r"/>
+    <node id="LTC2991" address="0x00010B" permission="r"/>    
 
     <node id="Clock" address="0x000200" mode="block" permission="r" size="1024"/>
 

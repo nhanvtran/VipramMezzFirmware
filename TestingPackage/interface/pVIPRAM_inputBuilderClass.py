@@ -615,11 +615,12 @@ class inputBuilder:
     #        return logic;
 
     # loadRowChecker
-    def doRowChecker( self, row ):
+    def doRowChecker( self, row, col = 1 ):
 
         self.CheckData[0] = 1;                    
         self.CompareNow[0] = 1;        
         self.RowAdr[0] = row;
+        self.ColAdr[0] = col;
         for i in range(32): self.DataOut[i] = self.iDataOut[row][i];
 
         self.counter[0] = self.cycleCtr;

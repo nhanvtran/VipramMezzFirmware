@@ -36,16 +36,35 @@ if __name__ == '__main__':
     uhal.setLogLevelTo( uhal.LogLevel.NOTICE )
 
     reg0 = hw.getNode("VipMEM.V_DVDD").read()
-    hw.dispatch();
     reg1 = hw.getNode("VipMEM.V_VDD").read()
-    hw.dispatch();
     reg2 = hw.getNode("VipMEM.V_VPRECH").read()
+
+    ireg0 = hw.getNode("VipMEM.I_DVDD").read()
+    ireg1 = hw.getNode("VipMEM.I_VDD").read()
+    ireg2 = hw.getNode("VipMEM.I_VPRECH").read()
+
+    vccreg = hw.getNode("VipMEM.V_VCC3V3").read()
+    tmpreg = hw.getNode("VipMEM.Temperature").read()
+    ltcreg = hw.getNode("VipMEM.LTC2991").read()
+
     hw.dispatch();
 
     print '{0:032b}'.format(reg0)
-    print reg0
-    print reg1
-    print reg2
+    print "V_DVDD = ",round(reg0*305.18/1.e6,3),"V"
+    print "V_VDD = ",round(reg1*305.18/1.e6,3),"V"
+    print "V_VPRECH = ",round(reg2*305.18/1.e6,3),"V"
+
+    #print '{0:032b}'.format(ireg0)
+    #print '{0:032b}'.format(ireg1)
+    #print '{0:032b}'.format(ireg2)
+
+    print "I_DVDD = ",round(ireg0*95.375,3),"uA"
+    print "I_VDD = ",round(ireg1*95.375,3),"uA"
+    print "I_VPRECH = ",round(ireg2*95.375,3),"uA"
+
+    print "VCC3V3 = ", round(2.5+vccreg*305./1.e6,3),"V"
+    print "Temperature = ", round(float(str(tmpreg))*0.0625,3),"C"
+    print "LTC2991 = ", ltcreg
 
    # get the output registers
     
