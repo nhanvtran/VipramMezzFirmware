@@ -54,7 +54,7 @@ def stressTest(filename, N, freq):
 
 	# n rows
 	#nrows = 128;
-	nrows = 8;
+	nrows = 16;
 	ncols = 32;
 
 	#infoFile = open("NewStressInfoFile.txt", "a")

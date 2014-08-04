@@ -3,6 +3,7 @@ import sys
 import uhal
 import ctypes
 import time
+import os
 
 sys.path.insert(0, '../interface')
 from pVIPRAM_inputBuilderClass import *
@@ -10,9 +11,8 @@ from pVIPRAM_inputVisualizerClass import *
 
 class VipramCom:
 
-    def __init__(self,instructions,name,go=True):
+    def __init__(self,name,go=True):
         
-        self._instructions = instructions;
         self._name = name;
         self._go = go;
 
@@ -57,9 +57,52 @@ class VipramCom:
         print "registers size = ", len(self._registers);
         ###################
 
-    def sendInstructions(self, reset=False):
+    def runTest(self, bits, reset=False):
 
-        bits = self._instructions;
+        self._instructions = bits;
+        self._matchCtr = 0;
+        self._checkDataDtr = 0;
+
+        self._currentMemoryBlock = 0;
+        curbits = [];
+
+        # input text file
+        f1 = open('dat/'+self._name+'_i.txt','r');
+        list1 = f1.read().split()
+
+        print "list1 lenghth = ", len(list1), " and bits length = ", len(bits)
+
+        memoryBlocksNeeded = len(bits)/(1024*32) + 1;
+        print "memoryBlocksNeeded = ",memoryBlocksNeeded
+        outputfiles = [];
+        for i in range(memoryBlocksNeeded):
+            fno = "dat/"+self._name+"_tmpi_"+str(i)+".txt";
+            if os.path.exists(fno):
+                os.remove(fno)
+            outputfiles.append( open(fno,'w') ); 
+
+        for i in range(len(bits)):
+            curbits.append(bits[i]);
+
+            outputfiles[self._currentMemoryBlock].write( list1[i]+'\n' );
+
+            if (i % (1024*32) == 0 and i > 0) or (i == len(bits)-1):
+                print "[VipramCom: runTest] On memory block ",str(self._currentMemoryBlock);
+                self.sendInstructions(curbits,reset);
+                self.retrieveRegisters(curbits);
+                self.compareOutput(); ## how to do the comparison, make internal txt files?
+                    
+                curbits[:] = []; #clear the list
+                self._currentMemoryBlock += 1;
+
+                if reset: break;
+
+        for i in range(memoryBlocksNeeded):
+            outputfiles[i].close();
+
+    def sendInstructions(self, curbits, reset=False):
+
+        bits = curbits;
         registers = self._registers;
         blockSize = self._blockSize;
 
@@ -123,11 +166,11 @@ class VipramCom:
         # wait before trying to do any retrieving...
         time.sleep(0.1);    
 
-    def retrieveRegisters(self):
+    def retrieveRegisters(self,curbits):
 
         # get the output registers
         outMem = [];
-        bits = self._instructions;
+        bits = curbits
         registers = self._registers;
         blockSize = self._blockSize;
         
@@ -149,7 +192,7 @@ class VipramCom:
             #         print "Out31:", '{0:032b}'.format(curBlock[k]);
             #         print  '{0:032b}'.format(outMem[len(outMem)-1][k])
 
-        fno = "dat/"+self._name+"_f.txt";
+        fno = "dat/"+self._name+"_tmpf_"+str(self._currentMemoryBlock)+".txt";
         fout = open(fno,'w');
         timeCtr = 0;
 
@@ -175,17 +218,14 @@ class VipramCom:
 
     def compareOutput(self):
 
-        f1 = open('dat/'+self._name+'_i.txt','r');
-        f2 = open('dat/'+self._name+'_f.txt','r');
+        f1 = open('dat/'+self._name+'_tmpi_'+str(self._currentMemoryBlock)+'.txt','r');
+        f2 = open('dat/'+self._name+'_tmpf_'+str(self._currentMemoryBlock)+'.txt','r');
 
         list1 = f1.read().split()
         list2 = f2.read().split()
 
         print "list1 lenghth = ", len(list1);
         print "list2 lenghth = ", len(list2);
-
-        matchctr = 0;
-        checkdatactr = 0;
 
         for i in range(len(list1)):
 
@@ -199,11 +239,11 @@ class VipramCom:
             #print list2[i]
 
             if int(checkData) == 1:
-                checkdatactr += 1;
+                self._checkDataDtr += 1;
                 #print "time slice: ", i, ", checkData = ", checkData, ", row = ", row, ", col = ", col;
-                if comp1 == comp2: matchctr += 1;
+                if comp1 == comp2: self._matchCtr += 1;
             
-        print "test results: match eff = ",matchctr,"/",checkdatactr," = ",float(matchctr)*100./float(checkdatactr),"%"
+        print "test results: match eff = ",self._matchCtr,"/",self._checkDataDtr," = ",float(self._matchCtr)*100./float(self._checkDataDtr),"%"
 
                 #print comp1, "check data = ", checkData
                 #print comp2

@@ -42,19 +42,9 @@ if __name__ == '__main__':
     print "file = ", pattern1.getFilename();
     visualizer1 = inputVisualizer( pattern1.getFilename() );
     bits = visualizer1.writeToText( os.path.splitext( pattern1.getFilename() )[0]+"_i.txt", True );
-    
-    # print "N time slices = ", len(bits);
-    # for i in range(len(bits)):
-    #     print bits[i]," and ", len(bits[i])
-    #testFile = open("dat/tmp1_i.txt", True);
-    
-    print "total time slices = ", len(bits)
-    print "total time slices = ", len(bits[0])
 
-    vc1 = VipramCom(bits,"tmp1");
-    vc1.sendInstructions();
-    vc1.retrieveRegisters();
-    vc1.compareOutput();
+    vc1 = VipramCom("tmp1");
+    vc1.runTest(bits);
 
     # ctr = 0;
     # curbits = [];
