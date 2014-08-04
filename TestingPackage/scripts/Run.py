@@ -25,6 +25,9 @@ parser.add_option('--reset', action='store_true', dest='reset', default=False, h
 parser.add_option('--freq',action="store",type="int",dest="freq",default=10)
 parser.add_option('--NStress',action="store",type="int",dest="NStress",default=0)
 
+# tests to run
+parser.add_option('--runStressTest', action='store_true', dest='runStressTest', default=False, help='go!')
+parser.add_option('--runExampleTest', action='store_true', dest='runExampleTest', default=False, help='go!')
 
 (options, args) = parser.parse_args()
 
@@ -39,22 +42,11 @@ if __name__ == '__main__':
     pattern1 = stressTest("tmp1",options.NStress,options.freq);
     #pattern1 = exampleTest("tmp1");
 
-    print "file = ", pattern1.getFilename();
     visualizer1 = inputVisualizer( pattern1.getFilename() );
     bits = visualizer1.writeToText( os.path.splitext( pattern1.getFilename() )[0]+"_i.txt", True );
 
     vc1 = VipramCom("tmp1");
     vc1.runTest(bits);
-
-    # ctr = 0;
-    # curbits = [];
-    # index = 0
-    # for i in range(0, len(bits)):
-    #     if (i == len(bits)-1) or (i % 32768 == 0 and i > 0): 
-    #         sendRetrieveCompare(curbits, index);
-    #         curbits = [];
-	   #  index = i
-    #     curbits.append( bits[i] )
 
     
 
