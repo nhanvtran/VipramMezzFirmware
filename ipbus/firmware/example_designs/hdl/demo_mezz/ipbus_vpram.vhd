@@ -152,9 +152,10 @@ architecture rtl of ipbus_vpram is
     signal ivec_dout: array32x32;
     signal addr_reg, addr2_reg : std_logic_vector(19 downto 0);
     signal din_reg : std_logic_vector(31 downto 0);
-    signal reset_clk, we_reg, go200_reg : std_logic;
+    signal reset_clk, we_reg, go200_reg, strobe_reg : std_logic;
     signal go_reg : std_logic_vector(1 downto 0);
-    signal test_reg, ctrl_reg : std_logic_vector(31 downto 0);
+    signal test_reg: std_logic_vector(31 downto 0);
+    signal mmcm_reset_reg: std_logic;
     signal ack_reg: std_logic_vector(4 downto 0);
     signal ovec_we: std_logic_vector(83 downto 0);
     signal ivec_we: std_logic_vector(31 downto 0);
@@ -163,6 +164,7 @@ architecture rtl of ipbus_vpram is
     signal clk, clk_a, clk_b, slow_clk: std_logic;
     signal mmcm_den, mmcm_dwe, mmcm_locked, mmcm_drdy : std_logic;
     signal mmcm_dout : std_logic_vector(15 downto 0);
+    signal mmcm_sel, mmcm_sel_reg : std_logic;
 
     signal dvdd_reg, vdd_reg, vpre_reg: std_logic_vector(7 downto 0);
 
@@ -200,6 +202,19 @@ begin
 --
 -- assume reset is synchronous to clock
 -- sample reset using clk and send that to ivec and ovec modules.
+--
+-- The MMCM is senstive to the pulse width of the DEN pulse.  It must 
+-- be asserted for only one clock cycle.  Don't try to read the 
+-- the MMCM DRP registers before DRDY is asserted.
+
+mmcm_sel <= '1' when (std_match(addr_reg, MMCM_OFFSET) and strobe_reg='1') else '0';
+
+mmcm_proc: process(clock)
+begin
+    if rising_edge(clock) then
+        mmcm_sel_reg <= mmcm_sel;
+    end if;
+end process mmcm_proc;
 
 mmcm_inst: mezz_clock2
 port map(
@@ -216,16 +231,12 @@ port map(
     DIN       => din_reg(15 downto 0),
     DOUT      => mmcm_dout(15 downto 0),
     DWE       => mmcm_dwe,
-    DRDY      => mmcm_drdy,
-    RESET     => ctrl_reg(0),  -- self clearing control bit
+    DRDY      => open,
+    RESET     => mmcm_reset_reg,
     LOCKED    => mmcm_locked);
 
-mmcm_den <= '1' when std_match( addr_reg, MMCM_OFFSET ) else '0';
+mmcm_den <= '1' when (mmcm_sel='1' and mmcm_sel_reg='0') else '0';
 mmcm_dwe <= mmcm_den and we_reg;
-
-
-
-
 
 -- register memory bus inputs
 -- assume reset is in clock domain
@@ -234,6 +245,7 @@ input_proc: process(clock)
 begin
     if rising_edge(clock) then
         din_reg   <= ipbus_in.ipb_wdata;
+        strobe_reg <= ipbus_in.ipb_strobe;
         we_reg    <= ipbus_in.ipb_strobe and ipbus_in.ipb_write;
         addr_reg  <= ipbus_in.ipb_addr(19 downto 0);
         addr2_reg <= addr_reg;
@@ -246,7 +258,7 @@ reg_proc: process(clock)
 begin
     if rising_edge(clock) then
         if (reset='1') then
-            ctrl_reg <= (others=>'0');
+            mmcm_reset_reg <= '0';
             test_reg <= X"00000000";
             go_reg <= "00";
             dvdd_reg <= X"26"; -- default 1.5V
@@ -254,9 +266,7 @@ begin
             vpre_reg <= X"26";
         else
             if (addr_reg=CONTROL_OFFSET and we_reg='1') then
-                ctrl_reg <= din_reg(31 downto 0);
-            else -- auto clear function
-                ctrl_reg <= mmcm_locked & mmcm_drdy & "00" & X"0000000";
+                mmcm_reset_reg <= din_reg(0);  -- no longer self-clearning
             end if;
 
             if (addr_reg=TESTREG_OFFSET and we_reg='1') then
@@ -491,7 +501,7 @@ mux_out <=
         ivec_dout(30) when std_match( addr2_reg, IVEC_OFFSET(30) ) else
         ivec_dout(31) when std_match( addr2_reg, IVEC_OFFSET(31) ) else
 
-        ctrl_reg              when std_match( addr2_reg, CONTROL_OFFSET  ) else
+        mmcm_locked & "000" & X"000000" & "000" & mmcm_reset_reg when std_match( addr2_reg, CONTROL_OFFSET  ) else
         VERSION               when std_match( addr2_reg, FIRMWARE_OFFSET ) else
         IDENTITY              when std_match( addr2_reg, IDENTITY_OFFSET ) else
         test_reg              when std_match( addr2_reg, TESTREG_OFFSET  ) else

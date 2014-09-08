@@ -21,7 +21,17 @@
     <node id="V_VCC3V3" address="0x00010A" permission="r"/>
     <node id="LTC2991" address="0x00010B" permission="r"/>    
 
-    <node id="Clock" address="0x000200" mode="block" permission="r" size="1024"/>
+    <node id="CLKFBOUT_1"  address="0x000214" permission="rw"/>
+    <node id="CLKFBOUT_2"  address="0x000215" permission="rw"/>
+    <node id="CLKOUT0_1"   address="0x000208" permission="rw"/>
+    <node id="CLKOUT0_2"   address="0x000209" permission="rw"/>
+    <node id="CLKOUT1_1"   address="0x00020A" permission="rw"/>
+    <node id="CLKOUT1_2"   address="0x00020B" permission="rw"/>
+    <node id="CLKOUT2_1"   address="0x00020C" permission="rw"/>
+    <node id="CLKOUT2_2"   address="0x00020D" permission="rw"/>
+    <node id="CLKOUT3_1"   address="0x00020E" permission="rw"/>
+    <node id="CLKOUT3_2"   address="0x00020F" permission="rw"/>
+    <node id="CLKPOWER"    address="0x000228" permission="rw"/>
 
     <node id="A0" address="0x001000" mode="block" permission="rw" size="1024"/>
     <node id="A1" address="0x002000" mode="block" permission="rw" size="1024"/>

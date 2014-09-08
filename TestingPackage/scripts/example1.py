@@ -54,7 +54,7 @@ def stressTest(filename, N, freq):
 
 	# n rows
 	#nrows = 128;
-	nrows = 16;
+	nrows = 6;
 	ncols = 32;
 
 	#infoFile = open("NewStressInfoFile.txt", "a")
@@ -62,9 +62,9 @@ def stressTest(filename, N, freq):
 	## ---------------------------------
 	## Load mode
 	print "RUNNING LOAD MODE!!"
-	for row in range(nrows):
+	for row in range(0,128):
 		tmpInfoList = [];
-		for col in range(0, ncols):
+		for col in range(0, 32):
 			if (random.randint(1, 100) > prob):
 				inputP.loadSinglePattern(row, col, [0, 0, 0, 0], mult)
 				#print "Loaded [0, 0, 0, 0] in Row: " + str(row) + ", Col: " + str(col)
@@ -88,10 +88,10 @@ def stressTest(filename, N, freq):
 				inputP.initializeRunPhase([1, 0, 0, 0])
 				inputP.checkPattern([21845, 21845, 21845, 21845], row)
 				inputP.checkPattern([32766, 32766, 32766, 32766], row)
-				for i in range(0, 10):
+				for i in range(0, 10*mult):
 					inputP.checkPattern([21845, 21845, 21845, 21845], row)
 				inputP.doRowChecker(row,col)
-				for i in range(0, 10):
+				for i in range(0, 10*mult):
 					inputP.checkPattern([21845, 21845, 21845, 21845], row)
 			inputP.initializeLoadPhase()
 			#print "After Loading [0, 0, 0, 0] in Row: " + str(row) + ", Col: " + str(col)
@@ -103,6 +103,92 @@ def stressTest(filename, N, freq):
 	print "done"
 	inputP.close();
 	return inputP;
+
+
+
+def realisticTest(filename, freq):
+
+	inputP = inputBuilder("dat/" + filename + ".root")
+	inputP.initializeLoadPhase()
+	
+	# frequency
+	# mult = (int(sys.argv[3])/10)+1
+	mult = (int(freq)/10)+1;
+
+	print "Multiplier = ", mult
+
+	# n rows
+	#nrows = 128;
+	nrows = 6;
+	ncols = 32;
+        npatterns = nrows * ncols;
+        nBankSize = 100000;
+        nTruePatterns = 5;
+
+        f = open('../../../patterns_612_SLHC6_MUBANK_lowmidhig_sec16_ss32_cov40.dat', 'r');
+        line = f.readlines();        
+
+	#infoFile = open("NewStressInfoFile.txt", "a")
+	infoList = [];
+        data   = [None]*4;
+
+        l0hits = [];
+        l1hits = []
+        l2hits = [];
+        l3hits = [];
+             
+	## ---------------------------------
+	## Load mode
+	print "RUNNING LOAD MODE!!"
+	for row in range(nrows):
+		for col in range(0, ncols):
+                    x = random.randint(1, nBankSize);
+                    columns = line[x].split()
+                    data = [int(columns[0]), int(columns[2]), int(columns[4]), int(columns[6])];
+                    inputP.loadSinglePattern(row, col, data, mult)
+
+                    if ((row ==0) and (col<nTruePatterns)):
+                        l0hits.append(int(columns[0]));
+                        l1hits.append(int(columns[2]));
+                        l2hits.append(int(columns[4]));
+                        l3hits.append(int(columns[6]));
+                    
+ 
+	## ---------------------------------
+	## test hits
+    
+        
+        nHitsPerLayer = 33;
+	for hit in range(nHitsPerLayer-nTruePatterns):
+            x = random.randint(1, nBankSize);
+            columns = line[x].split()
+            l0hits.append(int(columns[0]));
+            x = random.randint(1, nBankSize);
+            columns = line[x].split()
+            l1hits.append(int(columns[2]));
+            x = random.randint(1, nBankSize);
+            columns = line[x].split()
+            l2hits.append(int(columns[4]));
+            x = random.randint(1, nBankSize);
+            columns = line[x].split()
+            l3hits.append(int(columns[6]));
+
+        print l0hits;   
+        print l1hits;
+        print l2hits;
+        print l3hits;
+
+
+	print "RUN CHECK MODE!!"
+        inputP.initializeRunPhase([1, 0, 0, 0])
+        for i in range(nHitsPerLayer): inputP.checkPattern( [l0hits[i], l1hits[i], l2hits[i],  l3hits[i]] ,0);
+        inputP.doRowChecker(0)
+	
+        print "done"
+	inputP.close();
+	return inputP;
+
+
 
 def dummy():
 	print "hello world"
