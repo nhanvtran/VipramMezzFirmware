@@ -62,6 +62,8 @@ class VipramCom:
         self._instructions = bits;
         self._matchCtr = 0;
         self._checkDataDtr = 0;
+        self.denom = 0;
+        self.numer = 0;
 
         self._currentMemoryBlock = 0;
         curbits = [];
@@ -245,8 +247,15 @@ class VipramCom:
                 self._checkDataDtr += 1;
                 #print "time slice: ", i, ", checkData = ", checkData, ", row = ", row, ", col = ", col;
                 if comp1 == comp2: self._matchCtr += 1;
+
+                for bitctr in range(32):
+                    if (comp1[bitctr:bitctr+1]== "1"): 
+                        self.denom += 1;
+                        if (comp2[bitctr:bitctr+1]== "1"): self.numer += 1;
             
         if (self._checkDataDtr !=0): print "test results: match eff = ",self._matchCtr,"/",self._checkDataDtr," = ",float(self._matchCtr)*100./float(self._checkDataDtr),"%"
+
+        if (self.denom !=0): print "REAL test results: match eff = ",self.numer,"/",self.denom," = ",float(self.numer)*100./float(self.denom),"%"
 
                 #print comp1, "check data = ", checkData
                 #print comp2
@@ -267,49 +276,44 @@ class VipramCom:
 
          Status = self._hw.getNode("VipMEM.Status").read();
          self._hw.dispatch();
-         time.sleep(0.5);
+         time.sleep(0.1);
 
          print "clockStatus = ", '{0:032b}'.format(Status);
          self._hw.getNode("VipMEM.Status").write(Status+1);
          self._hw.dispatch();
-         time.sleep(0.5);
+         time.sleep(0.1);
 
          self._hw.getNode("VipMEM.CLKPOWER").write(0xffff);
          self._hw.dispatch();
-         time.sleep(0.5);
+         time.sleep(0.1);
          clkpower = self._hw.getNode("VipMEM.CLKPOWER").read();
          self._hw.dispatch();
          print "CLKPOWER = "'{0:032b}'.format(clkpower);
-         time.sleep(0.5);
+         time.sleep(0.1);
 
          blockSize =2;
 
          CLKOUT   = [None]*2;
          if clock == "vco":
-             #CLKOUT = self._hw.getNode("VipMEM.CLKFBOUT").readBlock( blockSize );
              CLKOUT[0] = self._hw.getNode("VipMEM.CLKFBOUT_1").read();
              CLKOUT[1] = self._hw.getNode("VipMEM.CLKFBOUT_2").read();
          elif clock == "clock0":
-             #CLKOUT = self._hw.getNode("VipMEM.CLKOUT0").readBlock( blockSize );
              CLKOUT[0] = self._hw.getNode("VipMEM.CLKOUT0_1").read();
              CLKOUT[1] = self._hw.getNode("VipMEM.CLKOUT0_2").read();
          elif clock == "clock1":
-             #CLKOUT = self._hw.getNode("VipMEM.CLKOUT1").readBlock( blockSize );
              CLKOUT[0] = self._hw.getNode("VipMEM.CLKOUT1_1").read();
              CLKOUT[1] = self._hw.getNode("VipMEM.CLKOUT1_2").read();
          elif clock == "clock2":
-             #CLKOUT = self._hw.getNode("VipMEM.CLKOUT2").readBlock( blockSize );
              CLKOUT[0] = self._hw.getNode("VipMEM.CLKOUT2_1").read();
              CLKOUT[1] = self._hw.getNode("VipMEM.CLKOUT2_2").read();
          elif clock == "clock3":    
-             #CLKOUT = self._hw.getNode("VipMEM.CLKOUT3").readBlock( blockSize );
              CLKOUT[0] = self._hw.getNode("VipMEM.CLKOUT3_1").read();
              CLKOUT[1] = self._hw.getNode("VipMEM.CLKOUT3_2").read();
          else: 
              print "unknown clock";
          self._hw.dispatch();
              
-         time.sleep(0.5);
+         time.sleep(0.1);
       
          CLKREG   = [None]*2;
          CLKREG[0]  = '{0:032b}'.format(CLKOUT[0]);
@@ -325,53 +329,43 @@ class VipramCom:
        
          if clock == "vco":
              print "Writing to VCO";
-             #self._hw.getNode("VipMEM.CLKFBOUT").writeBlock (CLKREG);
              self._hw.getNode("VipMEM.CLKFBOUT_1").write(CLKREG[0]);
              self._hw.getNode("VipMEM.CLKFBOUT_2").write(CLKREG[1]);
          elif clock == "clock0":
              print "Writing to clock0";
-             #self._hw.getNode("VipMEM.CLKOUT0").writeBlock (CLKREG);
              self._hw.getNode("VipMEM.CLKOUT0_1").write(CLKREG[0]);
              self._hw.getNode("VipMEM.CLKOUT0_2").write(CLKREG[1]);
          elif clock == "clock1":
              print "Writing to clock1";
-             #self._hw.getNode("VipMEM.CLKOUT1").writeBlock (CLKREG);
              self._hw.getNode("VipMEM.CLKOUT1_1").write(CLKREG[0]);
              self._hw.getNode("VipMEM.CLKOUT1_2").write(CLKREG[1]);
          elif clock == "clock2":
              print "Writing to clock2";
-             #self._hw.getNode("VipMEM.CLKOUT2").writeBlock (CLKREG);
              self._hw.getNode("VipMEM.CLKOUT2_1").write(CLKREG[0]);
              self._hw.getNode("VipMEM.CLKOUT2_2").write(CLKREG[1]);
          elif clock == "clock3":    
              print "Writing to clock3";
-             #self._hw.getNode("VipMEM.CLKOUT3").writeBlock (CLKREG);
              self._hw.getNode("VipMEM.CLKOUT3_1").write(CLKREG[0]);
              self._hw.getNode("VipMEM.CLKOUT3_2").write(CLKREG[1]);
          else: 
              print "unknown clock"
          self._hw.dispatch();
-         time.sleep(0.5);
+         time.sleep(0.1);
 
 
          if clock == "vco":
-             #CLKOUT = self._hw.getNode("VipMEM.CLKFBOUT").readBlock( blockSize );
              CLKOUT[0] = self._hw.getNode("VipMEM.CLKFBOUT_1").read();
              CLKOUT[1] = self._hw.getNode("VipMEM.CLKFBOUT_2").read();
          elif clock == "clock0":
-             #CLKOUT = self._hw.getNode("VipMEM.CLKOUT0").readBlock( blockSize );
              CLKOUT[0] = self._hw.getNode("VipMEM.CLKOUT0_1").read();
              CLKOUT[1] = self._hw.getNode("VipMEM.CLKOUT0_2").read();
          elif clock == "clock1":
-             #CLKOUT = self._hw.getNode("VipMEM.CLKOUT1").readBlock( blockSize );
              CLKOUT[0] = self._hw.getNode("VipMEM.CLKOUT1_1").read();
              CLKOUT[1] = self._hw.getNode("VipMEM.CLKOUT1_2").read();
          elif clock == "clock2":
-             #CLKOUT = self._hw.getNode("VipMEM.CLKOUT2").readBlock( blockSize );
              CLKOUT[0] = self._hw.getNode("VipMEM.CLKOUT2_1").read();
              CLKOUT[1] = self._hw.getNode("VipMEM.CLKOUT2_2").read();
          elif clock == "clock3":    
-             #CLKOUT = self._hw.getNode("VipMEM.CLKOUT3").readBlock( blockSize );
              CLKOUT[0] = self._hw.getNode("VipMEM.CLKOUT3_1").read();
              CLKOUT[1] = self._hw.getNode("VipMEM.CLKOUT3_2").read();
          else: 
@@ -385,16 +379,16 @@ class VipramCom:
 
          Status = self._hw.getNode("VipMEM.Status").read();
          self._hw.dispatch();
-         time.sleep(0.5);
+         time.sleep(0.1);
          print "clockStatus = ", '{0:032b}'.format(Status);
 
          self._hw.getNode("VipMEM.Status").write(Status-1);
          self._hw.dispatch();
-         time.sleep(0.5);
+         time.sleep(0.1);
          
          Status = self._hw.getNode("VipMEM.Status").read();
          self._hw.dispatch();
          print "clockStatus after clock change= ", '{0:032b}'.format(Status);
-         time.sleep(0.5);
+         time.sleep(0.1);
 
 
