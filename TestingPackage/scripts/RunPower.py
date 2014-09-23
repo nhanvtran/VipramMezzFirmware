@@ -140,7 +140,7 @@ if __name__ == '__main__':
         gr_prech.Draw("l");
         leg.Draw();
         gPad.SetLogy();
-        c_i.SaveAs("plots/power_NStress"+str(options.NStress)+"_freq"+str(options.freq)+".pdf");
+        c_i.SaveAs(options.odir+"/power_NStress"+str(options.NStress)+"_freq"+str(options.freq)+".pdf");
 
         asize = len(vc1._i_dvdd)-1;
         writeToText(1.e-6*vc1._i_dvdd[asize],1.e-6*vc1._i_vdd[asize],1.e-6*vc1._i_prech[asize]);
@@ -150,10 +150,10 @@ if __name__ == '__main__':
         for i in range(len(difftimes)): h_t.Fill(difftimes[i]);
         c_t = TCanvas( "c_t", "c_t", 1200, 800 );
         h_t.Draw("hist");
-        c_t.SaveAs("plots/timing_NStress"+str(options.NStress)+"_freq"+str(options.freq)+".pdf");
+        c_t.SaveAs(options.odir+"/timing_NStress"+str(options.NStress)+"_freq"+str(options.freq)+".pdf");
 
         ####
-        fout = open("plots/power_NStress"+str(options.NStress)+"_freq"+str(options.freq)+".txt",'w');
+        fout = open(options.odir+"/power_NStress"+str(options.NStress)+"_freq"+str(options.freq)+".txt",'w');
         for i in range(len(a_t)):
             fout.write(str(a_t[i])+" "+str(a_dvdd[i])+" "+str(a_vdd[i])+" "+str(a_prech[i])+"\n");
         fout.close();
