@@ -5,16 +5,20 @@ import ctypes
 import time
 import os
 
+import datetime
+
 sys.path.insert(0, '../interface')
 from pVIPRAM_inputBuilderClass import *
 from pVIPRAM_inputVisualizerClass import *
 
 class VipramCom:
 
-    def __init__(self,name,go=True):
+    def __init__(self,name,go=True,freq=100,odir="blah"):
         
         self._name = name;
         self._go = go;
+        self._freq = freq;
+        self._odir = odir;
 
         self._manager = uhal.ConnectionManager("file://../data/vipram_connections.xml");
         self._hw = self._manager.getDevice("Mezz1")
@@ -57,6 +61,12 @@ class VipramCom:
         print "registers size = ", len(self._registers);
         ###################
 
+        # power numbers
+        self._i_dvdd = [];
+        self._i_vdd = [];
+        self._i_prech = [];
+        self._difftimes = [];
+
     def runTest(self, bits, reset=False):
 
         self._instructions = bits;
@@ -67,7 +77,7 @@ class VipramCom:
         curbits = [];
 
         # input text file
-        f1 = open('dat/'+self._name+'_i.txt','r');
+        f1 = open(self._odir+'/'+self._name+'_i.txt','r');
         list1 = f1.read().split()
 
         print "list1 lenghth = ", len(list1), " and bits length = ", len(bits)
@@ -76,7 +86,7 @@ class VipramCom:
         print "memoryBlocksNeeded = ",memoryBlocksNeeded
         outputfiles = [];
         for i in range(memoryBlocksNeeded):
-            fno = "dat/"+self._name+"_tmpi_"+str(i)+".txt";
+            fno = self._odir+'/'+self._name+"_tmpi_"+str(i)+".txt";
             if os.path.exists(fno):
                 os.remove(fno)
             outputfiles.append( open(fno,'w') ); 
@@ -100,10 +110,50 @@ class VipramCom:
 
                 if reset: break;
 
-#        for i in range(memoryBlocksNeeded):
-#            outputfiles[i].close();
+    def runPowerTest(self, bits, cycles, isPower = False, nPowerCycles = 1, reset=False):
 
-    def sendInstructions(self, curbits, reset=False):
+        self._instructions = bits;
+        self._matchCtr = 0;
+        self._checkDataDtr = 0;
+
+        self._currentMemoryBlock = 0;
+        curbits = [];
+
+        # input text file
+        f1 = open(self._odir+'/'+self._name+'_i.txt','r');
+        list1 = f1.read().split()
+
+        print "list1 lenghth = ", len(list1), " and bits length = ", len(bits)
+
+        memoryBlocksNeeded = len(bits)/(1024*32) + 1;
+        print "memoryBlocksNeeded = ",memoryBlocksNeeded
+        outputfiles = [];
+        for i in range(memoryBlocksNeeded):
+            fno = self._odir+'/'+self._name+"_tmpi_"+str(i)+".txt";
+            if os.path.exists(fno):
+                os.remove(fno)
+            outputfiles.append( open(fno,'w') ); 
+
+        for a in range(cycles):
+            
+            for i in range(len(bits)):
+                curbits.append(bits[i]);
+                #print i
+                outputfiles[self._currentMemoryBlock].write( list1[i]+'\n' );
+
+                if (((i+1) % (1024*32) == 0) and (i > 0)) or (i == len(bits)-1):
+                    print "[VipramCom: runTest] On memory block ",str(self._currentMemoryBlock);
+                    self.sendInstructions(curbits,reset,isPower,nPowerCycles);     
+                    self.retrieveRegisters(curbits);
+
+                    outputfiles[self._currentMemoryBlock].close();                    
+
+                    curbits[:] = []; #clear the list
+                    self._currentMemoryBlock += 1;
+
+                    if reset: break;   
+
+    def sendInstructions(self, curbits, reset=False,isPower=False,nPowerCycles=1):
 
         bits = curbits;
         registers = self._registers;
@@ -160,11 +210,73 @@ class VipramCom:
             self._hw.dispatch();
             #print "input #",i," = ",registers[i]," and value = ", dicedBitsBinary[i][1023], dicedBitsBinary[i][1022]
             
+        lengthOfBurst = 32768./float(self._freq)/1.e6;
 
         #go!
         if self._go:
-            self._hw.getNode("VipMEM.Go").write(1);
-            self._hw.dispatch();
+
+            curtime = -99
+            prevtime = -999.;
+            for a in range(nPowerCycles):
+                self._hw.getNode("VipMEM.Go").write(1);
+                self._hw.dispatch();
+                prevtime = curtime;
+                curtime = time.time()
+                difftime = curtime - prevtime;
+                    
+                sleeptime = 0;
+                if lengthOfBurst > difftime: 
+                    sleeptime = lengthOfBurst - difftime + 0.00005;
+                    time.sleep(sleeptime);
+                if a > 0: self._difftimes.append(sleeptime);
+                #print "difftime = %.20f" % difftime;
+
+
+
+                #sleepytime = float(32768./self._freq/1.e6);
+                #print "sleepytime = ", sleepytime;
+                #time.sleep(sleepytime);
+
+                ################
+                # if isPower:
+
+                # reg0 = self._hw.getNode("VipMEM.V_DVDD").read()
+                # reg1 = self._hw.getNode("VipMEM.V_VDD").read()
+                # reg2 = self._hw.getNode("VipMEM.V_VPRECH").read()
+
+                ireg0 = self._hw.getNode("VipMEM.I_DVDD").read()
+                ireg1 = self._hw.getNode("VipMEM.I_VDD").read()
+                ireg2 = self._hw.getNode("VipMEM.I_VPRECH").read()
+
+                # vccreg = self._hw.getNode("VipMEM.V_VCC3V3").read()
+                # tmpreg = self._hw.getNode("VipMEM.Temperature").read()
+                # ltcreg = self._hw.getNode("VipMEM.LTC2991").read()
+
+                self._hw.dispatch();
+
+                # if a % 10000 == 0: 
+
+                #     print "---------------"
+                #     print "cycle = ",a
+
+                    #print '{0:032b}'.format(reg0)
+                    # print "V_DVDD = ",round(reg0*305.18/1.e6,3),"V"
+                    # print "V_VDD = ",round(reg1*305.18/1.e6,3),"V"
+                    # print "V_VPRECH = ",round(reg2*305.18/1.e6,3),"V"
+
+                    # print "I_DVDD = ",round(ireg0*95.375,3),"uA"
+                    # print "I_VDD = ",round(ireg1*95.375,3),"uA"
+                    # print "I_VPRECH = ",round(ireg2*95.375,3),"uA"
+
+                    # print "VCC3V3 = ", round(2.5+vccreg*305./1.e6,3),"V"
+                    # print "Temperature = ", round(float(str(tmpreg))*0.0625,3),"C"
+                    # print "LTC2991 = ", ltcreg
+
+                self._i_dvdd.append( round(ireg0*95.375,3) );
+                self._i_vdd.append( round(ireg1*95.375,3) );
+                self._i_prech.append( round(ireg2*95.375,3) );
+
+                ################
 
         # wait before trying to do any retrieving...
         time.sleep(0.1);    
@@ -195,7 +307,7 @@ class VipramCom:
             #         print "Out31:", '{0:032b}'.format(curBlock[k]);
             #         print  '{0:032b}'.format(outMem[len(outMem)-1][k])
 
-        fno = "dat/"+self._name+"_tmpf_"+str(self._currentMemoryBlock)+".txt";
+        fno = self._odir+'/'+self._name+"_tmpf_"+str(self._currentMemoryBlock)+".txt";
         fout = open(fno,'w');
         timeCtr = 0;
 
@@ -221,8 +333,8 @@ class VipramCom:
 
     def compareOutput(self):
 
-        f1 = open('dat/'+self._name+'_tmpi_'+str(self._currentMemoryBlock)+'.txt','r');
-        f2 = open('dat/'+self._name+'_tmpf_'+str(self._currentMemoryBlock)+'.txt','r');
+        f1 = open(self._odir+'/'+self._name+'_tmpi_'+str(self._currentMemoryBlock)+'.txt','r');
+        f2 = open(self._odir+'/'+self._name+'_tmpf_'+str(self._currentMemoryBlock)+'.txt','r');
 
         list1 = f1.read().split()
         list2 = f2.read().split()
@@ -267,20 +379,20 @@ class VipramCom:
 
          Status = self._hw.getNode("VipMEM.Status").read();
          self._hw.dispatch();
-         time.sleep(0.5);
+         time.sleep(0.1);
 
          print "clockStatus = ", '{0:032b}'.format(Status);
          self._hw.getNode("VipMEM.Status").write(Status+1);
          self._hw.dispatch();
-         time.sleep(0.5);
+         time.sleep(0.1);
 
          self._hw.getNode("VipMEM.CLKPOWER").write(0xffff);
          self._hw.dispatch();
-         time.sleep(0.5);
+         time.sleep(0.1);
          clkpower = self._hw.getNode("VipMEM.CLKPOWER").read();
          self._hw.dispatch();
          print "CLKPOWER = "'{0:032b}'.format(clkpower);
-         time.sleep(0.5);
+         time.sleep(0.1);
 
          blockSize =2;
 
@@ -309,7 +421,7 @@ class VipramCom:
              print "unknown clock";
          self._hw.dispatch();
              
-         time.sleep(0.5);
+         time.sleep(0.1);
       
          CLKREG   = [None]*2;
          CLKREG[0]  = '{0:032b}'.format(CLKOUT[0]);
@@ -351,7 +463,7 @@ class VipramCom:
          else: 
              print "unknown clock"
          self._hw.dispatch();
-         time.sleep(0.5);
+         time.sleep(0.1);
 
 
          if clock == "vco":
@@ -385,16 +497,16 @@ class VipramCom:
 
          Status = self._hw.getNode("VipMEM.Status").read();
          self._hw.dispatch();
-         time.sleep(0.5);
+         time.sleep(0.1);
          print "clockStatus = ", '{0:032b}'.format(Status);
 
          self._hw.getNode("VipMEM.Status").write(Status-1);
          self._hw.dispatch();
-         time.sleep(0.5);
+         time.sleep(0.1);
          
          Status = self._hw.getNode("VipMEM.Status").read();
          self._hw.dispatch();
          print "clockStatus after clock change= ", '{0:032b}'.format(Status);
-         time.sleep(0.5);
+         time.sleep(0.1);
 
 

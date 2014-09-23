@@ -402,7 +402,7 @@ class inputBuilder:
     # R U N   M O D E   F U N C T I O N S
     # -------------------
     # initializeRunPhase
-    def initializeRunPhase(self, logic = [1,1,1,1], initialRow = 1):
+    def initializeRunPhase(self, logic=[1,1,1,1],initialRow = 1,iValU=[0,0,0,0]):
         #print "initializing run phase..."
         
         self.counter[0] = self.cycleCtr;
@@ -422,10 +422,10 @@ class inputBuilder:
                 self.iCamStateD[i][j] = 0;
                 self.iDataOut[i][j] = 0;
 
-        self.InputA[0] = 0;
-        self.InputB[0] = 0;
-        self.InputC[0] = 0;
-        self.InputD[0] = 0;
+        self.InputA[0] = iValU[0];
+        self.InputB[0] = iValU[1];
+        self.InputC[0] = iValU[2];
+        self.InputD[0] = iValU[3];
         self.InputA_bit0[0] = 0;
         self.InputB_bit0[0] = 0;
         self.InputC_bit0[0] = 0;
