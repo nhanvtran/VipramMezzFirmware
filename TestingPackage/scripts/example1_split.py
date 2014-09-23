@@ -13,9 +13,9 @@ from pVIPRAM_inputBuilderClass import *
 ### 21845 = 101010101010101
 ### 10922 = 010101010101010
 
-def stressTest_split(filename, N, freq, loadMode):
+def stressTest_split(filename, N, freq, odir, loadMode):
 
-	inputP = inputBuilder("dat/" + filename + ".root")
+	inputP = inputBuilder(odir + "/" + filename + ".root")
 	if loadMode: inputP.initializeLoadPhase()
 	
 	# N value
