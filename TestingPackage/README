@@ -6,5 +6,6 @@
 
 # load mode
 > python RunPower.py -b --freq 10 --NStress 20 --Load --odir /absolute/path/to/output
+# run mode
 > python RunPower.py -b --freq 100 --NStress 20 --odir /absolute/path/to/output
 
