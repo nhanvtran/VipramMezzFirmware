@@ -1,5 +1,7 @@
 import random
 import sys
+import numpy as np
+
 sys.path.insert(0, '../interface')
 from pVIPRAM_inputBuilderClass import *
 
@@ -33,11 +35,34 @@ def exampleTest(filename):
     inputPattern.close();
     return inputPattern;
 
-#########################################################
-#########################################################
-#########################################################
-#########################################################
 
+def exampleTest1(filename):
+
+    inputPattern = inputBuilder("dat/"+filename+".root");
+    inputPattern.initializeLoadPhase();
+    for row in range(0, 10):
+        for col in range(0, 32):
+            inputPattern.loadSinglePattern(row, col, [55,55,55,55], 2);
+            #inputPattern.loadUniformPatterns(row, col, 55, 2);
+
+    inputPattern.initializeRunPhase( [1,0,0,0] );
+
+    for i in range(10): inputPattern.checkPattern( [55,55,55,55] ,0);
+
+    for row in range(0,10):
+        for i in range(0, 10*5):
+            inputPattern.checkPattern([21845, 21845, 21845, 21845], row)
+        inputPattern.doRowChecker(row)
+        for i in range(0, 10*5):
+            inputPattern.checkPattern([21845, 21845, 21845, 21845], row)
+
+    inputPattern.close();
+    return inputPattern;
+
+#########################################################
+#########################################################
+#########################################################
+#########################################################
 def stressTest(filename, N, freq):
 
 	inputP = inputBuilder("dat/" + filename + ".root")
@@ -111,24 +136,24 @@ def realisticTest(filename, freq):
 	inputP = inputBuilder("dat/" + filename + ".root")
 	inputP.initializeLoadPhase()
 	
-	# frequency
-	# mult = (int(sys.argv[3])/10)+1
 	mult = (int(freq)/10)+1;
 
 	print "Multiplier = ", mult
 
 	# n rows
 	#nrows = 128;
-	nrows = 6;
+	nrows = 128;
 	ncols = 32;
         npatterns = nrows * ncols;
-        nBankSize = 100000;
-        nTruePatterns = 5;
+        nBankSize = 200000;
+        nTruePatterns = 3;
 
-        f = open('../../../patterns_612_SLHC6_MUBANK_lowmidhig_sec16_ss32_cov40.dat', 'r');
+        f = open('/home/ntran/Documents/forSergo/banks/620_SLHC15_lowmidhig_sec26_ss256_cov90_dc0_maxfake0_bin_last4Unique.dat', 'r');
         line = f.readlines();        
 
-	#infoFile = open("NewStressInfoFile.txt", "a")
+        nBankSize = len(line);
+        print "Bank Size =", nBankSize;
+
 	infoList = [];
         data   = [None]*4;
 
@@ -136,54 +161,101 @@ def realisticTest(filename, freq):
         l1hits = []
         l2hits = [];
         l3hits = [];
-             
+        
+        pattcounter = 0;
+        datalist= [];
+
+        for pattcounter in range(0, nBankSize):
+            column = line[pattcounter].split();
+            dataword = [32767-int(column[0]), 32767-int(column[1]), 32767-int(column[2]), 32767-int(column[3])];
+            datalist.append(dataword);
+            l0hits.append(32767-int(column[0]));
+            l1hits.append(32767-int(column[1]));
+            l2hits.append(32767-int(column[2]));
+            l3hits.append(32767-int(column[3]));
+
+        random.shuffle(datalist);    
+                   
+
 	## ---------------------------------
 	## Load mode
-	print "RUNNING LOAD MODE!!"
-	for row in range(nrows):
-		for col in range(0, ncols):
-                    x = random.randint(1, nBankSize);
-                    columns = line[x].split()
-                    data = [int(columns[0]), int(columns[2]), int(columns[4]), int(columns[6])];
-                    inputP.loadSinglePattern(row, col, data, mult)
+        pattcounter = 0;
+        realtrack = [5,15,25,35];
 
-                    if ((row ==0) and (col<nTruePatterns)):
-                        l0hits.append(int(columns[0]));
-                        l1hits.append(int(columns[2]));
-                        l2hits.append(int(columns[4]));
-                        l3hits.append(int(columns[6]));
-                    
- 
+	print "RUNNING LOAD MODE!!"
+	for row in range(0, 128):
+		for col in range(0, 32):
+                    data = datalist[pattcounter];
+                    #print row, col, data;
+                    inputP.loadSinglePattern(row, col, data, mult);                    
+                    pattcounter = pattcounter + 1;
+                if (row%12==0): inputP.loadSinglePattern(row, random.randint(0,31), realtrack, mult); 
 	## ---------------------------------
 	## test hits
     
         
-        nHitsPerLayer = 33;
-	for hit in range(nHitsPerLayer-nTruePatterns):
-            x = random.randint(1, nBankSize);
-            columns = line[x].split()
-            l0hits.append(int(columns[0]));
-            x = random.randint(1, nBankSize);
-            columns = line[x].split()
-            l1hits.append(int(columns[2]));
-            x = random.randint(1, nBankSize);
-            columns = line[x].split()
-            l2hits.append(int(columns[4]));
-            x = random.randint(1, nBankSize);
-            columns = line[x].split()
-            l3hits.append(int(columns[6]));
+        #print l0hits[0:33];   
+        #print l1hits[0:33];
+        #print l2hits[0:33];
+        #print l3hits[0:33];
 
-        print l0hits;   
-        print l1hits;
-        print l2hits;
-        print l3hits;
+        for counter in range(10):
+          
+            random.shuffle(l0hits);    
+            random.shuffle(l1hits);    
+            random.shuffle(l2hits);   
+            random.shuffle(l3hits); 
+
+            #nhl0= np.random.poisson(55);
+            #nhl1= np.random.poisson(35);
+            #nhl2= np.random.poisson(30);
+            #nhl3= np.random.poisson(20);
+
+            nhl0= np.random.poisson(30);
+            nhl1= np.random.poisson(20);
+            nhl2= np.random.poisson(20);
+            nhl3= np.random.poisson(20);
+
+            l0h=list(set(l0hits[0:nhl0]));
+            l1h=list(set(l1hits[0:nhl1]));
+            l2h=list(set(l2hits[0:nhl2]));
+            l3h=list(set(l3hits[0:nhl3]));
+
+            l0h.insert(0,5);
+            l1h.insert(0,15);
+            l2h.insert(0,25);
+            l3h.insert(0,35);
+
+            random.shuffle(l0h);
+            random.shuffle(l1h);
+            random.shuffle(l2h);
+            random.shuffle(l3h);
+            
+            nHitsPerLayer = max(len(l0h), len(l1h), len(l2h),len(l3h));
+
+            for i in range(nHitsPerLayer-len(l0h)): l0h.append(l0h[len(l0h)-1]);
+            for i in range(nHitsPerLayer-len(l1h)): l1h.append(l1h[len(l1h)-1]);
+            for i in range(nHitsPerLayer-len(l2h)): l2h.append(l2h[len(l2h)-1]);
+            for i in range(nHitsPerLayer-len(l3h)): l3h.append(l3h[len(l3h)-1]);
+
+            print l0h;
+            print l1h;
+            print l2h;
+            print l3h;
 
 
-	print "RUN CHECK MODE!!"
-        inputP.initializeRunPhase([1, 0, 0, 0])
-        for i in range(nHitsPerLayer): inputP.checkPattern( [l0hits[i], l1hits[i], l2hits[i],  l3hits[i]] ,0);
-        inputP.doRowChecker(0)
-	
+            print "RUN CHECK MODE!!"
+            inputP.initializeRunPhase([1, 0, 0, 0])
+            inputP.checkPattern([21845, 21845, 21845, 21845], 0)
+            for i in range(nHitsPerLayer): inputP.checkPattern( [l0h[i], l1h[i], l2h[i],  l3h[i]] ,0);
+
+            for row in range(0,nrows):
+                for i in range(0, 10*mult):
+                    inputP.checkPattern([21845, 21845, 21845, 21845], row)
+                inputP.doRowChecker(row)
+                for i in range(0, 10*mult):
+                    inputP.checkPattern([21845, 21845, 21845, 21845], row)	
+
         print "done"
 	inputP.close();
 	return inputP;
