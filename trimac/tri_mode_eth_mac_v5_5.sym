@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="tri_mode_eth_mac_v5_5">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2014-8-1T15:10:45</timestamp>
+    <pin polarity="Input" x="0" y="80" name="glbl_rstn" />
+    <pin polarity="Input" x="0" y="112" name="rx_axi_rstn" />
+    <pin polarity="Input" x="0" y="144" name="tx_axi_rstn" />
+    <pin polarity="Input" x="0" y="208" name="tx_axi_clk" />
+    <pin polarity="Output" x="0" y="240" name="tx_reset_out" />
+    <pin polarity="Input" x="0" y="272" name="tx_axis_mac_tdata[7:0]" />
+    <pin polarity="Input" x="0" y="304" name="tx_axis_mac_tvalid" />
+    <pin polarity="Input" x="0" y="336" name="tx_axis_mac_tlast" />
+    <pin polarity="Input" x="0" y="368" name="tx_axis_mac_tuser[0:0]" />
+    <pin polarity="Output" x="0" y="400" name="tx_axis_mac_tready" />
+    <pin polarity="Input" x="0" y="496" name="tx_ifg_delay[7:0]" />
+    <pin polarity="Output" x="0" y="560" name="tx_statistics_vector[31:0]" />
+    <pin polarity="Output" x="0" y="592" name="tx_statistics_valid" />
+    <pin polarity="Input" x="0" y="656" name="rx_axi_clk" />
+    <pin polarity="Output" x="0" y="688" name="rx_reset_out" />
+    <pin polarity="Output" x="0" y="720" name="rx_axis_mac_tdata[7:0]" />
+    <pin polarity="Output" x="0" y="752" name="rx_axis_mac_tvalid" />
+    <pin polarity="Output" x="0" y="784" name="rx_axis_mac_tlast" />
+    <pin polarity="Output" x="0" y="816" name="rx_axis_mac_tuser" />
+    <pin polarity="Output" x="0" y="912" name="rx_statistics_vector[27:0]" />
+    <pin polarity="Output" x="0" y="944" name="rx_statistics_valid" />
+    <pin polarity="Input" x="0" y="1008" name="pause_req" />
+    <pin polarity="Input" x="0" y="1040" name="pause_val[15:0]" />
+    <pin polarity="Output" x="0" y="1200" name="speed_is_100" />
+    <pin polarity="Output" x="0" y="1232" name="speed_is_10_100" />
+    <pin polarity="Input" x="0" y="1296" name="rx_mac_config_vector[79:0]" />
+    <pin polarity="Input" x="0" y="1328" name="tx_mac_config_vector[79:0]" />
+    <pin polarity="Output" x="768" y="112" name="gmii_txd[7:0]" />
+    <pin polarity="Output" x="768" y="144" name="gmii_tx_en" />
+    <pin polarity="Output" x="768" y="176" name="gmii_tx_er" />
+    <pin polarity="Input" x="768" y="304" name="gmii_rxd[7:0]" />
+    <pin polarity="Input" x="768" y="336" name="gmii_rx_dv" />
+    <pin polarity="Input" x="768" y="368" name="gmii_rx_er" />
+    <graph>
+        <text style="fontsize:40;fontname:Arial" x="32" y="32">tri_mode_eth_mac_v5_5</text>
+        <rect width="704" x="32" y="32" height="1888" />
+        <line x2="32" y1="80" y2="80" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="80" type="pin glbl_rstn" />
+        <line x2="32" y1="112" y2="112" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="112" type="pin rx_axi_rstn" />
+        <line x2="32" y1="144" y2="144" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="144" type="pin tx_axi_rstn" />
+        <line x2="32" y1="208" y2="208" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="208" type="pin tx_axi_clk" />
+        <line x2="32" y1="240" y2="240" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="240" type="pin tx_reset_out" />
+        <line x2="32" y1="272" y2="272" style="linewidth:W" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="272" type="pin tx_axis_mac_tdata[7:0]" />
+        <line x2="32" y1="304" y2="304" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="304" type="pin tx_axis_mac_tvalid" />
+        <line x2="32" y1="336" y2="336" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="336" type="pin tx_axis_mac_tlast" />
+        <line x2="32" y1="368" y2="368" style="linewidth:W" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="368" type="pin tx_axis_mac_tuser[0:0]" />
+        <line x2="32" y1="400" y2="400" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="400" type="pin tx_axis_mac_tready" />
+        <line x2="32" y1="496" y2="496" style="linewidth:W" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="496" type="pin tx_ifg_delay[7:0]" />
+        <line x2="32" y1="560" y2="560" style="linewidth:W" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="560" type="pin tx_statistics_vector[31:0]" />
+        <line x2="32" y1="592" y2="592" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="592" type="pin tx_statistics_valid" />
+        <line x2="32" y1="656" y2="656" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="656" type="pin rx_axi_clk" />
+        <line x2="32" y1="688" y2="688" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="688" type="pin rx_reset_out" />
+        <line x2="32" y1="720" y2="720" style="linewidth:W" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="720" type="pin rx_axis_mac_tdata[7:0]" />
+        <line x2="32" y1="752" y2="752" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="752" type="pin rx_axis_mac_tvalid" />
+        <line x2="32" y1="784" y2="784" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="784" type="pin rx_axis_mac_tlast" />
+        <line x2="32" y1="816" y2="816" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="816" type="pin rx_axis_mac_tuser" />
+        <line x2="32" y1="912" y2="912" style="linewidth:W" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="912" type="pin rx_statistics_vector[27:0]" />
+        <line x2="32" y1="944" y2="944" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="944" type="pin rx_statistics_valid" />
+        <line x2="32" y1="1008" y2="1008" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="1008" type="pin pause_req" />
+        <line x2="32" y1="1040" y2="1040" style="linewidth:W" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="1040" type="pin pause_val[15:0]" />
+        <line x2="32" y1="1200" y2="1200" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="1200" type="pin speed_is_100" />
+        <line x2="32" y1="1232" y2="1232" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="1232" type="pin speed_is_10_100" />
+        <line x2="32" y1="1296" y2="1296" style="linewidth:W" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="1296" type="pin rx_mac_config_vector[79:0]" />
+        <line x2="32" y1="1328" y2="1328" style="linewidth:W" x1="0" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="36" y="1328" type="pin tx_mac_config_vector[79:0]" />
+        <line x2="736" y1="112" y2="112" style="linewidth:W" x1="768" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="732" y="112" type="pin gmii_txd[7:0]" />
+        <line x2="736" y1="144" y2="144" x1="768" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="732" y="144" type="pin gmii_tx_en" />
+        <line x2="736" y1="176" y2="176" x1="768" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="732" y="176" type="pin gmii_tx_er" />
+        <line x2="736" y1="304" y2="304" style="linewidth:W" x1="768" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="732" y="304" type="pin gmii_rxd[7:0]" />
+        <line x2="736" y1="336" y2="336" x1="768" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="732" y="336" type="pin gmii_rx_dv" />
+        <line x2="736" y1="368" y2="368" x1="768" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="732" y="368" type="pin gmii_rx_er" />
+    </graph>
+</symbol>
