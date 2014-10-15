@@ -9,3 +9,5 @@
 # run mode
 > python RunPower.py -b --freq 100 --NStress 20 --odir /absolute/path/to/output
 
+# realistic test
+> python Run.py -b --freq 100 --layers outer
