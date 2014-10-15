@@ -67,6 +67,7 @@ if __name__ == '__main__':
     # ------------------------------------------------
     # generate the patterns
     pattern1 = stressTest_split("tmp1",options.NStress,options.freq,options.Load);
+    #pattern1 = stressTest("tmp1",options.NStress,options.freq);
     #pattern1 = exampleTest("tmp1");
     #pattern1  = realisticTest("tmp1", options.freq, options.layers);
 
