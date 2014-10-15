@@ -36,6 +36,7 @@ parser.add_option('--reset', action='store_true', dest='reset', default=False, h
 
 parser.add_option('--freq',action="store",type="int",dest="freq",default=50)
 parser.add_option('--NStress',action="store",type="int",dest="NStress",default=0)
+parser.add_option('--layers',action="store",type="string",dest="layers",default="inner")
 
 # tests to run
 parser.add_option('--runStressTest', action='store_true', dest='runStressTest', default=False, help='go!')
@@ -67,7 +68,7 @@ if __name__ == '__main__':
     # generate the patterns
     pattern1 = stressTest_split("tmp1",options.NStress,options.freq,options.Load);
     #pattern1 = exampleTest("tmp1");
-    #pattern1  = realisticTest("tmp1",100);
+    #pattern1  = realisticTest("tmp1", options.freq, options.layers);
 
     visualizer1 = inputVisualizer( pattern1.getFilename() );
     bits = visualizer1.writeToText( os.path.splitext( pattern1.getFilename() )[0]+"_i.txt", True );
