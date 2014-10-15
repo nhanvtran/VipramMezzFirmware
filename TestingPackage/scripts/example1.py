@@ -130,8 +130,7 @@ def stressTest(filename, N, freq):
 	return inputP;
 
 
-
-def realisticTest(filename, freq):
+def realisticTest(filename, freq, layers):
 
 	inputP = inputBuilder("dat/" + filename + ".root")
 	inputP.initializeLoadPhase()
@@ -141,14 +140,14 @@ def realisticTest(filename, freq):
 	print "Multiplier = ", mult
 
 	# n rows
-	#nrows = 128;
-	nrows = 128;
+        nrows = 128;
 	ncols = 32;
-        npatterns = nrows * ncols;
-        nBankSize = 200000;
-        nTruePatterns = 3;
 
-        f = open('/home/ntran/Documents/forSergo/banks/620_SLHC15_lowmidhig_sec26_ss256_cov90_dc0_maxfake0_bin_last4Unique.dat', 'r');
+        if ( layers=="outer"):
+            f = open('/home/ntran/Documents/forSergo/banks/620_SLHC15_lowmidhig_sec26_ss256_cov90_dc0_maxfake0_bin_last4Unique.dat', 'r');
+        else:
+            f = open('/home/ntran/Documents/forSergo/banks/620_SLHC15_lowmidhig_sec26_ss256_cov90_dc0_maxfake0_bin_first4Unique.dat', 'r');
+
         line = f.readlines();        
 
         nBankSize = len(line);
@@ -199,27 +198,40 @@ def realisticTest(filename, freq):
         #print l2hits[0:33];
         #print l3hits[0:33];
 
+        random.shuffle(l0hits);    
+        random.shuffle(l1hits);    
+        random.shuffle(l2hits);   
+        random.shuffle(l3hits); 
+
+        listPositionL0=0;
+        listPositionL1=0;
+        listPositionL2=0;
+        listPositionL3=0;
+        
+
         for counter in range(10):
           
-            random.shuffle(l0hits);    
-            random.shuffle(l1hits);    
-            random.shuffle(l2hits);   
-            random.shuffle(l3hits); 
+            if ( layers=="outer"):
+                nhl0= np.random.poisson(45);
+                nhl1= np.random.poisson(35);
+                nhl2= np.random.poisson(45);
+                nhl3= np.random.poisson(50);
+            else:
+                nhl0= np.random.poisson(90);
+                nhl1= np.random.poisson(60);
+                nhl2= np.random.poisson(45);
+                nhl3= np.random.poisson(35);
+  
+            
+            l0h=list(set(l0hits[listPositionL0:listPositionL0+nhl0]));
+            l1h=list(set(l1hits[listPositionL1:listPositionL1+nhl1]));
+            l2h=list(set(l2hits[listPositionL2:listPositionL2+nhl2]));
+            l3h=list(set(l3hits[listPositionL3:listPositionL3+nhl3]));
 
-            #nhl0= np.random.poisson(55);
-            #nhl1= np.random.poisson(35);
-            #nhl2= np.random.poisson(30);
-            #nhl3= np.random.poisson(20);
-
-            nhl0= np.random.poisson(30);
-            nhl1= np.random.poisson(20);
-            nhl2= np.random.poisson(20);
-            nhl3= np.random.poisson(20);
-
-            l0h=list(set(l0hits[0:nhl0]));
-            l1h=list(set(l1hits[0:nhl1]));
-            l2h=list(set(l2hits[0:nhl2]));
-            l3h=list(set(l3hits[0:nhl3]));
+            listPositionL0 += nhl0;    
+            listPositionL1 += nhl1;    
+            listPositionL2 += nhl2;    
+            listPositionL3 += nhl3;    
 
             l0h.insert(0,5);
             l1h.insert(0,15);
@@ -250,10 +262,10 @@ def realisticTest(filename, freq):
             for i in range(nHitsPerLayer): inputP.checkPattern( [l0h[i], l1h[i], l2h[i],  l3h[i]] ,0);
 
             for row in range(0,nrows):
-                for i in range(0, 10*mult):
+                for i in range(0, 5*mult):
                     inputP.checkPattern([21845, 21845, 21845, 21845], row)
                 inputP.doRowChecker(row)
-                for i in range(0, 10*mult):
+                for i in range(0, 5*mult):
                     inputP.checkPattern([21845, 21845, 21845, 21845], row)	
 
         print "done"
