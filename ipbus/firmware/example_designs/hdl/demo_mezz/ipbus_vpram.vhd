@@ -19,6 +19,7 @@
 -- ivec is now R/W 12 May 2014
 -- 5/13/2014 -- add another wait state for IPBus interface
 -- 7/22/2014 -- update power monitoring and control
+-- 14 Oct 2014 -- write 0x1234 to the GO register and it will loop until cleared
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -153,13 +154,15 @@ architecture rtl of ipbus_vpram is
     signal addr_reg, addr2_reg : std_logic_vector(19 downto 0);
     signal din_reg : std_logic_vector(31 downto 0);
     signal reset_clk, we_reg, go200_reg, strobe_reg : std_logic;
-    signal go_reg : std_logic_vector(1 downto 0);
     signal test_reg: std_logic_vector(31 downto 0);
     signal mmcm_reset_reg: std_logic;
     signal ack_reg: std_logic_vector(4 downto 0);
     signal ovec_we: std_logic_vector(83 downto 0);
     signal ivec_we: std_logic_vector(31 downto 0);
     signal mux_out, mux_out_reg : std_logic_vector(31 downto 0);
+
+    signal go_reg:   std_logic_vector(31 downto 0);
+    signal go_trig_reg: std_logic_vector(1 downto 0);
 
     signal clk, clk_a, clk_b, slow_clk: std_logic;
     signal mmcm_den, mmcm_dwe, mmcm_locked, mmcm_drdy : std_logic;
@@ -260,7 +263,7 @@ begin
         if (reset='1') then
             mmcm_reset_reg <= '0';
             test_reg <= X"00000000";
-            go_reg <= "00";
+            go_trig_reg <= "00";
             dvdd_reg <= X"26"; -- default 1.5V
             vdd_reg <= X"26";
             vpre_reg <= X"26";
@@ -274,9 +277,20 @@ begin
             end if;
 
             if (addr_reg=GOREG_OFFSET and we_reg='1') then
-                go_reg(0) <= '1';
+                go_reg <= din_reg(31 downto 0);
+                go_trig_reg(0) <= '1';
             else
-                go_reg(0) <= '0';
+                go_trig_reg(0) <= '0';
+            end if;
+
+            if (go_trig_reg(0)='1') then
+                go_trig_reg(1) <= '1';
+            elsif (go200_reg='1') then
+                if (go_reg = X"12345678") then
+                    go_trig_reg(1) <= '1';  -- loop forever if go_reg == 0x12345678
+                else
+                    go_trig_reg(1) <= '0';  -- cleared by the go200_reg in clock domain
+                end if;
             end if;
 
             if (addr_reg=POWER_DVDD_OFFSET and we_reg='1') then
@@ -291,15 +305,12 @@ begin
                 vpre_reg <= din_reg(7 downto 0);
             end if;
 
-            if (go_reg(0)='1') then
-                go_reg(1) <= '1';
-            elsif (go200_reg='1') then  -- cleared by go200_reg clock domain
-                go_reg(1) <= '0';
-            end if;
-
         end if;
     end if;
 end process reg_proc;
+
+-- clock = IPBus clock (freq unknown)
+-- clk   = FPGA system clock (10 to 200MHz) 
 
 -- cross the clock domain on the go signal.  clock freq is 125M, 
 -- clk freq is variable, may be as low as 10MHz and will not sample it properly.
@@ -310,7 +321,7 @@ begin
         go200_reg <= '0';
     elsif rising_edge(clk) then
         reset_clk <= reset;  -- resample reset in clk domain
-        if (go_reg(1)='1') then
+        if (go_trig_reg(1)='1') then
             go200_reg <= '1';
         else
             go200_reg <= '0';
@@ -505,6 +516,7 @@ mux_out <=
         VERSION               when std_match( addr2_reg, FIRMWARE_OFFSET ) else
         IDENTITY              when std_match( addr2_reg, IDENTITY_OFFSET ) else
         test_reg              when std_match( addr2_reg, TESTREG_OFFSET  ) else
+        go_reg                when std_match( addr2_reg, GOREG_OFFSET  ) else
         (X"0000" & mmcm_dout) when std_match( addr2_reg, MMCM_OFFSET ) else
 
         (X"000000" & dvdd_reg) when std_match( addr2_reg, POWER_DVDD_OFFSET ) else -- readback what was written 
