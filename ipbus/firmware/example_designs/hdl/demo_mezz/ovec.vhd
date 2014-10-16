@@ -19,6 +19,8 @@
 -- will force the output delay back to the minimum value.
 --
 -- This module does not prevent writes to the buffer when operating!
+--
+-- update 10 October 2014: hold value after 
 
 
 library ieee;
@@ -284,7 +286,7 @@ begin
                         count_reg <= "00000";
                     else
                         state <= wait4go;
-                        dob_reg <= X"00000000";
+                        -- dob_reg <= X"00000000";  -- HOLD the last value
                     end if;
 
                 when countup =>
