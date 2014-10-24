@@ -20,7 +20,9 @@
 --
 -- This module does not prevent writes to the buffer when operating!
 --
--- update 10 October 2014: hold value after 
+-- 10 October 2014: hold value
+-- 23 October 2014: add two end states so the last bit of the last 
+--                  word is properly held until next GO
 
 
 library ieee;
@@ -53,7 +55,7 @@ architecture ovec_arch of ovec is
     signal count_reg : std_logic_vector(4 downto 0);
     signal doa, dob, dob_reg : std_logic_vector(31 downto 0);
 
-    type state_type is (rst, wait4go, countup);
+    type state_type is (rst, wait4go, countup, end1, end2);
     signal state: state_type;
 
 begin
@@ -286,13 +288,13 @@ begin
                         count_reg <= "00000";
                     else
                         state <= wait4go;
-                        -- dob_reg <= X"00000000";  -- HOLD the last value
+                        -- dob_reg <= X"00000000";
                     end if;
 
                 when countup =>
                     if ( count_reg = "11111" ) then
                         if ( addrb_reg = "1111111111" ) then
-                            state <= wait4go;
+                            state <= end1; -- wait4go;
                         else
                             count_reg <= "00000";
                             addrb_reg <= std_logic_vector(unsigned(addrb_reg) + 1);
@@ -301,16 +303,21 @@ begin
                         count_reg <= std_logic_vector(unsigned(count_reg) + 1);
                     end if;
 
---                when others =>
---                    state <= rst;
+                    if ( count_reg = "00010" ) then
+                        dob_reg <= dob;
+                    else
+                        dob_reg <= '0' & dob_reg(31 downto 1);  -- shift RIGHT
+                    end if;
+
+                when end1 =>
+                    dob_reg <= '0' & dob_reg(31 downto 1);  -- shift RIGHT
+                    state <= end2;
+
+                when end2 =>
+                    dob_reg <= '0' & dob_reg(31 downto 1);  -- LAST shift RIGHT, hold final bit
+                    state <= wait4go;
 
             end case;
-
-            if ( count_reg = "00010" ) then
-                dob_reg <= dob;
-            else
-                dob_reg <= '0' & dob_reg(31 downto 1);  -- shift RIGHT
-            end if;
 
         end if;
     end if;
