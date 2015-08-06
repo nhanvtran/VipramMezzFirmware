@@ -1,0 +1,11 @@
+# setup environment
+> source setupHAL.sh
+
+# ping 
+> ping 192.168.0.131
+
+# load mode
+> python RunPower.py -b --freq 10 --NStress 20 --Load --odir /absolute/path/to/output
+# run mode
+> python RunPower.py -b --freq 100 --NStress 20 --odir /absolute/path/to/output
+
