@@ -12,7 +12,7 @@ from optparse import OptionParser
 import os
 import random
 
-sys.path.insert(0, '../interface')
+sys.path.insert(0, 'interface')
 from pVIPRAM_inputBuilderClass import *
 from pVIPRAM_inputVisualizerClass import *
 from VipramCom import *
@@ -20,7 +20,7 @@ from example1 import *
 from example1_split import *
 
 # gROOT.ProcessLine(".L ~/tdrstyle.C");
-setTDRStyle();
+#setTDRStyle();
 ROOT.gStyle.SetPadLeftMargin(0.16);
 ROOT.gStyle.SetPadRightMargin(0.10);
 ROOT.gStyle.SetPadTopMargin(0.10);
@@ -39,7 +39,7 @@ parser.add_option('--NStress',action="store",type="int",dest="NStress",default=0
 
 # tests to run
 parser.add_option('--runStressTest', action='store_true', dest='runStressTest', default=False, help='go!')
-parser.add_option('--runExampleTest', action='store_true', dest='runExampleTest', default=False, help='go!')
+parser.add_option('--runExampleTest', action='store_true', dest='runExampleTest', default=True, help='go!')
 parser.add_option('--Load', action='store_true', dest='Load', default=False, help='go!')
 parser.add_option('--odir',action="store",type="string",dest="odir",default="output")
 
@@ -67,12 +67,16 @@ if __name__ == '__main__':
     # generate the patterns
     #pattern1 = stressTest_split("tmp1",options.NStress,options.freq,options.odir,options.Load);
 
-    print "testing REAL match efficiency with NStress = ",options.NStress," and frequency = ",options.freq 
-    pattern1 = stressTest("tmp1",options.NStress,options.freq,options.odir,options.Load);
-    #pattern1 = exampleTest("tmp1");
-    #pattern1  = realisticTest("tmp1",100);
+    if options.runStressTest:
+        print "testing REAL match efficiency with NStress = ",options.NStress," and frequency = ",options.freq 
+        pattern1 = stressTest("tmp1",options.NStress,options.freq,options.odir,options.Load)
+    if options.runExampleTest:
+        pattern1 = exampleTest("tmp1")
+    #pattern1  = realisticTest("tmp1",100)
+
 
     visualizer1 = inputVisualizer( pattern1.getFilename() );
+    visualizer1.textVisualizer();
     bits = visualizer1.writeToText( os.path.splitext( pattern1.getFilename() )[0]+"_i.txt", True );
     
     vc1 = VipramCom("tmp1",True,options.freq,options.odir);
@@ -87,11 +91,16 @@ if __name__ == '__main__':
     vc1.changeClockFrequency("clock0",int(1000/options.freq), 0);
     vc1.changeClockFrequency("clock1",int(1000/options.freq), 0);
     vc1.changeClockFrequency("clock2",int(1000/options.freq), offset);
+
+
+    
+
     #vc1.changeClockFrequency("clock3",100, 0);
     time.sleep(1);
 
     ## standard test
-    #vc1.runTest(bits);
+    vc1.runTest(bits);
+    #vc1.compareOutput();
 
     if options.Load: vc1.runPowerTest(bits,1);
     else: vc1.runPowerTest(bits,1,True,1);

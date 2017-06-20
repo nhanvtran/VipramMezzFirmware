@@ -20,7 +20,7 @@ class VipramCom:
         self._freq = freq;
         self._odir = odir;
 
-        self._manager = uhal.ConnectionManager("file://../data/vipram_connections.xml");
+        self._manager = uhal.ConnectionManager("file://data/vipram_connections.xml");
         self._hw = self._manager.getDevice("Mezz1")
         uhal.setLogLevelTo( uhal.LogLevel.ERROR )
         #self._hw.dispatch();
@@ -162,7 +162,7 @@ class VipramCom:
                 outputfiles[self._currentMemoryBlock].write( list1[i]+'\n' );
 
                 if (((i+1) % (1024*32) == 0) and (i > 0)) or (i == len(bits)-1):
-                    print "[VipramCom: runTest] On memory block ",str(self._currentMemoryBlock);
+                    print "[VipramCom: runPowerTest] On memory block ",str(self._currentMemoryBlock);
                     self.sendInstructions(curbits,reset,isPower,nPowerCycles);     
                     self.retrieveRegisters(curbits);
 
@@ -399,7 +399,7 @@ class VipramCom:
             row2 = int(newlist2[i][40:47][::-1],2);
             col2 = int(newlist2[i][47:52][::-1],2);
             #print list1[i], "check data = ", checkData
-            #print list2[i]
+            #int list2[i]
             if int(checkData) == 1:
                 self._checkDataDtr += 1;
                 print "time slice: ", i, ", checkData = ", checkData, ", row = ", row,",",row2, ", col = ", col,",",col2;
@@ -415,6 +415,8 @@ class VipramCom:
     
         #if (self._checkDataDtr !=0): print "test results: match eff = ",self._matchCtr,"/",self._checkDataDtr," = ",float(self._matchCtr)*100./float(self._checkDataDtr),"%"
         if (self.denom !=0): print "REAL test results: match efficiency = ",self.numer,"/",self.denom," = ",float(self.numer)*100./float(self.denom),"%"
+        else:
+            print "denom is 0";
 	if (mismatch !=0): 
 		print "FALSE POSITIVES: ",(mismatch)
                 #print comp1, "check data = ", checkData
