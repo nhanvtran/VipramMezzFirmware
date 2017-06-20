@@ -1,8 +1,8 @@
 import sys
 from ROOT import *
-ROOT.gROOT.ProcessLine(".L ~/tdrstyle.C")
-from ROOT import setTDRStyle
-ROOT.setTDRStyle()
+#ROOT.gROOT.ProcessLine(".L ~/tdrstyle.C")
+#from ROOT import setTDRStyle
+#ROOT.setTDRStyle()
 ROOT.gStyle.SetPadTopMargin(0.09);
 ROOT.gStyle.SetPadLeftMargin(0.16);
 ROOT.gStyle.SetHistMinimumZero()
@@ -126,7 +126,7 @@ class inputVisualizer:
             for j in range(32): oline += str(l_DataOut[i][j])
             oline += " "
             oline += str(l_CompareNow[i]) + " "
-            #print oline
+#            print "oline: ",oline
             
             olinehex = "";
             olinehex += '{0:01x}'.format(l_InputD_bit0[i]) + " "
@@ -151,8 +151,8 @@ class inputVisualizer:
             for j in range(32): olinehex += '{0:01x}'.format(l_DataOut[i][j])
             olinehex += " "            
 #            olinehex += '{0:08x}'.format(l_DataOut[i][j]) + " "
-#            olinehex += '{0:01x}'.format(l_CompareNow[i]) + " "
-            print "--- olinehex =, i: ",i+1,"  ",olinehex
+            olinehex += '{0:01x}'.format(l_CompareNow[i]) + " "
+            #print "--- olinehex =, i: ",i+1,"  ",olinehex
 
     ############################
     def initializeToNegOne(self,h):
@@ -259,9 +259,12 @@ class inputVisualizer:
         
         self.theBitInstructions = [];
         
+        
         nent = self.tree.GetEntriesFast();
+
         for i in range(self.tree.GetEntries()):
-            if(i % (1 * nent/100) == 0):
+            if(i % (1 * nent/100.) == 0):
+                #Progress bar
                 sys.stdout.write("\r[" + "="*int(20*i/nent) + " " + str(round(100.*i/nent,0)) + "% done");
                 sys.stdout.flush();
             

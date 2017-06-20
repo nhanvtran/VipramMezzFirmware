@@ -11,17 +11,19 @@ from pVIPRAM_inputBuilderClass import *
 #########################################################
 #########################################################
 
+
 def exampleTest(filename):
 	
 	inputPattern = inputBuilder("dat/"+filename+".root");
 	inputPattern.initializeLoadPhase();
-	inputPattern.loadUniformPatterns(9, 9, 27, 1);
-	inputPattern.loadUniformPatterns(9, 11, 37, 1);
-	inputPattern.loadUniformPatterns(9, 13, 47, 1);
-	inputPattern.loadUniformPatterns(9, 15, 57, 1);
-	inputPattern.loadUniformPatterns(9, 17, 67, 1);
+	inputPattern.loadUniformPatterns(99, 27, 4095, 1);
+	#inputPattern.loadUniformPatterns(65, 17, 31, 1);
+	#inputPattern.loadUniformPatterns(9, 11, 37, 1);
+	#inputPattern.loadUniformPatterns(9, 13, 47, 1);
+	#inputPattern.loadUniformPatterns(9, 15, 57, 1);
+	#inputPattern.loadUniformPatterns(9, 17, 67, 1);
 	inputPattern.initializeRunPhase( [1,0,0,0] );
-	for i in range(20): inputPattern.checkPattern( [01,01,01,01] ,9);
+	"""for i in range(20): inputPattern.checkPattern( [01,01,01,01] ,9);
 	
 	for i in range(30): inputPattern.checkPattern( [27,27,27,27] ,9);
 	inputPattern.doRowChecker(9);
@@ -30,8 +32,8 @@ def exampleTest(filename):
 	for i in range(30): inputPattern.checkPattern( [47,47,47,47] ,9);
 	inputPattern.doRowChecker(9);
 
-	for i in range(20): inputPattern.checkPattern( [01,01,01,01] ,9);
-	inputPattern.readOutMode();
+	for i in range(20): inputPattern.checkPattern( [01,01,01,01] ,9);"""
+	#inputPattern.readOutMode();
 	inputPattern.close();
 	return inputPattern;
 
@@ -71,6 +73,7 @@ def stressTest(filename, N, freq, odir, loadMode):
 	# N value
 	#prob = int(sys.argv[2]);
 	prob = int(N)
+
 	# frequency
 	# mult = (int(sys.argv[3])/10)+1
 	mult = (int(freq)/10)+1;
